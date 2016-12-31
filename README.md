@@ -1,9 +1,11 @@
 # threex.webvrrecording.js
 
 Tools to help record webvr experiences. The goal is to be able to create 
-nice looking mixed reality movies.
+nice looking [mixed reality](https://en.wikipedia.org/wiki/Mixed_reality) movies.
 
 It is very much a work in progress, maybe it can help others :)
+
+[Github Repository](http://github.com/jeromeetienne/phoneasvrcontroller.js/) - [Open Issues](http://github.com/jeromeetienne/phoneasvrcontroller.js/issues/) - [New Issue](http://github.com/jeromeetienne/phoneasvrcontroller.js/issues/new)
 
 
 # Examples
