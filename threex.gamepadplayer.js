@@ -13,13 +13,11 @@ THREEx.GamepadPlayer = function(){
         this._onNewRecord = function(newRecord){
                 this.gamepads = newRecord
         }
-        
 }
 THREEx.GamepadPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
 THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;
 
 THREEx.GamepadPlayer.cookedLoad = function(baseUrl, nRecordsFiles, onLoaded){
-	// var nRecordsFiles = 3
 	// build the urls of the file to load
 	var urls = []
 	for(var i = 0; i < nRecordsFiles; i++){

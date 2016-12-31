@@ -2,6 +2,7 @@
 
 Tools i use to record webvr experiences. The goal is to be able to create 
 nice looking [mixed reality](https://en.wikipedia.org/wiki/Mixed_reality) videos.
+Here is a [first video](https://twitter.com/LearningThreejs/status/814910888285274112).
 
 It is very much a work in progress, maybe it can help others :)
 
