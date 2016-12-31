@@ -5,9 +5,9 @@ nice looking [mixed reality](https://en.wikipedia.org/wiki/Mixed_reality) videos
 
 It is very much a work in progress, maybe it can help others :)
 
-[Github Repository](http://github.com/jeromeetienne/recording-webvr.js/) - 
-[Open Issues](http://github.com/jeromeetienne/recording-webvr.js/issues/) -
-[New Issue](http://github.com/jeromeetienne/recording-webvr.js/issues/new)
+[Github Repository](http://github.com/jeromeetienne/recording-webvr/) - 
+[Open Issues](http://github.com/jeromeetienne/recording-webvr/issues/) -
+[New Issue](http://github.com/jeromeetienne/recording-webvr/issues/new)
 
 
 # Examples
