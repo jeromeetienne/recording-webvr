@@ -11,10 +11,10 @@ It is very much a work in progress, maybe it can help others :)
 
 
 # Examples
-- [examples/ccapture.html](https://github.com/jeromeetienne/recording-webvr/examples/ccapture.html) - record a webm movie from a 3d scene with ccapture library
-- [examples/gamepadrecorder.html](https://github.com/jeromeetienne/recording-webvr/examples/gamepadrecorder.html) - record/replay gamepad api
-- [examples/webvrrecorder.html](https://github.com/jeromeetienne/recording-webvr/examples/webvrrecorder.html) - record/replay webvr api
-- [examples/webvr_vive_dragging.html](https://github.com/jeromeetienne/recording-webvr/examples/webvr_vive_dragging.html) - an examples of mixed reality videos
+- [examples/ccapture.html](https://jeromeetienne.github.io/recording-webvr/examples/ccapture.html) - record a webm movie from a 3d scene with ccapture library
+- [examples/gamepadrecorder.html](https://jeromeetienne.github.io/recording-webvr/examples/gamepadrecorder.html) - record/replay gamepad api
+- [examples/webvrrecorder.html](https://jeromeetienne.github.io/recording-webvr/examples/webvrrecorder.html) - record/replay webvr api
+- [examples/webvr_vive_dragging.html](https://jeromeetienne.github.io/recording-webvr/examples/webvr_vive_dragging.html) - an examples of mixed reality videos
 
 
 # Files
