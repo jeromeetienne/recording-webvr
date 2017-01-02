@@ -2,6 +2,8 @@
 - make a keyboard stuff to move in the record, it will help the syncup
 - make webvrrecorder.html and gamepadrecorder.html more homogeneous
 
+- rename all demo repository by demo.* and recording-webvr stay as is
+
 - file are getting huge... how to do better ?
   - store only delta
   - store in binary
