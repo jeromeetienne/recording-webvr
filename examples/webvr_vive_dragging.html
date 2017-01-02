@@ -34,7 +34,7 @@
 
 			if ( WEBVR.isAvailable() === false ) {
 
-				document.body.appendChild( WEBVR.getMessage() );
+				// document.body.appendChild( WEBVR.getMessage() );
 
 			}
 
@@ -152,7 +152,7 @@
 
 				// controls = new THREE.VRControls( camera );
 				// controls.standing = true;
-				// controls	= new THREE.OrbitControls(camera)
+				controls	= new THREE.OrbitControls(camera, renderer.domElement)
 
 				// controllers
 
@@ -334,7 +334,7 @@
 				
 				// console.log(controller1.quaternion)
 
-				// controls.update();
+				controls.update();
 
 				cleanIntersected();
 
@@ -364,7 +364,7 @@
 	//          Code Separator
 	////////////////////////////////////////////////////////////////////////////////
 
-	// var mode = ''
+	var mode = ''
 	// mode = 'record'
 	mode = 'play'
 
@@ -380,7 +380,8 @@
 		// build the urls of the file to load
 		var urls = []
 		for(var i = 0; i < nRecordsFiles; i++){
-			urls.push('data-gamepads-vivecontroller/gamepadrecords'+pad(i, 4)+'.json')
+			// urls.push('data-gamepads-vivecontroller/gamepadrecords'+pad(i, 4)+'.json')
+			urls.push('gamepads_mvi_1731/gamepadrecords'+pad(i, 4)+'.json')
 		}
 		// start loading those urls
 		var gamepadPlayer = new THREEx.GamepadPlayer()
@@ -388,25 +389,32 @@
 			console.log('loaded all gamepad records')
 			// once it is all loaded, start replaying
 			gamepadPlayer.start()
-		var video = document.querySelector('video')
-		if( video.paused === false )	video.pause()
-		setTimeout(function(){
-			video.play();
-		}, 4.3*1000)
+
+			var video = document.querySelector('video')
+			// video.src = "videos/jerome-controllers-htc.mp4" 
+			video.src = "videos/MVI_1731.m4v" 
+			if( video.paused === false )	video.pause()
+
+			setTimeout(function(){
+				// gamepadPlayer.start()
+				video.play();
+			}, 0)
 		})
 		// polyfill to high-jack gamepad API
 		navigator.getGamepads = function(){
 			return gamepadPlayer.gamepads
 		}
-// 		camera.position
-// Vector3 {x: 0.7444583830319474, y: -0.1298512815631141, z: -1.758574601802707}
-// camera.quaternion
-// Quaternion {_x: -0.04489202718608608, _y: 0.9423058512990086, _z: 0.14084474129837604, _w: 0.3003450417900393}
-		camera.position.set(0.7444583830319474, -0.1298512815631141, -1.758574601802707)
-		camera.quaternion.set(-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393)
+// // 		camera.position
+// // Vector3 {x: 0.7444583830319474, y: -0.1298512815631141, z: -1.758574601802707}
+// // camera.quaternion
+// // Quaternion {_x: -0.04489202718608608, _y: 0.9423058512990086, _z: 0.14084474129837604, _w: 0.3003450417900393}
+// 		// camera.position.set(0.7444583830319474, -0.1298512815631141, -1.758574601802707)
+// 		// camera.quaternion.set(-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393)
+// 
+// 		// camera.position.set(0.11075789233996758, -0.4954002505263418, -0.9375702303212559)
+// 		// camera.quaternion.set(-0.036227973606245335, 0.9515029519025805, 0.12333212792168499, 0.27949751193734873)
 
-		// camera.position.set(0.11075789233996758, -0.4954002505263418, -0.9375702303212559)
-		// camera.quaternion.set(-0.036227973606245335, 0.9515029519025805, 0.12333212792168499, 0.27949751193734873)
+
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -419,16 +427,7 @@
                 return s;
         }
 	
-	function startReplay(){
-		var video = document.querySelector('video')
-		if( video.paused === false )	video.pause()
-		setTimeout(function(){
-			video.play();
-		}, 4.4*1000)
-	}
-	
 </script>
-
 	<style media="screen">
 	.fullscreen-bg {
 		position: fixed;
@@ -448,7 +447,7 @@
 	</style>
 	<div class="fullscreen-bg">
 		<video muted class="fullscreen-bg__video">
-			<source src="videos/jerome-controllers-htc.mp4" type="video/mp4">
+			<source type="video/mp4">
 		</video>
 	</div>
 
