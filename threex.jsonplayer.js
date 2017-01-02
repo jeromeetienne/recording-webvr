@@ -68,7 +68,7 @@ THREEx.JsonPlayer = function(){
                                 nextValueIndex++
                         }
                 }
-                // console.log('startedAt', startedAt, nextValueIndex, skipTime)
+                console.log('startedAt', startedAt, nextValueIndex, skipTime)
                 
                 console.assert(timerId === null)
                 var nextDelay = computeNextValuesDelay()

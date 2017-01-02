@@ -14,7 +14,7 @@ THREEx.JsonRecorder = function(){
 
 
         var records = {
-                startedAt : Date.now(),
+                startedAt : null,
                 values : []    
         }
 
@@ -23,6 +23,8 @@ THREEx.JsonRecorder = function(){
         ////////////////////////////////////////////////////////////////////////////////
         var timerId = null
         this.start = function(){
+                records.startedAt = Date.now()
+                
                 console.assert(timerId === null)
                 timerId = setInterval(update, _this.updatePeriod)
                 return this
