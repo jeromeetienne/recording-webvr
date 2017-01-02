@@ -41,7 +41,8 @@
 	// var mode = 'play'
 
 	if( mode === 'record' ){
-		var gamepadRecorder = new THREEx.GamepadRecorder().start()
+		var gamepadRecorder = new THREEx.GamepadRecorder()
+		// gamepadRecorder.start()
 	}
 
 	if( mode === 'play' ){
@@ -50,9 +51,9 @@
 		})
 	}
 
-	if( true && mode === 'record'){
-		// enable phoneasvrcontroller.js
-		var serverUrl = 'http://'+location.hostname+':4000'
-		var phoneAsVRController = PhoneAsVRController.overloadGamepadsAPI(serverUrl)            
-	}
+	// if( false && mode === 'record'){
+	// 	// enable phoneasvrcontroller.js
+	// 	var serverUrl = 'http://'+location.hostname+':4000'
+	// 	var phoneAsVRController = PhoneAsVRController.overloadGamepadsAPI(serverUrl)            
+	// }
 </script>
