@@ -1,6 +1,10 @@
 - make a pause/seek in the player
 - make a keyboard stuff to move in the record, it will help the syncup
 - make webvrrecorder.html and gamepadrecorder.html more homogeneous
+- make some button to stream line it
+- put a json format to store the whole experience
+  - various position
+  - gamepadrecord files, video files, 
 
 - rename all demo repository by demo.* and recording-webvr stay as is
 
