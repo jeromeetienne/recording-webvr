@@ -8,6 +8,9 @@ THREEx.VRPlayer = function(){
         this._gamepadPlayer.playbackRate = this._playbackRate
 }
 
+/**
+ * set playbackRate
+ */
 THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
         this._playbackRate = playbackRate
         this._gamepadPlayer.playbackRate = playbackRate
@@ -15,7 +18,9 @@ THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
         return this
 }
 
-
+/**
+ * Load a vrExperience
+ */
 THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
         var _this = this
         doHttpRequest(path + basename, function(data){
@@ -53,6 +58,9 @@ THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
 };
 
 
+/**
+ * Start playing the experience
+ */
 THREEx.VRPlayer.prototype.start = function(){
         var _this = this
         // build video element

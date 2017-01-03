@@ -380,11 +380,11 @@
 			camera.position.fromArray(vrPlayer.vrExperience.camera.position)
 			camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
 			
-			// controls.position0.copy(camera.position)
-			// controls.target0.set(0,1,0).applyQuaternion(camera.quaternion)
-			// controls.reset()
-			// controls	= new THREE.OrbitControls(camera, renderer.domElement)
+			controls	= new THREE.OrbitControls(camera, renderer.domElement)
 
+			// controls.position0.copy(camera.position)
+			// controls.target0.set(0,0,-1).applyQuaternion(camera.quaternion.clone().inverse())
+			// controls.reset()
 			
 			// start the vrPlayer
 			vrPlayer.start()
