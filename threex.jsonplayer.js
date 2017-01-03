@@ -5,7 +5,7 @@ THREEx.JsonPlayer = function(){
 
         _this._records = null
 	_this._onNewRecord = function(newRecord){}      // overload this function
-        _this.playbackRate = 1
+        _this.playbackRate = 2
 
         ////////////////////////////////////////////////////////////////////////////////
         //          load files

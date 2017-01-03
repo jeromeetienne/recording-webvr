@@ -2,7 +2,17 @@ var THREEx = THREEx || {}
 
 THREEx.VRPlayer = function(){
         this.vrExperience = null
+        this._playbackRate = 1
+
         this._gamepadPlayer = new THREEx.GamepadPlayer()
+        this._gamepadPlayer.playbackRate = this._playbackRate
+}
+
+THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
+        this._playbackRate = playbackRate
+        this._gamepadPlayer.playbackRate = playbackRate
+        this._videoElement.playbackRate = playbackRate
+        return this
 }
 
 
@@ -47,16 +57,27 @@ THREEx.VRPlayer.prototype.start = function(){
         var _this = this
         // build video element
         var video = document.createElement('video')
+        _this._videoElement = video
         video.src = this.path + this.vrExperience.videoSrc 
         video.style.position = 'absolute'
         video.style.top = '0px'
         video.style.zIndex = '-1'
         video.muted = true
+        video.playbackRate = this._playbackRate
         document.body.appendChild(video)
+
+        // // start gamepadPlayer
+        // video.play();
+        // 
+        // // start video after
+	// setTimeout(function(){
+        //         _this._gamepadPlayer.start()
+	// }, 0.05*1000)
+
 
         // start gamepadPlayer
 	_this._gamepadPlayer.start()
-
+        
         // start video after
 	setTimeout(function(){
 		video.play();

@@ -17,7 +17,6 @@
 		</style>
 	</head>
 	<body>
-
 		<script src='vendor/three.js/build/three.js'></script>
 
 		<script src='vendor/three.js/examples/js/controls/OrbitControls.js'></script>
@@ -374,12 +373,19 @@
 	if( mode === 'play' ){
 		var vrPlayer = new THREEx.VRPlayer()
 		var experiencePath = 'experiences/mvi_0000/'
-		// var experiencePath = 'experiences/mvi_1731/'
+		var experiencePath = 'experiences/mvi_1731/'
 		// var experiencePath = 'experiences/mvi_1733/'
 		vrPlayer.load(experiencePath, 'vr-experience.json', function onLoaded(){
 			// set camera position
 			camera.position.fromArray(vrPlayer.vrExperience.camera.position)
 			camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
+			
+			// controls.position0.copy(camera.position)
+			// controls.target0.set(0,1,0).applyQuaternion(camera.quaternion)
+			// controls.reset()
+			// controls	= new THREE.OrbitControls(camera, renderer.domElement)
+
+			
 			// start the vrPlayer
 			vrPlayer.start()
 		})
