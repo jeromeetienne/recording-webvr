@@ -18,6 +18,7 @@ THREEx.GamepadPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
 THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;
 
 THREEx.GamepadPlayer.cookedLoad = function(baseUrl, nRecordsFiles, onLoaded){
+console.warn('remove that and use vrPlayer.js')
 	// build the urls of the file to load
 	var urls = []
 	for(var i = 0; i < nRecordsFiles; i++){

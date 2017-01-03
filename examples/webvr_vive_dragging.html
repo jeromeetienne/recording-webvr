@@ -152,7 +152,7 @@
 
 				// controls = new THREE.VRControls( camera );
 				// controls.standing = true;
-				controls	= new THREE.OrbitControls(camera, renderer.domElement)
+				// controls	= new THREE.OrbitControls(camera, renderer.domElement)
 
 				// controllers
 
@@ -334,7 +334,7 @@
 				
 				// console.log(controller1.quaternion)
 
-				controls.update();
+				if( controls ) controls.update();
 
 				cleanIntersected();
 
@@ -353,12 +353,11 @@
 
 <!-- add gamepad recorder/player -->
 <script src='../vendor/download.js'></script>
-<script src='../vendor/cloneObject.js'></script>
 <script src='../threex.jsonplayer.js'></script>
 <script src='../threex.jsonrecorder.js'></script>
 <script src='../threex.gamepadrecorder.js'></script>
 <script src='../threex.gamepadplayer.js'></script>
-
+1
 <script>
 	////////////////////////////////////////////////////////////////////////////////
 	//          Code Separator
@@ -368,20 +367,21 @@
 	// mode = 'record'
 	mode = 'play'
 
-	if( mode === 'record' ){
-		// start recording gamepads
-		var gamepadRecorder = new THREEx.GamepadRecorder()
-		gamepadRecorder.start()
-		// gamepadRecorder.stop()
-	}
-
-	if( mode === 'play' ){		
-		var nRecordsFiles = 2
+	if( mode === 'play' ){
+		var vrExperience = {
+			nGamepadFiles : 2,
+			gamepadBaseUrl : 'experiences/mvi_0000/gamepadrecords',
+			deltaTime : 4.3*1000,
+			videoSrc : 'experiences/mvi_0000/MVI_0000.mp4',
+			camera : {
+				position : [0.7444583830319474, -0.1298512815631141, -1.758574601802707],
+				quaternion : [-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393]
+			}
+		}
 		// build the urls of the file to load
 		var urls = []
-		for(var i = 0; i < nRecordsFiles; i++){
-			// urls.push('data-gamepads-vivecontroller/gamepadrecords'+pad(i, 4)+'.json')
-			urls.push('gamepads_mvi_1731/gamepadrecords'+pad(i, 4)+'.json')
+		for(var i = 0; i < vrExperience.nGamepadFiles; i++){
+			urls.push(vrExperience.gamepadBaseUrl+pad(i, 4)+'.json')
 		}
 		// start loading those urls
 		var gamepadPlayer = new THREEx.GamepadPlayer()
@@ -391,14 +391,13 @@
 			gamepadPlayer.start()
 
 			var video = document.querySelector('video')
-			// video.src = "videos/jerome-controllers-htc.mp4" 
-			video.src = "videos/MVI_1731.m4v" 
+			video.src = vrExperience.videoSrc 
+			// video.src = "videos/MVI_1731.m4v" 
 			if( video.paused === false )	video.pause()
 
 			setTimeout(function(){
-				// gamepadPlayer.start()
 				video.play();
-			}, 0)
+			}, vrExperience.deltaTime)
 		})
 		// polyfill to high-jack gamepad API
 		navigator.getGamepads = function(){
@@ -408,11 +407,11 @@
 // // Vector3 {x: 0.7444583830319474, y: -0.1298512815631141, z: -1.758574601802707}
 // // camera.quaternion
 // // Quaternion {_x: -0.04489202718608608, _y: 0.9423058512990086, _z: 0.14084474129837604, _w: 0.3003450417900393}
-// 		// camera.position.set(0.7444583830319474, -0.1298512815631141, -1.758574601802707)
-// 		// camera.quaternion.set(-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393)
+		camera.position.set(0.7444583830319474, -0.1298512815631141, -1.758574601802707)
+		camera.quaternion.set(-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393)
 // 
-// 		// camera.position.set(0.11075789233996758, -0.4954002505263418, -0.9375702303212559)
-// 		// camera.quaternion.set(-0.036227973606245335, 0.9515029519025805, 0.12333212792168499, 0.27949751193734873)
+		// camera.position.set(0.11075789233996758, -0.4954002505263418, -0.9375702303212559)
+		// camera.quaternion.set(-0.036227973606245335, 0.9515029519025805, 0.12333212792168499, 0.27949751193734873)
 
 
 	}

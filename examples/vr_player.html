@@ -7,7 +7,6 @@
 		<style>
 			body {
 				font-family: Monospace;
-				/*background-color: #101010;*/
 				color: #fff;
 				margin: 0px;
 				overflow: hidden;
@@ -152,8 +151,8 @@
 
 				// controls = new THREE.VRControls( camera );
 				// controls.standing = true;
-				controls	= new THREE.OrbitControls(camera, renderer.domElement)
-				camera.position.x += 0.1
+				// controls	= new THREE.OrbitControls(camera, renderer.domElement)
+
 				// controllers
 
 				controller1 = new THREE.ViveController( 0 );
@@ -334,7 +333,7 @@
 				
 				// console.log(controller1.quaternion)
 
-				controls.update();
+				if( controls ) controls.update();
 
 				cleanIntersected();
 
@@ -353,17 +352,14 @@
 
 <!-- add gamepad recorder/player -->
 <script src='../vendor/download.js'></script>
-<script src='../vendor/cloneObject.js'></script>
 <script src='../threex.jsonplayer.js'></script>
 <script src='../threex.jsonrecorder.js'></script>
 <script src='../threex.gamepadrecorder.js'></script>
 <script src='../threex.gamepadplayer.js'></script>
 
-<script>
-	////////////////////////////////////////////////////////////////////////////////
-	//          Code Separator
-	////////////////////////////////////////////////////////////////////////////////
+<script src='../threex.vrplayer.js'></script>
 
+<script>
 	var mode = ''
 	// mode = 'record'
 	mode = 'play'
@@ -374,82 +370,21 @@
 		gamepadRecorder.start()
 		// gamepadRecorder.stop()
 	}
-
-	if( mode === 'play' ){		
-		var nRecordsFiles = 5
-		// build the urls of the file to load
-		var urls = []
-		for(var i = 0; i < nRecordsFiles; i++){
-			// urls.push('data-gamepads-vivecontroller/gamepadrecords'+pad(i, 4)+'.json')
-			urls.push('gamepads_mvi_1733/gamepadrecords'+pad(i, 4)+'.json')
-		}
-		// start loading those urls
-		var gamepadPlayer = new THREEx.GamepadPlayer()
-		gamepadPlayer.load(urls, function onLoaded(){
-			console.log('loaded all gamepad records')
-			// once it is all loaded, start replaying
-			gamepadPlayer.start()
-
-			var video = document.querySelector('video')
-			// video.src = "videos/jerome-controllers-htc.mp4" 
-			video.src = "videos/MVI_1733.m4v" 
-			if( video.paused === false )	video.pause()
-
-			setTimeout(function(){
-				// gamepadPlayer.start()
-				video.play();
-			}, 0)
-		})
-		// polyfill to high-jack gamepad API
-		navigator.getGamepads = function(){
-			return gamepadPlayer.gamepads
-		}
-// // 		camera.position
-// // Vector3 {x: 0.7444583830319474, y: -0.1298512815631141, z: -1.758574601802707}
-// // camera.quaternion
-// // Quaternion {_x: -0.04489202718608608, _y: 0.9423058512990086, _z: 0.14084474129837604, _w: 0.3003450417900393}
-// 		// camera.position.set(0.7444583830319474, -0.1298512815631141, -1.758574601802707)
-// 		// camera.quaternion.set(-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393)
-// 
-// 		// camera.position.set(0.11075789233996758, -0.4954002505263418, -0.9375702303212559)
-// 		// camera.quaternion.set(-0.036227973606245335, 0.9515029519025805, 0.12333212792168499, 0.27949751193734873)
-
-
-	}
-
-	////////////////////////////////////////////////////////////////////////////////
-	//          utils functions
-	////////////////////////////////////////////////////////////////////////////////
-
-	function pad(num, size) {
-                var s = num + '';
-                while (s.length < size) s = '0' + s;
-                return s;
-        }
 	
+	if( mode === 'play' ){
+		var vrPlayer = new THREEx.VRPlayer()
+		var experiencePath = 'experiences/mvi_0000/'
+		// var experiencePath = 'experiences/mvi_1731/'
+		// var experiencePath = 'experiences/mvi_1733/'
+		vrPlayer.load(experiencePath, 'vr-experience.json', function onLoaded(){
+			// set camera position
+			camera.position.fromArray(vrPlayer.vrExperience.camera.position)
+			camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
+			// start the vrPlayer
+			vrPlayer.start()
+		})
+	}
 </script>
-	<style media="screen">
-	.fullscreen-bg {
-		position: fixed;
-		top: 0;
-		left: 0;
-		height: 720px;
-		width: 1280px;
-		overflow: hidden;
-		z-index: -1;
-	}
-
-	.fullscreen-bg__video {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	</style>
-	<div class="fullscreen-bg">
-		<video muted class="fullscreen-bg__video">
-			<source type="video/mp4">
-		</video>
-	</div>
 
 	</body>
 </html>

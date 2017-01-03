@@ -1,0 +1,12 @@
+{
+        "deltaTime" : 9,
+        "videoSrc" : "MVI_1733.m4v",
+
+        "camera" : {
+                "position" : [0,0,-2],
+                "quaternion" : [0,0,0,1]
+        },
+
+        "nGamepadFiles" : 5,
+        "gamepadBaseUrl" : "gamepadrecords"
+}

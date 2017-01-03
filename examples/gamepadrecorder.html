@@ -3,7 +3,6 @@
 
 <!-- add gamepad recorder/player -->
 <script src='../vendor/download.js'></script>
-<script src='../vendor/cloneObject.js'></script>
 <script src='../threex.jsonplayer.js'></script>
 <script src='../threex.jsonrecorder.js'></script>
 <script src='../threex.gamepadrecorder.js'></script>
@@ -20,7 +19,7 @@
 		var gamepads = navigator.getGamepads()
 		for(var i = 0; i < gamepads.length; i++){
 			if( gamepads[i] === undefined )	continue
-			var gamepad = cloneObject(gamepads[i])
+			var gamepad = THREEx.GamepadRecorder.cloneObject(gamepads[i])
 			text += JSON.stringify(gamepad, null, '\t')+'\n'
 		}
 		if( text.length === 0 ) text = 'no phone connected'
