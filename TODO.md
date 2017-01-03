@@ -5,6 +5,7 @@
 - put a json format to store the whole experience
   - various position
   - gamepadrecord files, video files, 
+- move cloneObject into gamepad only
 
 - rename all demo repository by demo.* and recording-webvr stay as is
 
