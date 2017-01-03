@@ -98,3 +98,22 @@ THREEx.VRPlayer.prototype.start = function(){
         
         return this
 }
+
+THREEx.VRPlayer.prototype.isStarted = function () {
+        return this._gamepadPlayer.isStarted()
+};
+
+THREEx.VRPlayer.prototype.pause = function (value) {
+        this._gamepadPlayer.pause(value)
+        if( value === true ){
+                this._videoElement.pause()
+        }else{
+                if( this._videoElement.paused ){
+                        this._videoElement.play()
+                }
+        }
+}
+
+THREEx.VRPlayer.prototype.update = function (deltaTime) {
+        this._gamepadPlayer.update(deltaTime)
+};

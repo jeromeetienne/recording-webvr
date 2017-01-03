@@ -110,7 +110,7 @@
 				];
 
 				for ( var i = 0; i < 50; i ++ ) {
-
+break;
 					var geometry = geometries[ Math.floor( Math.random() * geometries.length ) ];
 					var material = new THREE.MeshStandardMaterial( {
 						color: Math.random() * 0xffffff,
@@ -351,7 +351,8 @@
 
 <!-- add gamepad recorder/player -->
 <script src='../vendor/download.js'></script>
-<script src='../threex.jsonplayer.js'></script>
+<!-- <script src='../threex.jsonplayer.js'></script> -->
+<script src='../threex.jsonplayer2.js'></script>
 <script src='../threex.jsonrecorder.js'></script>
 <script src='../threex.gamepadrecorder.js'></script>
 <script src='../threex.gamepadplayer.js'></script>
@@ -380,14 +381,24 @@
 			camera.position.fromArray(vrPlayer.vrExperience.camera.position)
 			camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
 			
-			controls	= new THREE.OrbitControls(camera, renderer.domElement)
+			// controls	= new THREE.OrbitControls(camera, renderer.domElement)
 
 			// controls.position0.copy(camera.position)
 			// controls.target0.set(0,0,-1).applyQuaternion(camera.quaternion.clone().inverse())
 			// controls.reset()
+
 			
 			// start the vrPlayer
 			vrPlayer.start()
+		})
+		var clock = new THREE.Clock()
+		requestAnimationFrame(function render() {
+			var delta = clock.getDelta()
+			requestAnimationFrame( render );
+			
+			if( vrPlayer.isStarted() ){
+				vrPlayer.update(delta)				
+			}
 		})
 	}
 </script>
