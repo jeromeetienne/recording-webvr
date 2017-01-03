@@ -11,6 +11,7 @@ THREEx.GamepadPlayer = function(){
         ]
         
         this._onNewRecord = function(newRecord){
+                console.log('new record')
                 this.gamepads = newRecord
         }
 }
