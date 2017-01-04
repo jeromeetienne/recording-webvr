@@ -1,11 +1,11 @@
 {
-        "deltaTime" : 0,
         "videoSrc" : "MVI_1733.m4v",
         "camera" : {
                 "position" : [0.5701200461149747, -0.36493004424701925, -2.1173431558974296],
                 "quaternion" : [-0.006176021080754616, 0.9874500880725653, -0.03994535680482412, -0.15267137300762806]
         },
 
+        "videoToGamepadDelay" : 0,
         "nGamepadFiles" : 5,
         "gamepadBaseUrl" : "gamepadrecords"
 }

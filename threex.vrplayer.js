@@ -4,6 +4,16 @@ THREEx.VRPlayer = function(){
         this.vrExperience = null
         this._playbackRate = 1
 
+        // build video element
+        this.videoElement = document.createElement('video')
+        this.videoElement.style.position = 'absolute'
+        this.videoElement.style.top = '0px'
+        this.videoElement.style.zIndex = '-1'
+        this.videoElement.muted = true
+        this.videoElement.playbackRate = this._playbackRate
+        document.body.appendChild(this.videoElement)
+
+        // build gamepadPlayer
         this._gamepadPlayer = new THREEx.GamepadPlayer()
         this._gamepadPlayer.playbackRate = this._playbackRate
 }
@@ -64,15 +74,8 @@ THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
 THREEx.VRPlayer.prototype.start = function(){
         var _this = this
         // build video element
-        var videoElement = document.createElement('video')
-        videoElement.src = this.path + this.vrExperience.videoSrc 
-        videoElement.style.position = 'absolute'
-        videoElement.style.top = '0px'
-        videoElement.style.zIndex = '-1'
-        videoElement.muted = true
-        videoElement.playbackRate = this._playbackRate
-        document.body.appendChild(videoElement)
-        _this.videoElement = videoElement
+        this.videoElement.src = this.path + this.vrExperience.videoSrc 
+        document.body.appendChild(this.videoElement)
 
         // // start gamepadPlayer
         // video.play();
@@ -82,11 +85,11 @@ THREEx.VRPlayer.prototype.start = function(){
         //         _this._gamepadPlayer.start()
 	// }, 0.05*1000)
 
-        videoElement.currentTime = 0        
-        videoElement.play();
+        _this._gamepadPlayer.start()
 	setTimeout(function(){
-        	_this._gamepadPlayer.start()
-	}, _this.vrExperience.deltaTime*1000)
+                _this.videoElement.currentTime = 0        
+                _this.videoElement.play();
+	}, _this.vrExperience.videoToGamepadDelay*1000)
 
 	// polyfill to high-jack gamepad API
 	navigator.getGamepads = function(){
@@ -99,10 +102,18 @@ THREEx.VRPlayer.prototype.start = function(){
 THREEx.VRPlayer.prototype.isStarted = function () {
         return this._gamepadPlayer.isStarted()
 };
+THREEx.VRPlayer.prototype.isPaused = function () {
+        return this._gamepadPlayer.paused
+};
+
+THREEx.VRPlayer.prototype.getCurrentTime = function () {
+        return this.videoElement.currentTime
+}
 
 THREEx.VRPlayer.prototype.setCurrentTime = function (currentTime) {
         this.videoElement.currentTime = currentTime
-        this._gamepadPlayer.currentTime = currentTime - this.vrExperience.deltaTime
+        
+        this._gamepadPlayer.currentTime = currentTime - this.vrExperience.videoToGamepadDelay
         this._gamepadPlayer.onCurrentTimeChange()
 }
 

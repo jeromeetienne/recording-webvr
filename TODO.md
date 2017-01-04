@@ -1,9 +1,34 @@
+play
+stop
+pause
+seek +1
+seek -1
+currentTime
+duration
+
+---
+
 - make a pause/seek in the player
 - make a keyboard stuff to move in the record, it will help the syncup
-- make webvrrecorder.html and gamepadrecorder.html more homogeneous
+
+
 - make some button to stream line it
+  - there is recording-webvr
+  - there is playing
+  - there is tuning
+- what is needed to tune an experience ?
+  - play experience start.stop
+  - pause it button
+  - seek with various values
+  - change videoToGamepadDelay - with a input value
+  - display camera position/quaternion on screen for cut/paste
+
+- make webvrrecorder.html and gamepadrecorder.html more homogeneous
+- package it all in a single .js in build
+- make a aframe components for it ?
 
 - rename all demo repository by demo.* and recording-webvr stay as is
+  - there is nothing threex into it
 
 - file are getting huge... how to do better ?
   - store only delta

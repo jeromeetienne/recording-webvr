@@ -84,7 +84,7 @@
 				var floor = new THREE.Mesh( geometry, material );
 				floor.rotation.x = - Math.PI / 2;
 				floor.receiveShadow = true;
-				scene.add( floor );
+				// scene.add( floor );
 
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
 
@@ -357,6 +357,7 @@ break;
 <script src='../threex.gamepadplayer.js'></script>
 
 <script src='../threex.vrplayer.js'></script>
+<script src='../threex.vrplayerui.js'></script>
 
 <script>
 	var mode = ''
@@ -372,24 +373,32 @@ break;
 	
 	if( mode === 'play' ){
 		var vrPlayer = new THREEx.VRPlayer()
+
+		var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
+		document.body.appendChild(vrPlayerUI.domElement)
+
 		var experiencePath = 'experiences/mvi_0000/'
 		var experiencePath = 'experiences/mvi_1731/'
 		// var experiencePath = 'experiences/mvi_1733/'
-		vrPlayer.load(experiencePath, 'vr-experience.json', function onLoaded(){
+		vrPlayer.load(experiencePath, 'vr-experience.json', function onLoaded(){	
+			// start the vrPlayer
+			vrPlayer.start()
+
 			// set camera position
 			camera.position.fromArray(vrPlayer.vrExperience.camera.position)
 			camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
 			
-			controls	= new THREE.OrbitControls(camera, renderer.domElement)
-
-			// controls.position0.copy(camera.position)
-			// controls.target0.set(0,0,-1).applyQuaternion(camera.quaternion.clone().inverse())
-			// controls.reset()
-
+			// enable the controls during tuning
+			// controls	= new THREE.OrbitControls(camera, renderer.domElement)
 			
-			// start the vrPlayer
-			vrPlayer.start()
+			// controls.position0.copy(camera.position)
+			// controls.target0
+			// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
+			// 	.add(controls.position0)
+			// controls.reset()
 		})
+
+		// TODO put that in vrPlayer itself
 		var clock = new THREE.Clock()
 		requestAnimationFrame(function render() {
 			var delta = clock.getDelta()
@@ -398,8 +407,11 @@ break;
 			if( vrPlayer.isStarted() ){
 				vrPlayer.update(delta)				
 			}
+			vrPlayerUI.update()				
 		})
 	}
+	
+	
 </script>
 
 	</body>

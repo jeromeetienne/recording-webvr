@@ -1,5 +1,4 @@
 {
-        "deltaTime" : 4.3,
         "videoSrc" : "MVI_0000.mp4",
 
         "camera" : {
@@ -7,6 +6,7 @@
                 "quaternion" : [-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393]
         },
 
+        "videoToGamepadDelay" : 4.3,
         "nGamepadFiles" : 2,
         "gamepadBaseUrl" : "gamepadrecords"
 }
