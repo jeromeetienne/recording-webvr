@@ -1,21 +1,11 @@
-play
-stop
-pause
-seek +1
-seek -1
-currentTime
-duration
+- issue when starting vrPlayer.start()
+  - videoToGamepadDelay can be negative or not
+- vrExperience.json : put all gamepad info in a single object
+- see how to able Orbits controls as a given position
+- make boilerplate smaller
+- include it in lightsaberinvr
 
----
-
-- make a pause/seek in the player
-- make a keyboard stuff to move in the record, it will help the syncup
-
-
-- make some button to stream line it
-  - there is recording-webvr
-  - there is playing
-  - there is tuning
+----------------
 - what is needed to tune an experience ?
   - play experience start.stop
   - pause it button
