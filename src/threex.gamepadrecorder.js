@@ -9,7 +9,7 @@ THREEx.GamepadRecorder = function(){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
                 // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-                gamepads = THREEx.GamepadRecorder._scloneObject(gamepads)
+                gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
                 return gamepads
         }
         

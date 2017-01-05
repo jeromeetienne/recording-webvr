@@ -403,7 +403,7 @@ THREEx.GamepadRecorder = function(){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
                 // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-                gamepads = THREEx.GamepadRecorder._scloneObject(gamepads)
+                gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
                 return gamepads
         }
         
@@ -786,9 +786,27 @@ THREEx.VRRecorder = function(){
 }
 
 THREEx.VRRecorder.prototype.start = function () {
-        this._gamepadRecorder.start()
-        
-        this._webvrRecorder.start()
+        var _this = this
+console.log('ss')
+	navigator.getVRDisplays().then(function(displays){
+console.log('ddd')
+                var vrDisplay = null
+                for(var i = 0; i < displays.length; i++){
+                        if( displays[i].capabilities.canPresent === false )     continue
+                        vrDisplay = displays[i]
+                        break
+                }
+		// If there are no devices available, quit out.
+		if (vrDisplay === null) {
+    			console.warn('No devices available able to present.');
+			return;
+		}
+console.log('vrDisplay', vrDisplay)
+                _this._webvrRecorder.setVRDisplay(vrDisplay)
+                _this._webvrRecorder.start()
+                
+                _this._gamepadRecorder.start()        
+        })
 }
 
 ////////////////////////////////////////////////////////////////////////////////

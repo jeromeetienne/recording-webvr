@@ -110,7 +110,7 @@
 				];
 
 				for ( var i = 0; i < 50; i ++ ) {
-break;
+// break;
 					var geometry = geometries[ Math.floor( Math.random() * geometries.length ) ];
 					var material = new THREE.MeshStandardMaterial( {
 						color: Math.random() * 0xffffff,
@@ -148,7 +148,7 @@ break;
 				renderer.gammaOutput = true;
 				container.appendChild( renderer.domElement );
 
-				// controls = new THREE.VRControls( camera );
+				controls = new THREE.VRControls( camera );
 				// controls.standing = true;
 				// controls	= new THREE.OrbitControls(camera, renderer.domElement)
 
@@ -347,13 +347,13 @@ break;
 		</script>
 
 <!-- enable PhoneAsVRController. it overloads gamepad api -->
-<script src='vendor/phoneasvrcontroller.js'></script>
+<!-- <script src='vendor/phoneasvrcontroller.js'></script> -->
 
 <!-- add gamepad recorder/player -->
 <script src='../build/recording-webvr.js'></script>
 <script>
 	var mode = ''
-	mode = 'record'
+	// mode = 'record'
 	// mode = 'play'
 
 	if( mode === 'record' ){
