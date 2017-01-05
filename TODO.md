@@ -16,7 +16,7 @@
   - seek with various values
   - change videoToGamepadDelay - with a input value
   - display camera position/quaternion on screen for cut/paste
-- vrExperience.json : put all gamepad info in a single object
+- vrExperience.json : put all gamepad info in a single object, and all the webvr one too
 - make webvrrecorder.html and gamepadrecorder.html more homogeneous
 - make a aframe components for it ?
 
