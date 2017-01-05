@@ -1,8 +1,7 @@
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
-- vrExperience.json : put all gamepad info in a single object
 - see how to able Orbits controls as a given position
-- make boilerplate smaller
+- put 'vrPlayer.update(delta)' in vrPlayer itself
 - include it in lightsaberinvr
 
 ----------------
@@ -12,14 +11,15 @@
   - seek with various values
   - change videoToGamepadDelay - with a input value
   - display camera position/quaternion on screen for cut/paste
-
+- vrExperience.json : put all gamepad info in a single object
 - make webvrrecorder.html and gamepadrecorder.html more homogeneous
-- package it all in a single .js in build
 - make a aframe components for it ?
 
 - rename all demo repository by demo.* and recording-webvr stay as is
-  - there is nothing threex into it
+  - there is nothing threex into it, which name to use ?
+  - MixedVideo ?
 
+- DONE package it all in a single .js in build
 - file are getting huge... how to do better ?
   - store only delta
   - store in binary
