@@ -8,6 +8,7 @@ THREEx.WebvrRecorder = function(){
 	var frameData = new VRFrameData()
         this._fetchNewRecordData = function(newRecord){
                 this._vrDisplay.getFrameData(frameData);
+console.log('store webvr framedata')
                 var frameDataJSON = JSON.parse(JSON.stringify(frameData))
                 return frameDataJSON
         }
