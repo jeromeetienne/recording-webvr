@@ -6,7 +6,7 @@
                 "quaternion" : [-0.04489202718608608, 0.9423058512990086, 0.14084474129837604, 0.3003450417900393]
         },
 
-        "videoToGamepadDelay" : 4.3,
         "nGamepadFiles" : 2,
+        "videoToGamepadDelay" : 4.3,
         "gamepadBaseUrl" : "gamepadrecords"
 }

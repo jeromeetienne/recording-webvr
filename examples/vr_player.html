@@ -148,7 +148,7 @@
 				renderer.gammaOutput = true;
 				container.appendChild( renderer.domElement );
 
-				controls = new THREE.VRControls( camera );
+				// controls = new THREE.VRControls( camera );
 				// controls.standing = true;
 				// controls	= new THREE.OrbitControls(camera, renderer.domElement)
 
@@ -352,20 +352,18 @@
 <!-- add gamepad recorder/player -->
 <script src='../build/recording-webvr.js'></script>
 <script>
-	var mode = ''
-	mode = 'record'
-	// mode = 'play'
-
-	if( mode === 'record' ){
-		THREEx.VRRecorder.start()
-	}
+	// THREEx.VRRecorder.start({
+	// 	gamepad : false,
+	// 	webvr : true,
+	// })
 	
-	if( mode === 'play' || mode === 'edit' ){
-		var experienceUrl = 'experiences/mvi_0000/vr-experience.json'
-		// var experienceUrl = 'experiences/mvi_1731/vr-experience.json'
-		// var experienceUrl = 'experiences/mvi_1733/vr-experience.json'
-		THREEx.VRPlayer.play(experienceUrl, camera)
-	}
+	var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
+	var experienceUrl = 'vrExperiences/video1/vr-experience.json'
+	// // var experienceUrl = 'vrExperiences/mvi_1731/vr-experience.json'
+	// var experienceUrl = 'vrExperiences/mvi_1733/vr-experience.json'
+	THREEx.VRPlayer.play(experienceUrl, camera, 'play')
+	// controls.enabled = false
+	// THREEx.VRPlayer.play(experienceUrl, camera, 'edit')
 </script>
 
 	</body>

@@ -14,6 +14,10 @@ THREEx.VRPlayer = function(){
         this.videoElement.playbackRate = this._playbackRate
         document.body.appendChild(this.videoElement)
 
+        // build webvrPlayer
+        this._webvrPlayer = new THREEx.WebvrPlayer()
+        this._webvrPlayer.playbackRate = this._playbackRate
+
         // build gamepadPlayer
         this._gamepadPlayer = new THREEx.GamepadPlayer()
         this._gamepadPlayer.playbackRate = this._playbackRate
@@ -24,8 +28,10 @@ THREEx.VRPlayer = function(){
  */
 THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
         this._playbackRate = playbackRate
-        this._gamepadPlayer.playbackRate = playbackRate
         this.videoElement.playbackRate = playbackRate
+
+        this._webvrPlayer.playbackRate = playbackRate
+        this._gamepadPlayer.playbackRate = playbackRate
         return this
 }
 
@@ -34,6 +40,7 @@ THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
  */
 THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
         var _this = this
+
         doHttpRequest(path + basename, function(data){
                 var vrExperience = JSON.parse(data)
                 
@@ -41,15 +48,30 @@ THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
                 _this.path = path
 
                 // build the urls of the file to load
-        	var urls = []
-        	for(var i = 0; i < _this.vrExperience.nGamepadFiles; i++){
-        		urls.push( _this.path + _this.vrExperience.gamepadBaseUrl+pad(i, 4)+'.json')
+        	var webvrUrls = []
+        	for(var i = 0; i < _this.vrExperience.nWebvrFiles; i++){
+        		webvrUrls.push( _this.path + _this.vrExperience.webvrBaseUrl+pad(i, 4)+'.json')
         	}
-        	// start loading those urls
-                _this._gamepadPlayer.load(urls, function(){
-                        onLoaded()
+
+                // start loading those urls
+                var webvrLoaded = false
+                _this._webvrPlayer.load(webvrUrls, function(){
+                        webvrLoaded = true
+                        if( webvrLoaded && gamepadLoaded )      onLoaded()
                 })
-                
+
+                // build the urls of the file to load
+        	var gamepadUrls = []
+        	for(var i = 0; i < _this.vrExperience.nGamepadFiles; i++){
+        		gamepadUrls.push( _this.path + _this.vrExperience.gamepadBaseUrl+pad(i, 4)+'.json')
+        	}
+
+        	// start loading those urls
+                var gamepadLoaded = false
+                _this._gamepadPlayer.load(gamepadUrls, function(){
+                        gamepadLoaded = true
+                        if( webvrLoaded && gamepadLoaded )      onLoaded()      
+                })
         })
         
         return this     // for api chainability
@@ -85,8 +107,11 @@ THREEx.VRPlayer.prototype.start = function(){
 	// setTimeout(function(){
         //         _this._gamepadPlayer.start()
 	// }, 0.05*1000)
+        
+        if( _this._webvrPlayer.records )      _this._webvrPlayer.start()
+                        
+        if( _this._gamepadPlayer.records )      _this._gamepadPlayer.start()
 
-        _this._gamepadPlayer.start()
 	setTimeout(function(){
                 _this.videoElement.currentTime = 0        
                 _this.videoElement.play();
@@ -114,6 +139,9 @@ THREEx.VRPlayer.prototype.getCurrentTime = function () {
 THREEx.VRPlayer.prototype.setCurrentTime = function (currentTime) {
         this.videoElement.currentTime = currentTime
         
+        this._webvrPlayer.currentTime = currentTime - this.vrExperience.videoToWebvrDelay
+        this._webvrPlayer.onCurrentTimeChange()
+        
         this._gamepadPlayer.currentTime = currentTime - this.vrExperience.videoToGamepadDelay
         this._gamepadPlayer.onCurrentTimeChange()
 }
@@ -130,6 +158,7 @@ THREEx.VRPlayer.prototype.pause = function (value) {
                 value = this._gamepadPlayer.paused ? false : true
         }
         
+        this._webvrPlayer.pause(value)
         this._gamepadPlayer.pause(value)
         if( value === true ){
                 this.videoElement.pause()
@@ -148,7 +177,8 @@ THREEx.VRPlayer.prototype.update = function (deltaTime) {
 //          Code Separator
 ////////////////////////////////////////////////////////////////////////////////
 
-THREEx.VRPlayer.play = function(experienceUrl, camera){
+THREEx.VRPlayer.play = function(experienceUrl, camera, mode){
+        console.assert( mode === 'edit' ||  mode === 'play' )
 	var vrPlayer = new THREEx.VRPlayer()
         
 	// create the vrPlayerUI
@@ -163,21 +193,27 @@ THREEx.VRPlayer.play = function(experienceUrl, camera){
         vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
                 
-        	// set camera position
-		camera.position.fromArray(vrPlayer.vrExperience.camera.position)
-		camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
-        
-		// enable the controls during tuning
-		// controls	= new THREE.OrbitControls(camera, renderer.domElement)
-		// controls.enableKeys = false
-		// controls.zoomSpeed = 0.1
-		// controls.rotateSpeed = 0.5
-		
-		// controls.position0.copy(camera.position)
-		// controls.target0
-		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
-		// 	.negate().add(controls.position0)
-		// controls.reset()
+                if( mode === 'play' ){
+                        // set camera position
+                        if( vrPlayer.vrExperience.camera !== undefined ){
+                                camera.position.fromArray(vrPlayer.vrExperience.camera.position)
+                		camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)                                
+                        }
+                }else if( mode === 'edit' ){
+        		// enable the controls during tuning
+        		controls	= new THREE.OrbitControls(camera, renderer.domElement)
+        		controls.enableKeys = false
+        		controls.zoomSpeed = 0.1
+        		controls.rotateSpeed = 0.5
+        		
+        		// controls.position0.copy(camera.position)
+        		// controls.target0
+        		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
+        		// 	.negate().add(controls.position0)
+        		// controls.reset()                        
+                }else {
+                        console.assert(false)
+                }
         })
 
         

@@ -25,13 +25,13 @@
 		//          Code Separator
 		////////////////////////////////////////////////////////////////////////////////
 
-		// var mode = 'record'
-		var mode = 'play'
+		var mode = 'record'
+		// var mode = 'play'
 		// var mode = ''
 window.mode = mode
 
 		if( mode === 'record' ){
-			var webvrRecorder = new THREEx.WebvrRecorder().start()
+			THREEx.VRRecorder.start()
 		}
 
 		if( mode === 'play' ){

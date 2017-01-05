@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Record VR experiences and replay them later",
   "scripts": {
-    "build": "cat src/threex.json*.js  vendor/download.js src/threex.webvr*.js src/threex.gamepad*.js src/threex.vr*.js > build/recording-webvr.js",
+    "build": "cat src/{players,recorders}/threex.json* src/{players,recorders}/threex.{webvr,gamepad}* src/*.js vendor/download.js > build/recording-webvr.js",
     "minify": "uglifyjs build/recording-webvr.js > build/recording-webvr.min.js",
     "watch": "watch 'npm run build' src/"
   }

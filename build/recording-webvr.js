@@ -178,6 +178,553 @@ THREEx.JsonRecorder = function(){
                 return s;
         }
 };
+var THREEx = THREEx || {}
+
+THREEx.WebvrPlayer = function(){
+        THREEx.JsonPlayer.call( this );
+        
+        this.frameData = null   // TODO put a fake one
+        
+        this._onNewRecord = function(newRecord){
+console.log('update frameData')
+                this.frameData = newRecord
+        }
+}
+THREEx.WebvrPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
+THREEx.WebvrPlayer.prototype.constructor = THREEx.WebvrPlayer;
+var THREEx = THREEx || {}
+
+THREEx.GamepadPlayer = function(){
+        THREEx.JsonPlayer.call( this );
+        
+        this.gamepads = [
+                null,
+                null,
+                null,
+                null,
+        ]
+        
+        this._onNewRecord = function(newRecord){
+                this.gamepads = newRecord
+        }
+}
+THREEx.GamepadPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
+THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;
+var THREEx = THREEx || {}
+
+THREEx.WebvrRecorder = function(){
+        THREEx.JsonRecorder.call( this );
+
+        this.autoSaveBaseName = 'webvrrecords'
+                
+	var frameData = new VRFrameData()
+        this._fetchNewRecordData = function(newRecord){
+                this._vrDisplay.getFrameData(frameData);
+// console.log('store webvr framedata', frameData.pose.position)
+                var frameDataJSON = JSON.parse(JSON.stringify(frameData))
+                return frameDataJSON
+        }
+        
+        this._vrDisplay = null
+        this.setVRDisplay = function(vrDisplay){
+                this._vrDisplay = vrDisplay
+                return this
+        }
+}
+THREEx.WebvrRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
+THREEx.WebvrRecorder.prototype.constructor = THREEx.WebvrRecorder;
+var THREEx = THREEx || {}
+
+THREEx.GamepadRecorder = function(){
+        THREEx.JsonRecorder.call( this );
+        
+        this.autoSaveBaseName = 'gamepadrecords'
+                
+        this._fetchNewRecordData = function(newRecord){
+                var gamepads = navigator.getGamepads();
+                // clone the struct
+                // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+                gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
+                return gamepads
+        }
+        
+        return
+}
+
+THREEx.GamepadRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
+THREEx.GamepadRecorder.prototype.constructor = THREEx.GamepadRecorder;
+
+// from http://stackoverflow.com/a/4460624
+// Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+THREEx.GamepadRecorder._cloneObject = function(item) {
+    if (!item) { return item; } // null, undefined values check
+
+    var types = [ Number, String, Boolean ], 
+        result;
+
+    // normalizing primitives if someone did new String('aaa'), or new Number('444');
+    types.forEach(function(type) {
+        if (item instanceof type) {
+            result = type( item );
+        }
+    });
+
+    if (typeof result == "undefined") {
+        if (Object.prototype.toString.call( item ) === "[object Array]") {
+            result = [];
+            item.forEach(function(child, index, array) { 
+                result[index] = this._cloneObject( child );
+            });
+        } else if (typeof item == "object") {
+            // testing that this is DOM
+            if (item.nodeType && typeof item.cloneNode == "function") {
+                var result = item.cloneNode( true );    
+            } else if (!item.prototype) { // check that this is a literal
+                if (item instanceof Date) {
+                    result = new Date(item);
+                } else {
+                    // it is an object literal
+                    result = {};
+                    for (var i in item) {
+                        result[i] = this._cloneObject( item[i] );
+                    }
+                }
+            } else {
+                // depending what you would like here,
+                // just keep the reference, or create new object
+                if (false && item.constructor) {
+                    // would not advice to do that, reason? Read below
+                    result = new item.constructor();
+                } else {
+                    result = item;
+                }
+            }
+        } else {
+            result = item;
+        }
+    }
+
+    return result;
+}
+
+var THREEx = THREEx || {}
+
+
+THREEx.VRPlayer = function(){
+        this.vrExperience = null
+        this._playbackRate = 1
+
+        // build video element
+        this.videoElement = document.createElement('video')
+        this.videoElement.style.position = 'absolute'
+        this.videoElement.style.top = '0px'
+        this.videoElement.style.zIndex = '-1'
+        this.videoElement.muted = true
+        this.videoElement.playbackRate = this._playbackRate
+        document.body.appendChild(this.videoElement)
+
+        // build webvrPlayer
+        this._webvrPlayer = new THREEx.WebvrPlayer()
+        this._webvrPlayer.playbackRate = this._playbackRate
+
+        // build gamepadPlayer
+        this._gamepadPlayer = new THREEx.GamepadPlayer()
+        this._gamepadPlayer.playbackRate = this._playbackRate
+}
+
+/**
+ * set playbackRate
+ */
+THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
+        this._playbackRate = playbackRate
+        this.videoElement.playbackRate = playbackRate
+
+        this._webvrPlayer.playbackRate = playbackRate
+        this._gamepadPlayer.playbackRate = playbackRate
+        return this
+}
+
+/**
+ * Load a vrExperience
+ */
+THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
+        var _this = this
+
+        doHttpRequest(path + basename, function(data){
+                var vrExperience = JSON.parse(data)
+                
+                _this.vrExperience = vrExperience
+                _this.path = path
+
+                // build the urls of the file to load
+        	var webvrUrls = []
+        	for(var i = 0; i < _this.vrExperience.nWebvrFiles; i++){
+        		webvrUrls.push( _this.path + _this.vrExperience.webvrBaseUrl+pad(i, 4)+'.json')
+        	}
+
+                // start loading those urls
+                var webvrLoaded = false
+                _this._webvrPlayer.load(webvrUrls, function(){
+                        webvrLoaded = true
+                        if( webvrLoaded && gamepadLoaded )      onLoaded()
+                })
+
+                // build the urls of the file to load
+        	var gamepadUrls = []
+        	for(var i = 0; i < _this.vrExperience.nGamepadFiles; i++){
+        		gamepadUrls.push( _this.path + _this.vrExperience.gamepadBaseUrl+pad(i, 4)+'.json')
+        	}
+
+        	// start loading those urls
+                var gamepadLoaded = false
+                _this._gamepadPlayer.load(gamepadUrls, function(){
+                        gamepadLoaded = true
+                        if( webvrLoaded && gamepadLoaded )      onLoaded()      
+                })
+        })
+        
+        return this     // for api chainability
+        function doHttpRequest(url, onLoaded){
+                var request = new XMLHttpRequest()
+                request.addEventListener('load', function(){
+                        onLoaded(this.responseText)
+                })
+                request.open('GET', url)
+                request.send()
+        }
+        function pad(num, size) {
+                var string = num + '';
+                while (string.length < size) string = '0' + string;
+                return string;
+        }                
+};
+
+
+/**
+ * Start playing the experience
+ */
+THREEx.VRPlayer.prototype.start = function(){
+        var _this = this
+        // build video element
+        this.videoElement.src = this.path + this.vrExperience.videoSrc 
+        document.body.appendChild(this.videoElement)
+
+        // // start gamepadPlayer
+        // video.play();
+        // 
+        // // start video after
+	// setTimeout(function(){
+        //         _this._gamepadPlayer.start()
+	// }, 0.05*1000)
+        
+        if( _this._webvrPlayer.records )      _this._webvrPlayer.start()
+                        
+        if( _this._gamepadPlayer.records )      _this._gamepadPlayer.start()
+
+	setTimeout(function(){
+                _this.videoElement.currentTime = 0        
+                _this.videoElement.play();
+	}, _this.vrExperience.videoToGamepadDelay*1000)
+
+	// polyfill to high-jack gamepad API
+	navigator.getGamepads = function(){
+		return _this._gamepadPlayer.gamepads
+	}
+        
+        return this
+}
+
+THREEx.VRPlayer.prototype.isStarted = function () {
+        return this._gamepadPlayer.isStarted()
+};
+THREEx.VRPlayer.prototype.isPaused = function () {
+        return this._gamepadPlayer.paused
+};
+
+THREEx.VRPlayer.prototype.getCurrentTime = function () {
+        return this.videoElement.currentTime
+}
+
+THREEx.VRPlayer.prototype.setCurrentTime = function (currentTime) {
+        this.videoElement.currentTime = currentTime
+        
+        this._webvrPlayer.currentTime = currentTime - this.vrExperience.videoToWebvrDelay
+        this._webvrPlayer.onCurrentTimeChange()
+        
+        this._gamepadPlayer.currentTime = currentTime - this.vrExperience.videoToGamepadDelay
+        this._gamepadPlayer.onCurrentTimeChange()
+}
+
+THREEx.VRPlayer.prototype.seek = function (delta) {
+        var currentTime = this.videoElement.currentTime
+        currentTime += delta
+        this.setCurrentTime(currentTime)
+}
+
+THREEx.VRPlayer.prototype.pause = function (value) {
+        
+        if( value === undefined ){
+                value = this._gamepadPlayer.paused ? false : true
+        }
+        
+        this._webvrPlayer.pause(value)
+        this._gamepadPlayer.pause(value)
+        if( value === true ){
+                this.videoElement.pause()
+        }else{
+                if( this.videoElement.paused ){
+                        this.videoElement.play()
+                }
+        }
+}
+
+THREEx.VRPlayer.prototype.update = function (deltaTime) {
+        this._gamepadPlayer.update(deltaTime)
+};
+
+////////////////////////////////////////////////////////////////////////////////
+//          Code Separator
+////////////////////////////////////////////////////////////////////////////////
+
+THREEx.VRPlayer.play = function(experienceUrl, camera, mode){
+        console.assert( mode === 'edit' ||  mode === 'play' )
+	var vrPlayer = new THREEx.VRPlayer()
+        
+	// create the vrPlayerUI
+	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
+	document.body.appendChild(vrPlayerUI.domElement)
+
+        // match experienceUrl
+        var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
+        var experienceBasename = matches[2]
+        var experiencePath = matches[1]
+
+        vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
+                vrPlayer.start()
+                
+                if( mode === 'play' ){
+                        // set camera position
+                        if( vrPlayer.vrExperience.camera !== undefined ){
+                                camera.position.fromArray(vrPlayer.vrExperience.camera.position)
+                		camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)                                
+                        }
+                }else if( mode === 'edit' ){
+        		// enable the controls during tuning
+        		controls	= new THREE.OrbitControls(camera, renderer.domElement)
+        		controls.enableKeys = false
+        		controls.zoomSpeed = 0.1
+        		controls.rotateSpeed = 0.5
+        		
+        		// controls.position0.copy(camera.position)
+        		// controls.target0
+        		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
+        		// 	.negate().add(controls.position0)
+        		// controls.reset()                        
+                }else {
+                        console.assert(false)
+                }
+        })
+
+        
+	// TODO put that in vrPlayer itself
+	var clock = new THREE.Clock()
+	requestAnimationFrame(function render() {
+		var delta = clock.getDelta()
+		requestAnimationFrame( render );
+		
+		if( vrPlayer.isStarted() ){
+			vrPlayer.update(delta)				
+		}
+		vrPlayerUI.update()				
+	})
+
+        return vrPlayer
+}
+var THREEx = THREEx || {}
+
+THREEx.VRPlayerUI = function(vrPlayer){
+        this.vrPlayer = vrPlayer
+        this.domElement = document.createElement('div')
+        
+        this.domElement.style.margin = '0.5em'
+        this.domElement.style.position = 'absolute'
+        this.domElement.style.top = '0px'
+        this.domElement.style.left = '0px'
+        
+        ////////////////////////////////////////////////////////////////////////////////
+        //          Code Separator
+        ////////////////////////////////////////////////////////////////////////////////
+        
+        var startButton = document.createElement('button')
+        startButton.innerHTML = 'start'
+        this.domElement.appendChild(startButton)
+        startButton.addEventListener('click', function(){
+                vrPlayer.start()
+        })
+
+        var pauseButton = document.createElement('button')
+        pauseButton.innerHTML = 'pause'
+        this.domElement.appendChild(pauseButton)
+        pauseButton.addEventListener('click', function(){
+                vrPlayer.pause()
+        })
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          Code Separator
+        ////////////////////////////////////////////////////////////////////////////////
+        
+        this.domElement.appendChild(document.createElement('br'))
+
+        var seekMinusOneButton = document.createElement('button')
+        seekMinusOneButton.innerHTML = 'seek -1sec'
+        this.domElement.appendChild(seekMinusOneButton)
+        seekMinusOneButton.addEventListener('click', function(){
+                vrPlayer.seek(-1)
+        })
+
+        
+        var seekPlusOneButton = document.createElement('button')
+        seekPlusOneButton.innerHTML = 'seek +1sec'
+        this.domElement.appendChild(seekPlusOneButton)
+        seekPlusOneButton.addEventListener('click', function(){
+                vrPlayer.seek(+1)
+        })
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          Code Separator
+        ////////////////////////////////////////////////////////////////////////////////
+
+        this.domElement.appendChild(document.createElement('br'))
+
+        var labelElement = document.createElement('label')
+        labelElement.innerHTML = 'current time : '
+        this.domElement.appendChild(labelElement)
+        var currentTimeValue = document.createElement('span')
+        currentTimeValue.innerHTML = 'n/a'
+        labelElement.appendChild(currentTimeValue)
+
+        this.domElement.appendChild(document.createElement('br'))
+
+        var labelElement = document.createElement('label')
+        labelElement.innerHTML = 'video duration : '
+        this.domElement.appendChild(labelElement)
+        var videoDurationValue = document.createElement('span')
+        videoDurationValue.innerHTML = 'n/a'
+        labelElement.appendChild(videoDurationValue)
+
+        this.domElement.appendChild(document.createElement('br'))
+        
+        var labelElement = document.createElement('label')
+        labelElement.innerHTML = 'gamepad time offset : '
+        this.domElement.appendChild(labelElement)
+        var gamepadTimeOffsetValue = document.createElement('span')
+        gamepadTimeOffsetValue.innerHTML = 'n/a'
+        labelElement.appendChild(gamepadTimeOffsetValue)
+
+        this.domElement.appendChild(document.createElement('br'))
+
+        var labelElement = document.createElement('label')
+        labelElement.innerHTML = 'gamepad time offset : '
+        this.domElement.appendChild(labelElement)
+        var gamepadTimeOffsetInput = document.createElement('input')
+        gamepadTimeOffsetInput.size= '4'
+        gamepadTimeOffsetInput.innerHTML = 'n/a'
+        labelElement.appendChild(gamepadTimeOffsetInput)
+        gamepadTimeOffsetInput.addEventListener('change', function(){
+                var value = parseFloat(gamepadTimeOffsetInput.value)
+                vrPlayer.vrExperience.videoToGamepadDelay = value
+                vrPlayer.seek(0)
+        })
+
+        this.update = function(){
+                if( vrPlayer.isStarted() ){
+                        startButton.disabled = true
+                }else{
+                        startButton.disabled = false                        
+                }
+                
+                currentTimeValue.innerHTML = vrPlayer.getCurrentTime().toFixed(2) + 'sec'
+                
+                if( vrPlayer.vrExperience !== null ){
+                        gamepadTimeOffsetValue.innerHTML = vrPlayer.vrExperience.videoToGamepadDelay
+                }
+                
+                videoDurationValue.innerHTML = vrPlayer.videoElement.duration.toFixed(2) + 'sec'
+        }
+}
+
+var THREEx = THREEx || {}
+
+THREEx.VRRecorder = function(options){
+        options = options || {}
+        options.gamepad = options.gamepad !== undefined ? options.gamepad : true
+        options.webvr = options.webvr !== undefined ? options.webvr : true
+        
+        // build gamepadRecorder
+        if( options.gamepad === true ){
+                this._gamepadRecorder = new THREEx.GamepadRecorder()                
+        }else{
+                this._gamepadRecorder = null
+        }
+
+        // build WebvrRecorder
+        if( options.webvr === true ){
+                this._webvrRecorder = new THREEx.WebvrRecorder()
+        }else{
+                this._webvrRecorder = null
+        }
+}
+
+THREEx.VRRecorder.prototype.start = function () {
+        var _this = this
+        
+        // start gamepadRecorder
+        if( _this._gamepadRecorder !== null ){
+                _this._gamepadRecorder.start()
+        }    
+
+        if( _this._webvrRecorder !== null ){
+                navigator.getVRDisplays().then(function(displays){
+                        var vrDisplay = null
+                        // get vrDisplay
+                        for(var i = 0; i < displays.length; i++){
+                                if( displays[i].capabilities.canPresent === false )     continue
+                                vrDisplay = displays[i]
+                                break
+                        }
+        		// If there are no devices available, quit out.
+        		if (vrDisplay === null) {
+            			console.warn('No devices available able to present.');
+        			return;
+        		}
+        console.log('vrDisplay', vrDisplay)
+                        // start _webvrRecorder
+                        _this._webvrRecorder.setVRDisplay(vrDisplay)
+                        _this._webvrRecorder.start()                        
+                })                
+        }
+}
+
+THREEx.VRRecorder.prototype.stop = function () {
+        if( this._webvrRecorder ){
+                this._webvrRecorder.setVRDisplay(null)
+                this._webvrRecorder.stop()                
+        }
+
+        if( this._gamepadRecorder ){
+                this._gamepadRecorder.stop()        
+        }
+}
+////////////////////////////////////////////////////////////////////////////////
+//          Code Separator
+////////////////////////////////////////////////////////////////////////////////
+
+THREEx.VRRecorder.start = function(options){
+	var vrRecorder = new THREEx.VRRecorder(options)
+        vrRecorder.start()
+        window.vrRecorder = vrRecorder 
+        return vrRecorder
+};
 //download.js v4.2, by dandavis; 2008-2016. [CCBY2] see http://danml.com/download.html for tests/usage
 // v1 landed a FF+Chrome compat way of downloading strings to local un-named files, upgraded to use a hidden frame and optional mime
 // v2 added named files via a[download], msSaveBlob, IE (10+) support, and window.URL support for larger+faster saves than dataURLs
@@ -339,483 +886,4 @@ THREEx.JsonRecorder = function(){
 		}
 		return true;
 	}; /* end download() */
-}));var THREEx = THREEx || {}
-
-THREEx.WebvrPlayer = function(){
-        THREEx.JsonPlayer.call( this );
-        
-        this.frameData = null   // TODO put a fake one
-        
-        this._onNewRecord = function(newRecord){
-                this.frameData = newRecord
-        }
-}
-THREEx.WebvrPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
-THREEx.WebvrPlayer.prototype.constructor = THREEx.WebvrPlayer;
-var THREEx = THREEx || {}
-
-THREEx.WebvrRecorder = function(){
-        THREEx.JsonRecorder.call( this );
-
-        this.autoSaveBaseName = 'webvrrecords'
-                
-	var frameData = new VRFrameData()
-        this._fetchNewRecordData = function(newRecord){
-                this._vrDisplay.getFrameData(frameData);
-console.log('store webvr framedata')
-                var frameDataJSON = JSON.parse(JSON.stringify(frameData))
-                return frameDataJSON
-        }
-        
-        this._vrDisplay = null
-        this.setVRDisplay = function(vrDisplay){
-                this._vrDisplay = vrDisplay
-                return this
-        }
-}
-THREEx.WebvrRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
-THREEx.WebvrRecorder.prototype.constructor = THREEx.WebvrRecorder;
-var THREEx = THREEx || {}
-
-THREEx.GamepadPlayer = function(){
-        THREEx.JsonPlayer.call( this );
-        
-        this.gamepads = [
-                null,
-                null,
-                null,
-                null,
-        ]
-        
-        this._onNewRecord = function(newRecord){
-                this.gamepads = newRecord
-        }
-}
-THREEx.GamepadPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
-THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;
-var THREEx = THREEx || {}
-
-THREEx.GamepadRecorder = function(){
-        THREEx.JsonRecorder.call( this );
-        
-        this.autoSaveBaseName = 'gamepadrecords'
-                
-        this._fetchNewRecordData = function(newRecord){
-                var gamepads = navigator.getGamepads();
-                // clone the struct
-                // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-                gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
-                return gamepads
-        }
-        
-        return
-}
-
-THREEx.GamepadRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
-THREEx.GamepadRecorder.prototype.constructor = THREEx.GamepadRecorder;
-
-// from http://stackoverflow.com/a/4460624
-// Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-THREEx.GamepadRecorder._cloneObject = function(item) {
-    if (!item) { return item; } // null, undefined values check
-
-    var types = [ Number, String, Boolean ], 
-        result;
-
-    // normalizing primitives if someone did new String('aaa'), or new Number('444');
-    types.forEach(function(type) {
-        if (item instanceof type) {
-            result = type( item );
-        }
-    });
-
-    if (typeof result == "undefined") {
-        if (Object.prototype.toString.call( item ) === "[object Array]") {
-            result = [];
-            item.forEach(function(child, index, array) { 
-                result[index] = this._cloneObject( child );
-            });
-        } else if (typeof item == "object") {
-            // testing that this is DOM
-            if (item.nodeType && typeof item.cloneNode == "function") {
-                var result = item.cloneNode( true );    
-            } else if (!item.prototype) { // check that this is a literal
-                if (item instanceof Date) {
-                    result = new Date(item);
-                } else {
-                    // it is an object literal
-                    result = {};
-                    for (var i in item) {
-                        result[i] = this._cloneObject( item[i] );
-                    }
-                }
-            } else {
-                // depending what you would like here,
-                // just keep the reference, or create new object
-                if (false && item.constructor) {
-                    // would not advice to do that, reason? Read below
-                    result = new item.constructor();
-                } else {
-                    result = item;
-                }
-            }
-        } else {
-            result = item;
-        }
-    }
-
-    return result;
-}
-
-var THREEx = THREEx || {}
-
-
-THREEx.VRPlayer = function(){
-        this.vrExperience = null
-        this._playbackRate = 1
-
-        // build video element
-        this.videoElement = document.createElement('video')
-        this.videoElement.style.position = 'absolute'
-        this.videoElement.style.top = '0px'
-        this.videoElement.style.zIndex = '-1'
-        this.videoElement.muted = true
-        this.videoElement.playbackRate = this._playbackRate
-        document.body.appendChild(this.videoElement)
-
-        // build gamepadPlayer
-        this._gamepadPlayer = new THREEx.GamepadPlayer()
-        this._gamepadPlayer.playbackRate = this._playbackRate
-}
-
-/**
- * set playbackRate
- */
-THREEx.VRPlayer.prototype.setPlaybackRate = function(playbackRate){
-        this._playbackRate = playbackRate
-        this._gamepadPlayer.playbackRate = playbackRate
-        this.videoElement.playbackRate = playbackRate
-        return this
-}
-
-/**
- * Load a vrExperience
- */
-THREEx.VRPlayer.prototype.load = function(path, basename, onLoaded){
-        var _this = this
-        doHttpRequest(path + basename, function(data){
-                var vrExperience = JSON.parse(data)
-                
-                _this.vrExperience = vrExperience
-                _this.path = path
-
-                // build the urls of the file to load
-        	var urls = []
-        	for(var i = 0; i < _this.vrExperience.nGamepadFiles; i++){
-        		urls.push( _this.path + _this.vrExperience.gamepadBaseUrl+pad(i, 4)+'.json')
-        	}
-        	// start loading those urls
-                _this._gamepadPlayer.load(urls, function(){
-                        onLoaded()
-                })
-                
-        })
-        
-        return this     // for api chainability
-        function doHttpRequest(url, onLoaded){
-                var request = new XMLHttpRequest()
-                request.addEventListener('load', function(){
-                        onLoaded(this.responseText)
-                })
-                request.open('GET', url)
-                request.send()
-        }
-        function pad(num, size) {
-                var string = num + '';
-                while (string.length < size) string = '0' + string;
-                return string;
-        }                
-};
-
-
-/**
- * Start playing the experience
- */
-THREEx.VRPlayer.prototype.start = function(){
-        var _this = this
-        // build video element
-        this.videoElement.src = this.path + this.vrExperience.videoSrc 
-        document.body.appendChild(this.videoElement)
-
-        // // start gamepadPlayer
-        // video.play();
-        // 
-        // // start video after
-	// setTimeout(function(){
-        //         _this._gamepadPlayer.start()
-	// }, 0.05*1000)
-
-        _this._gamepadPlayer.start()
-	setTimeout(function(){
-                _this.videoElement.currentTime = 0        
-                _this.videoElement.play();
-	}, _this.vrExperience.videoToGamepadDelay*1000)
-
-	// polyfill to high-jack gamepad API
-	navigator.getGamepads = function(){
-		return _this._gamepadPlayer.gamepads
-	}
-        
-        return this
-}
-
-THREEx.VRPlayer.prototype.isStarted = function () {
-        return this._gamepadPlayer.isStarted()
-};
-THREEx.VRPlayer.prototype.isPaused = function () {
-        return this._gamepadPlayer.paused
-};
-
-THREEx.VRPlayer.prototype.getCurrentTime = function () {
-        return this.videoElement.currentTime
-}
-
-THREEx.VRPlayer.prototype.setCurrentTime = function (currentTime) {
-        this.videoElement.currentTime = currentTime
-        
-        this._gamepadPlayer.currentTime = currentTime - this.vrExperience.videoToGamepadDelay
-        this._gamepadPlayer.onCurrentTimeChange()
-}
-
-THREEx.VRPlayer.prototype.seek = function (delta) {
-        var currentTime = this.videoElement.currentTime
-        currentTime += delta
-        this.setCurrentTime(currentTime)
-}
-
-THREEx.VRPlayer.prototype.pause = function (value) {
-        
-        if( value === undefined ){
-                value = this._gamepadPlayer.paused ? false : true
-        }
-        
-        this._gamepadPlayer.pause(value)
-        if( value === true ){
-                this.videoElement.pause()
-        }else{
-                if( this.videoElement.paused ){
-                        this.videoElement.play()
-                }
-        }
-}
-
-THREEx.VRPlayer.prototype.update = function (deltaTime) {
-        this._gamepadPlayer.update(deltaTime)
-};
-
-////////////////////////////////////////////////////////////////////////////////
-//          Code Separator
-////////////////////////////////////////////////////////////////////////////////
-
-THREEx.VRPlayer.play = function(experienceUrl, camera){
-	var vrPlayer = new THREEx.VRPlayer()
-        
-	// create the vrPlayerUI
-	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
-	document.body.appendChild(vrPlayerUI.domElement)
-
-        // match experienceUrl
-        var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
-        var experienceBasename = matches[2]
-        var experiencePath = matches[1]
-
-        vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
-                vrPlayer.start()
-                
-        	// set camera position
-		camera.position.fromArray(vrPlayer.vrExperience.camera.position)
-		camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)
-        
-		// enable the controls during tuning
-		// controls	= new THREE.OrbitControls(camera, renderer.domElement)
-		// controls.enableKeys = false
-		// controls.zoomSpeed = 0.1
-		// controls.rotateSpeed = 0.5
-		
-		// controls.position0.copy(camera.position)
-		// controls.target0
-		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
-		// 	.negate().add(controls.position0)
-		// controls.reset()
-        })
-
-        
-	// TODO put that in vrPlayer itself
-	var clock = new THREE.Clock()
-	requestAnimationFrame(function render() {
-		var delta = clock.getDelta()
-		requestAnimationFrame( render );
-		
-		if( vrPlayer.isStarted() ){
-			vrPlayer.update(delta)				
-		}
-		vrPlayerUI.update()				
-	})
-
-        return vrPlayer
-}
-var THREEx = THREEx || {}
-
-THREEx.VRPlayerUI = function(vrPlayer){
-        this.vrPlayer = vrPlayer
-        this.domElement = document.createElement('div')
-        
-        this.domElement.style.margin = '0.5em'
-        this.domElement.style.position = 'absolute'
-        this.domElement.style.top = '0px'
-        this.domElement.style.left = '0px'
-        
-        ////////////////////////////////////////////////////////////////////////////////
-        //          Code Separator
-        ////////////////////////////////////////////////////////////////////////////////
-        
-        var startButton = document.createElement('button')
-        startButton.innerHTML = 'start'
-        this.domElement.appendChild(startButton)
-        startButton.addEventListener('click', function(){
-                vrPlayer.start()
-        })
-
-        var pauseButton = document.createElement('button')
-        pauseButton.innerHTML = 'pause'
-        this.domElement.appendChild(pauseButton)
-        pauseButton.addEventListener('click', function(){
-                vrPlayer.pause()
-        })
-
-        ////////////////////////////////////////////////////////////////////////////////
-        //          Code Separator
-        ////////////////////////////////////////////////////////////////////////////////
-        
-        this.domElement.appendChild(document.createElement('br'))
-
-        var seekMinusOneButton = document.createElement('button')
-        seekMinusOneButton.innerHTML = 'seek -1sec'
-        this.domElement.appendChild(seekMinusOneButton)
-        seekMinusOneButton.addEventListener('click', function(){
-                vrPlayer.seek(-1)
-        })
-
-        
-        var seekPlusOneButton = document.createElement('button')
-        seekPlusOneButton.innerHTML = 'seek +1sec'
-        this.domElement.appendChild(seekPlusOneButton)
-        seekPlusOneButton.addEventListener('click', function(){
-                vrPlayer.seek(+1)
-        })
-
-        ////////////////////////////////////////////////////////////////////////////////
-        //          Code Separator
-        ////////////////////////////////////////////////////////////////////////////////
-
-        this.domElement.appendChild(document.createElement('br'))
-
-        var labelElement = document.createElement('label')
-        labelElement.innerHTML = 'current time : '
-        this.domElement.appendChild(labelElement)
-        var currentTimeValue = document.createElement('span')
-        currentTimeValue.innerHTML = 'n/a'
-        labelElement.appendChild(currentTimeValue)
-
-        this.domElement.appendChild(document.createElement('br'))
-
-        var labelElement = document.createElement('label')
-        labelElement.innerHTML = 'video duration : '
-        this.domElement.appendChild(labelElement)
-        var videoDurationValue = document.createElement('span')
-        videoDurationValue.innerHTML = 'n/a'
-        labelElement.appendChild(videoDurationValue)
-
-        this.domElement.appendChild(document.createElement('br'))
-        
-        var labelElement = document.createElement('label')
-        labelElement.innerHTML = 'gamepad time offset : '
-        this.domElement.appendChild(labelElement)
-        var gamepadTimeOffsetValue = document.createElement('span')
-        gamepadTimeOffsetValue.innerHTML = 'n/a'
-        labelElement.appendChild(gamepadTimeOffsetValue)
-
-        this.domElement.appendChild(document.createElement('br'))
-
-        var labelElement = document.createElement('label')
-        labelElement.innerHTML = 'gamepad time offset : '
-        this.domElement.appendChild(labelElement)
-        var gamepadTimeOffsetInput = document.createElement('input')
-        gamepadTimeOffsetInput.size= '4'
-        gamepadTimeOffsetInput.innerHTML = 'n/a'
-        labelElement.appendChild(gamepadTimeOffsetInput)
-        gamepadTimeOffsetInput.addEventListener('change', function(){
-                var value = parseFloat(gamepadTimeOffsetInput.value)
-                vrPlayer.vrExperience.videoToGamepadDelay = value
-                vrPlayer.seek(0)
-        })
-
-        this.update = function(){
-                if( vrPlayer.isStarted() ){
-                        startButton.disabled = true
-                }else{
-                        startButton.disabled = false                        
-                }
-                
-                currentTimeValue.innerHTML = vrPlayer.getCurrentTime().toFixed(2) + 'sec'
-                
-                if( vrPlayer.vrExperience !== null ){
-                        gamepadTimeOffsetValue.innerHTML = vrPlayer.vrExperience.videoToGamepadDelay
-                }
-                
-                videoDurationValue.innerHTML = vrPlayer.videoElement.duration.toFixed(2) + 'sec'
-        }
-}
-
-var THREEx = THREEx || {}
-
-THREEx.VRRecorder = function(){
-        // build gamepadRecorder
-        this._gamepadRecorder = new THREEx.GamepadRecorder()
-        // build WebvrRecorder
-        this._webvrRecorder = new THREEx.WebvrRecorder()
-}
-
-THREEx.VRRecorder.prototype.start = function () {
-        var _this = this
-console.log('ss')
-	navigator.getVRDisplays().then(function(displays){
-console.log('ddd')
-                var vrDisplay = null
-                for(var i = 0; i < displays.length; i++){
-                        if( displays[i].capabilities.canPresent === false )     continue
-                        vrDisplay = displays[i]
-                        break
-                }
-		// If there are no devices available, quit out.
-		if (vrDisplay === null) {
-    			console.warn('No devices available able to present.');
-			return;
-		}
-console.log('vrDisplay', vrDisplay)
-                _this._webvrRecorder.setVRDisplay(vrDisplay)
-                _this._webvrRecorder.start()
-                
-                _this._gamepadRecorder.start()        
-        })
-}
-
-////////////////////////////////////////////////////////////////////////////////
-//          Code Separator
-////////////////////////////////////////////////////////////////////////////////
-
-THREEx.VRRecorder.start = function(){
-	var vrRecorder = new THREEx.VRRecorder()
-        vrRecorder.start()
-        return vrRecorder
-}
+}));

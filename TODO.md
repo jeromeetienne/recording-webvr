@@ -3,7 +3,11 @@
 - see how to able Orbits controls as a given position
 - put 'vrPlayer.update(delta)' in vrPlayer itself
 - include it in lightsaberinvr
+- vrPlayer/vrRecorder arent recording webvr
+- rename vrExperience.camera into vrExperience.fixedCamera it may be absent
+- dump a vrExperience.json on vrRecorder.stop()
 
+- use filesystem .js to store the experience without downloading from browser ?
 ----------------
 - what is needed to tune an experience ?
   - play experience start.stop
@@ -29,7 +33,5 @@
   - what about after you did json ?
   - yeah no emergency
 
-  - DONE put a json format to store the whole experience
-    - various position
-    - gamepadrecord files, video files, 
-  - DONE move cloneObject into gamepad only
+- DONE put a json format to store the whole experience
+- DONE move cloneObject into gamepad only
