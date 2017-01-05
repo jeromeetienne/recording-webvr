@@ -402,20 +402,20 @@ THREEx.GamepadRecorder = function(){
         this._fetchNewRecordData = function(newRecord){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
-                // gamepads = JSON.parse(JSON.stringify(gamepads))
-                gamepads = THREEx.GamepadRecorder.cloneObject(gamepads)
+                // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+                gamepads = THREEx.GamepadRecorder._scloneObject(gamepads)
                 return gamepads
         }
         
         return
-
 }
+
 THREEx.GamepadRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
 THREEx.GamepadRecorder.prototype.constructor = THREEx.GamepadRecorder;
 
 // from http://stackoverflow.com/a/4460624
 // Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-THREEx.GamepadRecorder.cloneObject = function(item) {
+THREEx.GamepadRecorder._cloneObject = function(item) {
     if (!item) { return item; } // null, undefined values check
 
     var types = [ Number, String, Boolean ], 
@@ -432,7 +432,7 @@ THREEx.GamepadRecorder.cloneObject = function(item) {
         if (Object.prototype.toString.call( item ) === "[object Array]") {
             result = [];
             item.forEach(function(child, index, array) { 
-                result[index] = cloneObject( child );
+                result[index] = this._cloneObject( child );
             });
         } else if (typeof item == "object") {
             // testing that this is DOM
@@ -445,7 +445,7 @@ THREEx.GamepadRecorder.cloneObject = function(item) {
                     // it is an object literal
                     result = {};
                     for (var i in item) {
-                        result[i] = cloneObject( item[i] );
+                        result[i] = this._cloneObject( item[i] );
                     }
                 }
             } else {
@@ -619,15 +619,16 @@ THREEx.VRPlayer.prototype.update = function (deltaTime) {
 THREEx.VRPlayer.play = function(experienceUrl, camera){
 	var vrPlayer = new THREEx.VRPlayer()
         
-	
+	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)
 
+        // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
         var experienceBasename = matches[2]
         var experiencePath = matches[1]
 
-        vrPlayer.load(experiencePath, 'vr-experience.json', function onLoaded(){
+        vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
                 
         	// set camera position
@@ -775,3 +776,27 @@ THREEx.VRPlayerUI = function(vrPlayer){
         }
 }
 
+var THREEx = THREEx || {}
+
+THREEx.VRRecorder = function(){
+        // build gamepadRecorder
+        this._gamepadRecorder = new THREEx.GamepadRecorder()
+        // build WebvrRecorder
+        this._webvrRecorder = new THREEx.WebvrRecorder()
+}
+
+THREEx.VRRecorder.prototype.start = function () {
+        this._gamepadRecorder.start()
+        
+        this._webvrRecorder.start()
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//          Code Separator
+////////////////////////////////////////////////////////////////////////////////
+
+THREEx.VRRecorder.start = function(){
+	var vrRecorder = new THREEx.VRRecorder()
+        vrRecorder.start()
+        return vrRecorder
+}

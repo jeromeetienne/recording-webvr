@@ -17,7 +17,7 @@
 
 - rename all demo repository by demo.* and recording-webvr stay as is
   - there is nothing threex into it, which name to use ?
-  - MixedVideo ?
+  - MixedRealityVideo.js ? javascript tools to record your VR experiences
 
 - DONE package it all in a single .js in build
 - file are getting huge... how to do better ?

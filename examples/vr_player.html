@@ -353,14 +353,11 @@ break;
 <script src='../build/recording-webvr.js'></script>
 <script>
 	var mode = ''
-	// mode = 'record'
-	mode = 'play'
+	mode = 'record'
+	// mode = 'play'
 
 	if( mode === 'record' ){
-		// start recording gamepads
-		var gamepadRecorder = new THREEx.GamepadRecorder()
-		gamepadRecorder.start()
-		// gamepadRecorder.stop()
+		THREEx.VRRecorder.start()
 	}
 	
 	if( mode === 'play' || mode === 'edit' ){

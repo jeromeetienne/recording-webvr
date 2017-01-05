@@ -8,20 +8,20 @@ THREEx.GamepadRecorder = function(){
         this._fetchNewRecordData = function(newRecord){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
-                // gamepads = JSON.parse(JSON.stringify(gamepads))
-                gamepads = THREEx.GamepadRecorder.cloneObject(gamepads)
+                // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+                gamepads = THREEx.GamepadRecorder._scloneObject(gamepads)
                 return gamepads
         }
         
         return
-
 }
+
 THREEx.GamepadRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
 THREEx.GamepadRecorder.prototype.constructor = THREEx.GamepadRecorder;
 
 // from http://stackoverflow.com/a/4460624
 // Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-THREEx.GamepadRecorder.cloneObject = function(item) {
+THREEx.GamepadRecorder._cloneObject = function(item) {
     if (!item) { return item; } // null, undefined values check
 
     var types = [ Number, String, Boolean ], 
@@ -38,7 +38,7 @@ THREEx.GamepadRecorder.cloneObject = function(item) {
         if (Object.prototype.toString.call( item ) === "[object Array]") {
             result = [];
             item.forEach(function(child, index, array) { 
-                result[index] = cloneObject( child );
+                result[index] = this._cloneObject( child );
             });
         } else if (typeof item == "object") {
             // testing that this is DOM
@@ -51,7 +51,7 @@ THREEx.GamepadRecorder.cloneObject = function(item) {
                     // it is an object literal
                     result = {};
                     for (var i in item) {
-                        result[i] = cloneObject( item[i] );
+                        result[i] = this._cloneObject( item[i] );
                     }
                 }
             } else {
