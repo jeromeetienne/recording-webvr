@@ -107,7 +107,7 @@ THREEx.VRPlayer.prototype.start = function(){
 	// setTimeout(function(){
         //         _this._gamepadPlayer.start()
 	// }, 0.05*1000)
-debugger
+// debugger
         if( _this._webvrPlayer.records )      _this._webvrPlayer.start()
                         
         if( _this._gamepadPlayer.records )      _this._gamepadPlayer.start()

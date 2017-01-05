@@ -10,7 +10,7 @@
         "videoToWebvrDelay" : 0,
         "webvrBaseUrl" : "webvrrecords",
 
-        "nGamepadFiles" : 0,
+        "nGamepadFiles" : 5,
         "videoToGamepadDelay" : 0,
         "gamepadBaseUrl" : "gamepadrecords"        
 }
