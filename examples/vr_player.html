@@ -352,7 +352,7 @@
 <!-- add gamepad recorder/player -->
 <script src='../build/recording-webvr.js'></script>
 <script>
-	// THREEx.VRRecorder.start({
+	// VRRecording.record({
 	// 	gamepad : false,
 	// 	webvr : true,
 	// })
@@ -361,7 +361,7 @@
 	var experienceUrl = 'vrExperiences/video1/vr-experience.json'
 	// // var experienceUrl = 'vrExperiences/mvi_1731/vr-experience.json'
 	// var experienceUrl = 'vrExperiences/mvi_1733/vr-experience.json'
-	THREEx.VRPlayer.play(experienceUrl, camera, 'play')
+	VRRecording.play(experienceUrl, camera, 'play')
 	// controls.enabled = false
 	// THREEx.VRPlayer.play(experienceUrl, camera, 'edit')
 </script>

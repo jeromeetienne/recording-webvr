@@ -60,13 +60,4 @@ THREEx.VRRecorder.prototype.stop = function () {
                 this._gamepadRecorder.stop()        
         }
 }
-////////////////////////////////////////////////////////////////////////////////
-//          Code Separator
-////////////////////////////////////////////////////////////////////////////////
 
-THREEx.VRRecorder.start = function(options){
-	var vrRecorder = new THREEx.VRRecorder(options)
-        vrRecorder.start()
-        window.vrRecorder = vrRecorder 
-        return vrRecorder
-};
