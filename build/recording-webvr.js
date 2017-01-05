@@ -27,7 +27,7 @@ THREEx.JsonPlayer = function(){
                 return _this.currentTime !== null ? true : false
         }
         this.pause = function(onOff){
-                console.assert( this.isStarted() )
+                // console.assert( this.isStarted() )
                 _this.paused = onOff
         }
         this.update = function(deltaTime){
@@ -44,6 +44,7 @@ THREEx.JsonPlayer = function(){
         return
         
         function onCurrentTimeChange(){
+                if( _this.records === null )    return
                 var timestamp = _this.records.startedAt + _this.currentTime * 1000
                 var values = _this.records.values
                 for(var i = 0; i < values.length; i++){
@@ -418,7 +419,6 @@ THREEx.VRPlayer.prototype.start = function(){
 	// }, 0.05*1000)
 // debugger
         if( _this._webvrPlayer.records )      _this._webvrPlayer.start()
-                        
         if( _this._gamepadPlayer.records )      _this._gamepadPlayer.start()
 
 	setTimeout(function(){

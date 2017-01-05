@@ -4,6 +4,7 @@
 - put 'vrPlayer.update(delta)' in vrPlayer itself
 - include it in lightsaberinvr
 - vrPlayer/vrRecorder arent recording webvr
+
 - rename vrExperience.camera into vrExperience.fixedCamera it may be absent
 - dump a vrExperience.json on vrRecorder.stop()
 
