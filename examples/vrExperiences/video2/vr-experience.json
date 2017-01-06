@@ -1,0 +1,22 @@
+{
+	"videoSrc" : "../mvi_0000/MVI_0000.mp4",
+	"camera": {
+		"position": [
+			0,
+			0,
+			0
+		],
+		"quaternion": [
+			0,
+			0,
+			0,
+			1
+		]
+	},
+	"nWebvrFiles": 2,
+	"videoToWebvrDelay": 0,
+	"webvrBaseUrl": "webvrrecords",
+	"nGamepadFiles": 0,
+	"videoToGamepadDelay": 0,
+	"gamepadBaseUrl": "gamepadrecords"
+}

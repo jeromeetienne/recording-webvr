@@ -10,24 +10,24 @@ THREEx.JsonPlayer = function(){
         ////////////////////////////////////////////////////////////////////////////////
         //          load files
         ////////////////////////////////////////////////////////////////////////////////
-        this.currentTime = null
+        this.currentTime = 0
+        this.started = false
         this.paused = false
         this.start = function(){
-                console.assert( this.isStarted() === false )
-                _this.currentTime = 0
-                _this.paused = false
+                console.assert( this.started === false )
+                this.started = true
+                this.paused = false
 
                 onCurrentTimeChange()
         }
         this.stop = function(){
-                _this.currentTime = null
-                _this.paused = false
+                this.started = false
+                this.paused = false
         }
         this.isStarted = function(){
-                return _this.currentTime !== null ? true : false
+                return _this.started
         }
         this.pause = function(onOff){
-                // console.assert( this.isStarted() )
                 _this.paused = onOff
         }
         this.update = function(deltaTime){
@@ -36,7 +36,6 @@ THREEx.JsonPlayer = function(){
                 if( _this.paused === false ){
                         _this.currentTime += deltaTime * _this.playbackRate                        
                 }
-
                 
                 onCurrentTimeChange()
         }

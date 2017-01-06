@@ -100,21 +100,14 @@ THREEx.VRPlayer.prototype.start = function(){
         this.videoElement.src = this.path + this.vrExperience.videoSrc 
         document.body.appendChild(this.videoElement)
 
-        // // start gamepadPlayer
-        // video.play();
-        // 
-        // // start video after
-	// setTimeout(function(){
-        //         _this._gamepadPlayer.start()
-	// }, 0.05*1000)
-// debugger
-        if( _this._webvrPlayer.records )      _this._webvrPlayer.start()
-        if( _this._gamepadPlayer.records )      _this._gamepadPlayer.start()
+        
+        
 
-	setTimeout(function(){
-                _this.videoElement.currentTime = 0        
-                _this.videoElement.play();
-	}, _this.vrExperience.videoToGamepadDelay*1000)
+        this.videoElement.play()
+        this._webvrPlayer.start()
+        this._gamepadPlayer.start()
+
+        this.setCurrentTime(0)
 
 	// polyfill to high-jack gamepad API
 	navigator.getGamepads = function(){
@@ -152,13 +145,12 @@ THREEx.VRPlayer.prototype.seek = function (delta) {
 }
 
 THREEx.VRPlayer.prototype.pause = function (value) {
-        
+        // handle default value        
         if( value === undefined ){
                 value = this._gamepadPlayer.paused ? false : true
         }
-        
-        this._webvrPlayer.pause(value)
-        this._gamepadPlayer.pause(value)
+
+        // pause videoElement
         if( value === true ){
                 this.videoElement.pause()
         }else{
@@ -166,6 +158,10 @@ THREEx.VRPlayer.prototype.pause = function (value) {
                         this.videoElement.play()
                 }
         }
+
+        // pause _webvrPlayer and _gamepadPlayer
+        this._webvrPlayer.pause(value)
+        this._gamepadPlayer.pause(value)
 }
 
 THREEx.VRPlayer.prototype.update = function (deltaTime) {

@@ -10,24 +10,24 @@ THREEx.JsonPlayer = function(){
         ////////////////////////////////////////////////////////////////////////////////
         //          load files
         ////////////////////////////////////////////////////////////////////////////////
-        this.currentTime = null
+        this.currentTime = 0
+        this.started = false
         this.paused = false
         this.start = function(){
-                console.assert( this.isStarted() === false )
-                _this.currentTime = 0
-                _this.paused = false
+                console.assert( this.started === false )
+                this.started = true
+                this.paused = false
 
                 onCurrentTimeChange()
         }
         this.stop = function(){
-                _this.currentTime = null
-                _this.paused = false
+                this.started = false
+                this.paused = false
         }
         this.isStarted = function(){
-                return _this.currentTime !== null ? true : false
+                return _this.started
         }
         this.pause = function(onOff){
-                // console.assert( this.isStarted() )
                 _this.paused = onOff
         }
         this.update = function(deltaTime){
@@ -36,7 +36,6 @@ THREEx.JsonPlayer = function(){
                 if( _this.paused === false ){
                         _this.currentTime += deltaTime * _this.playbackRate                        
                 }
-
                 
                 onCurrentTimeChange()
         }
@@ -116,7 +115,7 @@ THREEx.JsonRecorder = function(){
         this.autoSaveMaxLength = 1000
         this.autoSaveBaseName = 'jsonrecords'
         this.updatePeriod = 1000/100
-        var autoSaveCounter = 0
+        this.autoSaveCounter = 0
 
 
         var records = {
@@ -130,6 +129,7 @@ THREEx.JsonRecorder = function(){
         var timerId = null
         this.start = function(){
                 records.startedAt = Date.now()
+                this.autoSaveCounter = 0
                 
                 console.assert(timerId === null)
                 timerId = setInterval(update, _this.updatePeriod)
@@ -138,8 +138,6 @@ THREEx.JsonRecorder = function(){
         this.stop = function(){
                 if( _this.autoSave === true )   autoSave()
 
-                autoSaveCounter = 0
-                
                 clearInterval(timerId)
                 timerId = null
                 return this
@@ -161,13 +159,13 @@ THREEx.JsonRecorder = function(){
         
         function autoSave(){
                 // save records
-                var basename = _this.autoSaveBaseName+pad(autoSaveCounter, 4)+'.json'
+                var basename = _this.autoSaveBaseName+pad(_this.autoSaveCounter, 4)+'.json'
                 var jsonString = JSON.stringify(records, null, "\t"); 
                 // var jsonString = JSON.stringify(records); 
                 download(jsonString, basename, 'application/json');
 
-                // update autoSaveCounter
-                autoSaveCounter++;                
+                // update _this.autoSaveCounter
+                _this.autoSaveCounter++;                
                 
                 // clear records
                 records.startedAt = Date.now()
@@ -186,9 +184,9 @@ THREEx.WebvrPlayer = function(){
         
         this.frameData = null   // TODO put a fake one
         
-        this._onNewRecord = function(newRecord){
-console.log('update frameData')
-                this.frameData = newRecord
+        this._onNewRecord = function(frameData){
+console.log('update frameData', frameData.pose.position)
+                this.frameData = frameData
         }
 }
 THREEx.WebvrPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
@@ -410,21 +408,14 @@ THREEx.VRPlayer.prototype.start = function(){
         this.videoElement.src = this.path + this.vrExperience.videoSrc 
         document.body.appendChild(this.videoElement)
 
-        // // start gamepadPlayer
-        // video.play();
-        // 
-        // // start video after
-	// setTimeout(function(){
-        //         _this._gamepadPlayer.start()
-	// }, 0.05*1000)
-// debugger
-        if( _this._webvrPlayer.records )      _this._webvrPlayer.start()
-        if( _this._gamepadPlayer.records )      _this._gamepadPlayer.start()
+        
+        
 
-	setTimeout(function(){
-                _this.videoElement.currentTime = 0        
-                _this.videoElement.play();
-	}, _this.vrExperience.videoToGamepadDelay*1000)
+        this.videoElement.play()
+        this._webvrPlayer.start()
+        this._gamepadPlayer.start()
+
+        this.setCurrentTime(0)
 
 	// polyfill to high-jack gamepad API
 	navigator.getGamepads = function(){
@@ -462,13 +453,12 @@ THREEx.VRPlayer.prototype.seek = function (delta) {
 }
 
 THREEx.VRPlayer.prototype.pause = function (value) {
-        
+        // handle default value        
         if( value === undefined ){
                 value = this._gamepadPlayer.paused ? false : true
         }
-        
-        this._webvrPlayer.pause(value)
-        this._gamepadPlayer.pause(value)
+
+        // pause videoElement
         if( value === true ){
                 this.videoElement.pause()
         }else{
@@ -476,6 +466,10 @@ THREEx.VRPlayer.prototype.pause = function (value) {
                         this.videoElement.play()
                 }
         }
+
+        // pause _webvrPlayer and _gamepadPlayer
+        this._webvrPlayer.pause(value)
+        this._gamepadPlayer.pause(value)
 }
 
 THREEx.VRPlayer.prototype.update = function (deltaTime) {
@@ -617,13 +611,16 @@ THREEx.VRRecorder = function(options){
         }
 }
 
+/**
+ * start recording
+ */
 THREEx.VRRecorder.prototype.start = function () {
         var _this = this
         
         // start gamepadRecorder
         if( _this._gamepadRecorder !== null ){
                 _this._gamepadRecorder.start()
-        }    
+        }
 
         if( _this._webvrRecorder !== null ){
                 navigator.getVRDisplays().then(function(displays){
@@ -636,10 +633,9 @@ THREEx.VRRecorder.prototype.start = function () {
                         }
         		// If there are no devices available, quit out.
         		if (vrDisplay === null) {
-            			console.warn('No devices available able to present.');
+            			console.error('No devices available able to present.');
         			return;
         		}
-        console.log('vrDisplay', vrDisplay)
                         // start _webvrRecorder
                         _this._webvrRecorder.setVRDisplay(vrDisplay)
                         _this._webvrRecorder.start()                        
@@ -647,15 +643,39 @@ THREEx.VRRecorder.prototype.start = function () {
         }
 }
 
+/**
+ * stop recording
+ */
 THREEx.VRRecorder.prototype.stop = function () {
+        // stop _webvrRecorder
         if( this._webvrRecorder ){
                 this._webvrRecorder.setVRDisplay(null)
                 this._webvrRecorder.stop()                
         }
-
+        // stop _gamepadRecorder
         if( this._gamepadRecorder ){
                 this._gamepadRecorder.stop()        
         }
+console.log('this._webvrRecorder.autoSaveCounter', this._webvrRecorder.autoSaveCounter)        
+        // build a vrExperience for this recording
+        var vrExperience = {
+                "videoSrc" : "/your/video/file/goeshere.m4v",
+                "camera" : {
+                        "position" : [0,0,0],
+                        "quaternion" : [0,0,0,1]
+                },
+                "nWebvrFiles" : this._webvrRecorder ? this._webvrRecorder.autoSaveCounter : 0,
+                "videoToWebvrDelay" : 0,
+                "webvrBaseUrl" : "webvrrecords",
+
+                "nGamepadFiles" : this._gamepadRecorder ? this._gamepadRecorder.autoSaveCounter : 0,
+                "videoToGamepadDelay" : 0,
+                "gamepadBaseUrl" : "gamepadrecords"        
+        }
+        // download the vr-experience.json
+        var jsonString = JSON.stringify(vrExperience, null, "\t"); 
+        download(jsonString, 'vr-experience.json', 'application/json');
+
 }
 
 var VRRecording = {}
@@ -727,6 +747,10 @@ VRRecording.record = function(options){
 	var vrRecorder = new THREEx.VRRecorder(options)
         vrRecorder.start()
         window.vrRecorder = vrRecorder 
+        
+        
+        
+        
         return vrRecorder
 };
 //download.js v4.2, by dandavis; 2008-2016. [CCBY2] see http://danml.com/download.html for tests/usage

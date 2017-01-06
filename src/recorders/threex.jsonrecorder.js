@@ -10,7 +10,7 @@ THREEx.JsonRecorder = function(){
         this.autoSaveMaxLength = 1000
         this.autoSaveBaseName = 'jsonrecords'
         this.updatePeriod = 1000/100
-        var autoSaveCounter = 0
+        this.autoSaveCounter = 0
 
 
         var records = {
@@ -24,6 +24,7 @@ THREEx.JsonRecorder = function(){
         var timerId = null
         this.start = function(){
                 records.startedAt = Date.now()
+                this.autoSaveCounter = 0
                 
                 console.assert(timerId === null)
                 timerId = setInterval(update, _this.updatePeriod)
@@ -32,8 +33,6 @@ THREEx.JsonRecorder = function(){
         this.stop = function(){
                 if( _this.autoSave === true )   autoSave()
 
-                autoSaveCounter = 0
-                
                 clearInterval(timerId)
                 timerId = null
                 return this
@@ -55,13 +54,13 @@ THREEx.JsonRecorder = function(){
         
         function autoSave(){
                 // save records
-                var basename = _this.autoSaveBaseName+pad(autoSaveCounter, 4)+'.json'
+                var basename = _this.autoSaveBaseName+pad(_this.autoSaveCounter, 4)+'.json'
                 var jsonString = JSON.stringify(records, null, "\t"); 
                 // var jsonString = JSON.stringify(records); 
                 download(jsonString, basename, 'application/json');
 
-                // update autoSaveCounter
-                autoSaveCounter++;                
+                // update _this.autoSaveCounter
+                _this.autoSaveCounter++;                
                 
                 // clear records
                 records.startedAt = Date.now()

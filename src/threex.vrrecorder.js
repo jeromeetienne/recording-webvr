@@ -20,13 +20,16 @@ THREEx.VRRecorder = function(options){
         }
 }
 
+/**
+ * start recording
+ */
 THREEx.VRRecorder.prototype.start = function () {
         var _this = this
         
         // start gamepadRecorder
         if( _this._gamepadRecorder !== null ){
                 _this._gamepadRecorder.start()
-        }    
+        }
 
         if( _this._webvrRecorder !== null ){
                 navigator.getVRDisplays().then(function(displays){
@@ -39,10 +42,9 @@ THREEx.VRRecorder.prototype.start = function () {
                         }
         		// If there are no devices available, quit out.
         		if (vrDisplay === null) {
-            			console.warn('No devices available able to present.');
+            			console.error('No devices available able to present.');
         			return;
         		}
-        console.log('vrDisplay', vrDisplay)
                         // start _webvrRecorder
                         _this._webvrRecorder.setVRDisplay(vrDisplay)
                         _this._webvrRecorder.start()                        
@@ -50,14 +52,38 @@ THREEx.VRRecorder.prototype.start = function () {
         }
 }
 
+/**
+ * stop recording
+ */
 THREEx.VRRecorder.prototype.stop = function () {
+        // stop _webvrRecorder
         if( this._webvrRecorder ){
                 this._webvrRecorder.setVRDisplay(null)
                 this._webvrRecorder.stop()                
         }
-
+        // stop _gamepadRecorder
         if( this._gamepadRecorder ){
                 this._gamepadRecorder.stop()        
         }
+console.log('this._webvrRecorder.autoSaveCounter', this._webvrRecorder.autoSaveCounter)        
+        // build a vrExperience for this recording
+        var vrExperience = {
+                "videoSrc" : "/your/video/file/goeshere.m4v",
+                "camera" : {
+                        "position" : [0,0,0],
+                        "quaternion" : [0,0,0,1]
+                },
+                "nWebvrFiles" : this._webvrRecorder ? this._webvrRecorder.autoSaveCounter : 0,
+                "videoToWebvrDelay" : 0,
+                "webvrBaseUrl" : "webvrrecords",
+
+                "nGamepadFiles" : this._gamepadRecorder ? this._gamepadRecorder.autoSaveCounter : 0,
+                "videoToGamepadDelay" : 0,
+                "gamepadBaseUrl" : "gamepadrecords"        
+        }
+        // download the vr-experience.json
+        var jsonString = JSON.stringify(vrExperience, null, "\t"); 
+        download(jsonString, 'vr-experience.json', 'application/json');
+
 }
 

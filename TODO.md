@@ -2,13 +2,12 @@
   - videoToGamepadDelay can be negative or not
 - see how to able Orbits controls as a given position
 - put 'vrPlayer.update(delta)' in vrPlayer itself
-- include it in lightsaberinvr
-- vrPlayer/vrRecorder arent recording webvr
 
 - rename vrExperience.camera into vrExperience.fixedCamera it may be absent
 - dump a vrExperience.json on vrRecorder.stop()
 
 - use filesystem .js to store the experience without downloading from browser ?
+  - test qt file download
 ----------------
 - what is needed to tune an experience ?
   - play experience start.stop

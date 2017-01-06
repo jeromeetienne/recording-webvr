@@ -67,5 +67,9 @@ VRRecording.record = function(options){
 	var vrRecorder = new THREEx.VRRecorder(options)
         vrRecorder.start()
         window.vrRecorder = vrRecorder 
+        
+        
+        
+        
         return vrRecorder
 };
