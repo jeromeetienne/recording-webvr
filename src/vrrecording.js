@@ -7,7 +7,7 @@ var VRRecording = {}
 VRRecording.play = function(experienceUrl, camera, mode){
         console.assert( mode === 'edit' ||  mode === 'play' )
 	var vrPlayer = new THREEx.VRPlayer()
-        
+window.vrPlayer = vrPlayer
 	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)
@@ -22,9 +22,9 @@ VRRecording.play = function(experienceUrl, camera, mode){
                 
                 if( mode === 'play' ){
                         // set camera position
-                        if( vrPlayer.vrExperience.camera !== undefined ){
-                                camera.position.fromArray(vrPlayer.vrExperience.camera.position)
-                		camera.quaternion.fromArray(vrPlayer.vrExperience.camera.quaternion)                                
+                        if( vrPlayer.vrExperience.fixedCamera !== undefined ){
+                                camera.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
+                		camera.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion)                                
                         }
                 }else if( mode === 'edit' ){
         		// enable the controls during tuning
@@ -59,6 +59,9 @@ VRRecording.play = function(experienceUrl, camera, mode){
         return vrPlayer
 }
 
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //          Code Separator
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +69,8 @@ VRRecording.play = function(experienceUrl, camera, mode){
 VRRecording.record = function(options){
 	var vrRecorder = new THREEx.VRRecorder(options)
         vrRecorder.start()
-        window.vrRecorder = vrRecorder 
+        // export it globally - easier for debug
+        window.vrRecorder = vrRecorder
         
         
         

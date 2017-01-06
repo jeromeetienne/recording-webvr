@@ -1,6 +1,6 @@
 {
 	"videoSrc" : "../mvi_0000/MVI_0000.mp4",
-	"camera": {
+	"fixedCamera": {
 		"position": [
 			0,
 			0,

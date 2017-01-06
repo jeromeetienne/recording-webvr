@@ -19,6 +19,11 @@
 	<body>
 		<script src='vendor/three.js/build/three.js'></script>
 
+<script src='../build/recording-webvr.js'></script>
+<script>
+WebVRPolyfill.overloadWebvrAPI()
+</script>
+
 		<script src='vendor/three.js/examples/js/controls/OrbitControls.js'></script>
 
 		<script src='vendor/three.js/examples/js/controls/VRControls.js'></script>
@@ -32,7 +37,7 @@
 
 			if ( WEBVR.isAvailable() === false ) {
 
-				// document.body.appendChild( WEBVR.getMessage() );
+				document.body.appendChild( WEBVR.getMessage() );
 
 			}
 
@@ -350,7 +355,6 @@
 <!-- <script src='vendor/phoneasvrcontroller.js'></script> -->
 
 <!-- add gamepad recorder/player -->
-<script src='../build/recording-webvr.js'></script>
 <script>
 	// VRRecording.record({
 	// 	gamepad : false,

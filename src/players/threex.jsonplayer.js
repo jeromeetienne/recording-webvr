@@ -14,6 +14,7 @@ THREEx.JsonPlayer = function(){
         this.started = false
         this.paused = false
         this.start = function(){
+console.log('start player', this)
                 console.assert( this.started === false )
                 this.started = true
                 this.paused = false

@@ -6,7 +6,7 @@ THREEx.WebvrPlayer = function(){
         this.frameData = null   // TODO put a fake one
         
         this._onNewRecord = function(frameData){
-console.log('update frameData', frameData.pose.position)
+// console.log('update frameData', frameData.pose.position)
                 this.frameData = frameData
         }
 }
