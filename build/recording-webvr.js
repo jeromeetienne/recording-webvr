@@ -192,11 +192,7 @@ WebVRPolyfill.overloadWebvrAPI = function(){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//          Code Separator
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-//          PositionTrackingManual
+//          PositionTrackingWebvr
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -227,7 +223,6 @@ window.PositionTrackingWebvr  = function(onReady){
         setInterval(function(){
                 if( window.vrPlayer === undefined ) return
                 if( vrPlayer._webvrPlayer.frameData === null ) return
-                // console.log('vrPlayer', vrPlayer._webvrPlayer.frameData)
                 _this._updateWithFrameData(vrPlayer._webvrPlayer.frameData)
         }, 1000/100)
         
@@ -239,16 +234,19 @@ window.PositionTrackingWebvr  = function(onReady){
 //          Code Separator
 ////////////////////////////////////////////////////////////////////////////////
 
+// to init positionalTracking at requestPresent
+window.positionalTracking = null	
+
 // to init positionalTracking immediatly
-window.positionalTracking = createPositionalTracking()
+// window.positionalTracking = createPositionalTracking()
 
 function createPositionalTracking(){
-
         var positionalTracking = new PositionTrackingWebvr(function onReady(){
                 console.log('PositionTrackingWebvr is ready')
         })
         return positionalTracking
 }
+
 var THREEx = THREEx || {}
 
 THREEx.JsonPlayer = function(){
@@ -494,7 +492,7 @@ THREEx.GamepadRecorder = function(){
         this._fetchNewRecordData = function(newRecord){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
-                // cloneObject Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+                // cloneObject Needed because in chrome, gamepad struct doesnt support JSON.parse(JSON.stringify(data))
                 gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
                 return gamepads
         }
@@ -939,7 +937,10 @@ var VRRecording = {}
 VRRecording.play = function(experienceUrl, camera, mode){
         console.assert( mode === 'edit' ||  mode === 'play' )
 	var vrPlayer = new THREEx.VRPlayer()
-window.vrPlayer = vrPlayer
+
+        // export it globally - easier for debug
+        window.vrPlayer = vrPlayer
+
 	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)
