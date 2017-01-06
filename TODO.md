@@ -1,13 +1,12 @@
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
-- see how to able Orbits controls as a given position
-- put 'vrPlayer.update(delta)' in vrPlayer itself
-
-- rename vrExperience.camera into vrExperience.fixedCamera it may be absent
-- dump a vrExperience.json on vrRecorder.stop()
+  - same for webvrDelay i imagine
+- what about controls ?
+  - see how to able Orbits controls as a given position - important while tuning
 
 - use filesystem .js to store the experience without downloading from browser ?
   - test qt file download
+
 ----------------
 - what is needed to tune an experience ?
   - play experience start.stop
@@ -23,6 +22,8 @@
   - there is nothing threex into it, which name to use ?
   - MixedRealityVideo.js ? javascript tools to record your VR experiences
 
+- DONE rename vrExperience.camera into vrExperience.fixedCamera it may be absent
+- DONE dump a vrExperience.json on vrRecorder.stop()
 - DONE package it all in a single .js in build
 - file are getting huge... how to do better ?
   - store only delta

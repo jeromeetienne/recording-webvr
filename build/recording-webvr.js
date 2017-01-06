@@ -908,8 +908,8 @@ THREEx.VRRecorder.prototype.stop = function () {
         if( this._gamepadRecorder ){
                 this._gamepadRecorder.stop()        
         }
-console.log('this._webvrRecorder.autoSaveCounter', this._webvrRecorder.autoSaveCounter)        
-        // build a vrExperience for this recording
+
+        // build a vrExperience for this recording and download it
         var vrExperience = {
                 "videoSrc" : "/your/video/file/goeshere.m4v",
                 "camera" : {
@@ -922,12 +922,10 @@ console.log('this._webvrRecorder.autoSaveCounter', this._webvrRecorder.autoSaveC
 
                 "nGamepadFiles" : this._gamepadRecorder ? this._gamepadRecorder.autoSaveCounter : 0,
                 "videoToGamepadDelay" : 0,
-                "gamepadBaseUrl" : "gamepadrecords"        
+                "gamepadBaseUrl" : "gamepadrecords"
         }
-        // download the vr-experience.json
-        var jsonString = JSON.stringify(vrExperience, null, "\t"); 
+        var jsonString = JSON.stringify(vrExperience, null, "\t");
         download(jsonString, 'vr-experience.json', 'application/json');
-
 }
 
 var VRRecording = {}
