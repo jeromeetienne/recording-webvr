@@ -6,14 +6,17 @@ var VRRecording = {}
 
 VRRecording.play = function(experienceUrl, camera, mode){
         console.assert( mode === 'edit' ||  mode === 'play' )
+        
+        // create vrPlayer
 	var vrPlayer = new THREEx.VRPlayer()
+        document.body.appendChild(vrPlayer.videoElement)
 
         // export it globally - easier for debug
         window.vrPlayer = vrPlayer
 
-	// create the vrPlayerUI
-	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
-	document.body.appendChild(vrPlayerUI.domElement)
+	// // create the vrPlayerUI
+	// var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
+	// document.body.appendChild(vrPlayerUI.domElement)
 
         // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
@@ -22,10 +25,9 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
-                
                 if( mode === 'play' ){
                         // set camera position
-                        if( vrPlayer.vrExperience.fixedCamera !== undefined ){
+                        if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){
                                 camera.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
                 		camera.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion)                                
                         }
@@ -56,7 +58,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 		if( vrPlayer.isStarted() ){
 			vrPlayer.update(delta)				
 		}
-		vrPlayerUI.update()				
+		// vrPlayerUI.update()				
 	})
 
         return vrPlayer
@@ -75,8 +77,6 @@ VRRecording.record = function(options){
         // export it globally - easier for debug
         window.vrRecorder = vrRecorder
         
-        
-        
-        
+
         return vrRecorder
 };

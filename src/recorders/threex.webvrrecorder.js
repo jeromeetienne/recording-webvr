@@ -19,5 +19,6 @@ THREEx.WebvrRecorder = function(){
                 return this
         }
 }
+
 THREEx.WebvrRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
 THREEx.WebvrRecorder.prototype.constructor = THREEx.WebvrRecorder;

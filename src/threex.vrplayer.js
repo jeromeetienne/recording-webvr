@@ -9,10 +9,10 @@ THREEx.VRPlayer = function(){
         this.videoElement = document.createElement('video')
         this.videoElement.style.position = 'absolute'
         this.videoElement.style.top = '0px'
+        this.videoElement.style.left = '0px'
         this.videoElement.style.zIndex = '-1'
         this.videoElement.muted = true
         this.videoElement.playbackRate = this._playbackRate
-        document.body.appendChild(this.videoElement)
 
         // build webvrPlayer
         this._webvrPlayer = new THREEx.WebvrPlayer()
@@ -98,10 +98,6 @@ THREEx.VRPlayer.prototype.start = function(){
         var _this = this
         // build video element
         this.videoElement.src = this.path + this.vrExperience.videoSrc 
-        document.body.appendChild(this.videoElement)
-
-        
-        
 
         this.videoElement.play()
         this._webvrPlayer.start()

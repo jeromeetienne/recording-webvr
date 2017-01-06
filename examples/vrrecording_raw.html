@@ -1,3 +1,4 @@
+<body>
 <script src='vendor/three.js/build/three.js'></script>
 
 <!-- enable PhoneAsDaydreamController. it overloads gamepad api -->
@@ -14,43 +15,28 @@
 
 <script src='../build/recording-webvr.js'></script>
 <script>
-	// VRRecording.record()
+	VRRecording.record()
+
+	// var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
+	// var vrPlayer = VRRecording.play(experienceUrl, undefined, 'play')
+	// vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
 </script>
 
 <div style="width: 49%; float: left">
-        <h1>WebVR Framedata - Raw Data</h1>
+        <h1>WebVR - Framedata</h1>
 	<pre id='outputWebvr'></pre>
+        <h1>WebVR - vrDisplay</h1>
+	<pre id='outputVrDisplay'></pre>
 	<canvas id='myCanvas'></canvas>
 </div>
 <div style="width: 49%; float: left">
-        <h1>Gamepad API - Raw Data</h1>
+        <h1>Gamepads</h1>
 	<pre id='outputGamepad'></pre>
 </div>
 
 <script>
 	////////////////////////////////////////////////////////////////////////////////
-	//          dump gamepads
-	////////////////////////////////////////////////////////////////////////////////
-
-	function dumpGamepad(){
-		var domElement = document.querySelector('#outputGamepad')
-
-		var text = ''
-		var gamepads = navigator.getGamepads()
-		for(var i = 0; i < gamepads.length; i++){
-			var gamepad = THREEx.GamepadRecorder._cloneObject(gamepads[i])
-			text += JSON.stringify(gamepad, null, '\t')+'\n'
-		}
-		if( text.length === 0 ) text = 'no gamepad connected'
-
-		domElement.innerText = text
-		setTimeout(dumpGamepad, 1000/10)
-	}
-
-	setTimeout(dumpGamepad, 0)
-
-	////////////////////////////////////////////////////////////////////////////////
-	//          Code Separator
+	//          get vrDisplay
 	////////////////////////////////////////////////////////////////////////////////
 
 	// get vrDisplay
@@ -69,6 +55,11 @@
 		vrDisplay.requestPresent([{
 			source: document.querySelector('#myCanvas')
 		}]);
+
+		// display vrDisplay
+		var text = JSON.stringify(vrDisplay, null, '\t')+'\n'
+		var domElement = document.querySelector('#outputVrDisplay')
+		domElement.innerText = text
 	})
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +72,6 @@
 		vrDisplay.getFrameData(frameData);
 
 		var text = JSON.stringify(frameData, null, '\t')+'\n'
-
 		var domElement = document.querySelector('#outputWebvr')
 		domElement.innerText = text
 		setTimeout(dumpFrameData, 1000/10)
@@ -89,3 +79,81 @@
 
 	setTimeout(dumpFrameData, 0)
 </script>
+<script>
+	////////////////////////////////////////////////////////////////////////////////
+	//          dump gamepads periodically
+	////////////////////////////////////////////////////////////////////////////////
+	function dumpGamepad(){
+		var domElement = document.querySelector('#outputGamepad')
+
+		var text = ''
+		var gamepads = navigator.getGamepads()
+		for(var i = 0; i < gamepads.length; i++){
+			var gamepad = cloneObject(gamepads[i])
+			text += JSON.stringify(gamepad, null, '\t')+'\n'
+		}
+		if( text.length === 0 ) text = 'no gamepad connected'
+
+		domElement.innerText = text
+		setTimeout(dumpGamepad, 1000/10)
+	}
+
+	setTimeout(dumpGamepad, 0)
+        
+        // from http://stackoverflow.com/a/4460624
+        // Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+        function cloneObject(item) {
+                var _this = this
+
+                if (!item) { return item; } // null, undefined values check
+                
+                var types = [ Number, String, Boolean ], 
+                result;
+                
+                // normalizing primitives if someone did new String('aaa'), or new Number('444');
+                types.forEach(function(type) {
+                        if (item instanceof type) {
+                                result = type( item );
+                        }
+                });
+                
+                if (typeof result == "undefined") {
+                        if (Object.prototype.toString.call( item ) === "[object Array]") {
+                                result = [];
+                                item.forEach(function(child, index, array) { 
+                                        result[index] = cloneObject( child );
+                                });
+                        } else if (typeof item == "object") {
+                                // testing that this is DOM
+                                if (item.nodeType && typeof item.cloneNode == "function") {
+                                        var result = item.cloneNode( true );    
+                                } else if (!item.prototype) { // check that this is a literal
+                                        if (item instanceof Date) {
+                                                result = new Date(item);
+                                        } else {
+                                                // it is an object literal
+                                                result = {};
+                                                for (var i in item) {
+                                                        result[i] = cloneObject( item[i] );
+                                                }
+                                        }
+                                } else {
+                                        // depending what you would like here,
+                                        // just keep the reference, or create new object
+                                        if (false && item.constructor) {
+                                                // would not advice to do that, reason? Read below
+                                                result = new item.constructor();
+                                        } else {
+                                                result = item;
+                                        }
+                                }
+                        } else {
+                                result = item;
+                        }
+                }
+                
+                return result;
+        }
+</script>
+
+</body>

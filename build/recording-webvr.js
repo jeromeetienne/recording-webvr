@@ -57,7 +57,6 @@ WebVRPolyfill.overloadWebvrAPI = function(){
         window.VRDisplay = function(){
         	// https://w3c.github.io/webvr/#interface-vrdisplay
         	this.isConnected = true
-        
         	this.isPresenting = false
         	
         	this.displayId = 0
@@ -242,12 +241,12 @@ window.positionalTracking = null
 // window.positionalTracking = createPositionalTracking()
 
 function createPositionalTracking(){
+
         var positionalTracking = new PositionTrackingWebvr(function onReady(){
                 console.log('PositionTrackingWebvr is ready')
         })
         return positionalTracking
 }
-
 var THREEx = THREEx || {}
 
 THREEx.JsonPlayer = function(){
@@ -481,6 +480,7 @@ THREEx.WebvrRecorder = function(){
                 return this
         }
 }
+
 THREEx.WebvrRecorder.prototype = Object.create( THREEx.JsonRecorder.prototype );
 THREEx.WebvrRecorder.prototype.constructor = THREEx.WebvrRecorder;
 var THREEx = THREEx || {}
@@ -570,10 +570,10 @@ THREEx.VRPlayer = function(){
         this.videoElement = document.createElement('video')
         this.videoElement.style.position = 'absolute'
         this.videoElement.style.top = '0px'
+        this.videoElement.style.left = '0px'
         this.videoElement.style.zIndex = '-1'
         this.videoElement.muted = true
         this.videoElement.playbackRate = this._playbackRate
-        document.body.appendChild(this.videoElement)
 
         // build webvrPlayer
         this._webvrPlayer = new THREEx.WebvrPlayer()
@@ -659,10 +659,6 @@ THREEx.VRPlayer.prototype.start = function(){
         var _this = this
         // build video element
         this.videoElement.src = this.path + this.vrExperience.videoSrc 
-        document.body.appendChild(this.videoElement)
-
-        
-        
 
         this.videoElement.play()
         this._webvrPlayer.start()
@@ -937,14 +933,17 @@ var VRRecording = {}
 
 VRRecording.play = function(experienceUrl, camera, mode){
         console.assert( mode === 'edit' ||  mode === 'play' )
+        
+        // create vrPlayer
 	var vrPlayer = new THREEx.VRPlayer()
+        document.body.appendChild(vrPlayer.videoElement)
 
         // export it globally - easier for debug
         window.vrPlayer = vrPlayer
 
-	// create the vrPlayerUI
-	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
-	document.body.appendChild(vrPlayerUI.domElement)
+	// // create the vrPlayerUI
+	// var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
+	// document.body.appendChild(vrPlayerUI.domElement)
 
         // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
@@ -953,10 +952,9 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
-                
                 if( mode === 'play' ){
                         // set camera position
-                        if( vrPlayer.vrExperience.fixedCamera !== undefined ){
+                        if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){
                                 camera.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
                 		camera.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion)                                
                         }
@@ -987,7 +985,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 		if( vrPlayer.isStarted() ){
 			vrPlayer.update(delta)				
 		}
-		vrPlayerUI.update()				
+		// vrPlayerUI.update()				
 	})
 
         return vrPlayer
@@ -1006,9 +1004,7 @@ VRRecording.record = function(options){
         // export it globally - easier for debug
         window.vrRecorder = vrRecorder
         
-        
-        
-        
+
         return vrRecorder
 };
 //download.js v4.2, by dandavis; 2008-2016. [CCBY2] see http://danml.com/download.html for tests/usage

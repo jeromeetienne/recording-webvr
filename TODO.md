@@ -7,6 +7,8 @@
 
 - use filesystem .js to store the experience without downloading from browser ?
   - test qt file download
+- make the library independant of three.js
+  - use the same trick as phoneasdaydreamcontroller.js
 
 ----------------
 
