@@ -1,3 +1,5 @@
+<script src='vendor/three.js/build/three.js'></script>
+
 <!-- enable PhoneAsDaydreamController. it overloads gamepad api -->
 <script src='vendor/phoneasdaydreamcontroller.js'></script>
 <script>
@@ -10,20 +12,19 @@
 	// })
 </script>
 
-<script src='vendor/three.js/build/three.js'></script>
 <script src='../build/recording-webvr.js'></script>
 <script>
 	// VRRecording.record()
 </script>
 
 <div style="width: 49%; float: left">
-        <h1>Gamepad API - Raw Data</h1>
-	<pre id='outputGamepad'></pre>
-</div>
-<div style="width: 49%; float: left">
         <h1>WebVR Framedata - Raw Data</h1>
 	<pre id='outputWebvr'></pre>
 	<canvas id='myCanvas'></canvas>
+</div>
+<div style="width: 49%; float: left">
+        <h1>Gamepad API - Raw Data</h1>
+	<pre id='outputGamepad'></pre>
 </div>
 
 <script>
@@ -86,5 +87,5 @@
 		setTimeout(dumpFrameData, 1000/10)
 	}
 
-	// setTimeout(dumpFrameData, 0)
+	setTimeout(dumpFrameData, 0)
 </script>

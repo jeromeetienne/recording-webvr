@@ -57,6 +57,7 @@ WebVRPolyfill.overloadWebvrAPI = function(){
         window.VRDisplay = function(){
         	// https://w3c.github.io/webvr/#interface-vrdisplay
         	this.isConnected = true
+        
         	this.isPresenting = false
         	
         	this.displayId = 0
