@@ -263,7 +263,6 @@ THREEx.JsonPlayer = function(){
         this.started = false
         this.paused = false
         this.start = function(){
-console.log('start player', this)
                 console.assert( this.started === false )
                 this.started = true
                 this.paused = false
@@ -352,7 +351,6 @@ THREEx.JsonPlayer.prototype.load = function(urls, onLoaded){
                 request.send()
         }
 }
-
 var THREEx = THREEx || {}
 
 THREEx.JsonRecorder = function(){
@@ -735,7 +733,8 @@ THREEx.VRPlayerUI = function(vrPlayer){
         this.domElement.style.position = 'absolute'
         this.domElement.style.top = '0px'
         this.domElement.style.left = '0px'
-        
+        this.domElement.style.zIndex = 9999
+
         ////////////////////////////////////////////////////////////////////////////////
         //          Code Separator
         ////////////////////////////////////////////////////////////////////////////////
@@ -837,7 +836,6 @@ THREEx.VRPlayerUI = function(vrPlayer){
                 videoDurationValue.innerHTML = vrPlayer.videoElement.duration.toFixed(2) + 'sec'
         }
 }
-
 var THREEx = THREEx || {}
 
 THREEx.VRRecorder = function(options){
@@ -941,9 +939,9 @@ VRRecording.play = function(experienceUrl, camera, mode){
         // export it globally - easier for debug
         window.vrPlayer = vrPlayer
 
-	// // create the vrPlayerUI
-	// var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
-	// document.body.appendChild(vrPlayerUI.domElement)
+	// create the vrPlayerUI
+	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
+	document.body.appendChild(vrPlayerUI.domElement)
 
         // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
@@ -985,7 +983,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 		if( vrPlayer.isStarted() ){
 			vrPlayer.update(delta)				
 		}
-		// vrPlayerUI.update()				
+		vrPlayerUI.update()				
 	})
 
         return vrPlayer

@@ -14,9 +14,9 @@ VRRecording.play = function(experienceUrl, camera, mode){
         // export it globally - easier for debug
         window.vrPlayer = vrPlayer
 
-	// // create the vrPlayerUI
-	// var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
-	// document.body.appendChild(vrPlayerUI.domElement)
+	// create the vrPlayerUI
+	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
+	document.body.appendChild(vrPlayerUI.domElement)
 
         // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
@@ -58,7 +58,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 		if( vrPlayer.isStarted() ){
 			vrPlayer.update(delta)				
 		}
-		// vrPlayerUI.update()				
+		vrPlayerUI.update()				
 	})
 
         return vrPlayer

@@ -8,7 +8,8 @@ THREEx.VRPlayerUI = function(vrPlayer){
         this.domElement.style.position = 'absolute'
         this.domElement.style.top = '0px'
         this.domElement.style.left = '0px'
-        
+        this.domElement.style.zIndex = 9999
+
         ////////////////////////////////////////////////////////////////////////////////
         //          Code Separator
         ////////////////////////////////////////////////////////////////////////////////
@@ -110,4 +111,3 @@ THREEx.VRPlayerUI = function(vrPlayer){
                 videoDurationValue.innerHTML = vrPlayer.videoElement.duration.toFixed(2) + 'sec'
         }
 }
-

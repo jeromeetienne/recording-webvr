@@ -5,6 +5,6 @@
   "scripts": {
     "build": "cat src/players/webvr-polyfill.js src/{players,recorders}/threex.json* src/{players,recorders}/threex.{webvr,gamepad}* src/*.js vendor/download.js > build/recording-webvr.js",
     "minify": "uglifyjs build/recording-webvr.js > build/recording-webvr.min.js",
-    "watch": "watch 'npm run build' src/"
+    "watch": "watch 'npm run build' src/ --interval=0.1"
   }
 }
