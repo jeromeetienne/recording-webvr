@@ -7,7 +7,10 @@ var VRRecording = {}
 VRRecording.play = function(experienceUrl, camera, mode){
         console.assert( mode === 'edit' ||  mode === 'play' )
 	var vrPlayer = new THREEx.VRPlayer()
-window.vrPlayer = vrPlayer
+
+        // export it globally - easier for debug
+        window.vrPlayer = vrPlayer
+
 	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)

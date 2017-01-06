@@ -192,11 +192,7 @@ WebVRPolyfill.overloadWebvrAPI = function(){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//          Code Separator
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-//          PositionTrackingManual
+//          PositionTrackingWebvr
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -227,7 +223,6 @@ window.PositionTrackingWebvr  = function(onReady){
         setInterval(function(){
                 if( window.vrPlayer === undefined ) return
                 if( vrPlayer._webvrPlayer.frameData === null ) return
-                // console.log('vrPlayer', vrPlayer._webvrPlayer.frameData)
                 _this._updateWithFrameData(vrPlayer._webvrPlayer.frameData)
         }, 1000/100)
         
@@ -239,8 +234,11 @@ window.PositionTrackingWebvr  = function(onReady){
 //          Code Separator
 ////////////////////////////////////////////////////////////////////////////////
 
+// to init positionalTracking at requestPresent
+window.positionalTracking = null	
+
 // to init positionalTracking immediatly
-window.positionalTracking = createPositionalTracking()
+// window.positionalTracking = createPositionalTracking()
 
 function createPositionalTracking(){
 

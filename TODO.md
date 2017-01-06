@@ -1,3 +1,4 @@
+- raw display of webvr.frameData and navigator.getGamepads
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
   - same for webvrDelay i imagine
@@ -8,6 +9,7 @@
   - test qt file download
 
 ----------------
+
 - what is needed to tune an experience ?
   - play experience start.stop
   - pause it button

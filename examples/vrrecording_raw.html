@@ -1,0 +1,90 @@
+<!-- enable PhoneAsDaydreamController. it overloads gamepad api -->
+<script src='vendor/phoneasdaydreamcontroller.js'></script>
+<script>
+        var serverUrl = 'http://'+location.hostname+':4000'
+        var phoneAsDaydreamController = PhoneAsDaydreamController.overloadGamepadsAPI(serverUrl)            
+	
+	// update phoneAsDaydreamController.viewQuaternion for recalibration
+	// onRenderFcts.push(function(){
+	// 	phoneAsDaydreamController.viewQuaternion = camera.quaternion.toArray()
+	// })
+</script>
+
+<script src='vendor/three.js/build/three.js'></script>
+<script src='../build/recording-webvr.js'></script>
+<script>
+	// VRRecording.record()
+</script>
+
+<div style="width: 49%; float: left">
+        <h1>Gamepad API - Raw Data</h1>
+	<pre id='outputGamepad'></pre>
+</div>
+<div style="width: 49%; float: left">
+        <h1>WebVR Framedata - Raw Data</h1>
+	<pre id='outputWebvr'></pre>
+	<canvas id='myCanvas'></canvas>
+</div>
+
+<script>
+	////////////////////////////////////////////////////////////////////////////////
+	//          dump gamepads
+	////////////////////////////////////////////////////////////////////////////////
+
+	function dumpGamepad(){
+		var domElement = document.querySelector('#outputGamepad')
+
+		var text = ''
+		var gamepads = navigator.getGamepads()
+		for(var i = 0; i < gamepads.length; i++){
+			var gamepad = THREEx.GamepadRecorder._cloneObject(gamepads[i])
+			text += JSON.stringify(gamepad, null, '\t')+'\n'
+		}
+		if( text.length === 0 ) text = 'no gamepad connected'
+
+		domElement.innerText = text
+		setTimeout(dumpGamepad, 1000/10)
+	}
+
+	setTimeout(dumpGamepad, 0)
+
+	////////////////////////////////////////////////////////////////////////////////
+	//          Code Separator
+	////////////////////////////////////////////////////////////////////////////////
+
+	// get vrDisplay
+	var vrDisplay = null
+	navigator.getVRDisplays().then(function(displays){
+		displays = displays.filter(function(display){
+			return display.capabilities.canPresent
+		})
+		// If there are no devices available, quit out.
+		if (displays.length === 0) {
+    			console.warn('No devices available able to present.');
+			return;
+		}
+
+		vrDisplay = displays[0]
+		vrDisplay.requestPresent([{
+			source: document.querySelector('#myCanvas')
+		}]);
+	})
+
+	////////////////////////////////////////////////////////////////////////////////
+	//          Dump frameData periodically
+	////////////////////////////////////////////////////////////////////////////////
+
+	var frameData = new VRFrameData();
+	function dumpFrameData(){
+		if( vrDisplay === null )	return
+		vrDisplay.getFrameData(frameData);
+
+		var text = JSON.stringify(frameData, null, '\t')+'\n'
+
+		var domElement = document.querySelector('#outputWebvr')
+		domElement.innerText = text
+		setTimeout(dumpFrameData, 1000/10)
+	}
+
+	// setTimeout(dumpFrameData, 0)
+</script>
