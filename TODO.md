@@ -1,9 +1,10 @@
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
   - same for webvrDelay i imagine
+- in src/recorders/ change the callback system, copy the one from players
 
 - test if the file download in qt
-- in src/recorders/ change the callback system, copy the one from players
+
 - what about controls camera?
   - see how to able Orbits controls as a given position - important while tuning
   - you need vrcontrols during replay
