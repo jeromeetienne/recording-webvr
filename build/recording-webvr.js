@@ -729,14 +729,25 @@ THREEx.VRPlayerUI = function(vrPlayer){
         this.vrPlayer = vrPlayer
         this.domElement = document.createElement('div')
         
+        this.domElement.style.padding = '0.5em'
         this.domElement.style.margin = '0.5em'
-        this.domElement.style.position = 'absolute'
-        this.domElement.style.top = '0px'
-        this.domElement.style.left = '0px'
+        this.domElement.style.position = 'fixed'
+        this.domElement.style.bottom = '0px'
+        this.domElement.style.right = '0px'
         this.domElement.style.zIndex = 9999
+        this.domElement.style.borderRadius = '1em'
+        this.domElement.style.borderStyle = 'solid'
+        this.domElement.style.backgroundColor = 'lightgrey'
+
+        //////////////////////////////////////////////////////////////////////////////
+        //                titleElement
+        //////////////////////////////////////////////////////////////////////////////
+        var titleElement = document.createElement('h5')
+        titleElement.innerHTML = 'VRPlayer'
+        this.domElement.appendChild(titleElement)
 
         ////////////////////////////////////////////////////////////////////////////////
-        //          Code Separator
+        //          start/pause buttom
         ////////////////////////////////////////////////////////////////////////////////
         
         var startButton = document.createElement('button')
@@ -843,6 +854,8 @@ THREEx.VRRecorder = function(options){
         options.gamepad = options.gamepad !== undefined ? options.gamepad : true
         options.webvr = options.webvr !== undefined ? options.webvr : true
         
+        this._isStarted = false
+        
         // build gamepadRecorder
         if( options.gamepad === true ){
                 this._gamepadRecorder = new THREEx.GamepadRecorder()                
@@ -863,6 +876,7 @@ THREEx.VRRecorder = function(options){
  */
 THREEx.VRRecorder.prototype.start = function () {
         var _this = this
+        this._isStarted = true
         
         // start gamepadRecorder
         if( _this._gamepadRecorder !== null ){
@@ -894,6 +908,7 @@ THREEx.VRRecorder.prototype.start = function () {
  * stop recording
  */
 THREEx.VRRecorder.prototype.stop = function () {
+        this._isStarted = false
         // stop _webvrRecorder
         if( this._webvrRecorder ){
                 this._webvrRecorder.setVRDisplay(null)
@@ -922,7 +937,60 @@ THREEx.VRRecorder.prototype.stop = function () {
         var jsonString = JSON.stringify(vrExperience, null, "\t");
         download(jsonString, 'vr-experience.json', 'application/json');
 }
+THREEx.VRRecorder.prototype.isStarted = function () {
+        return this._isStarted
+}
+var THREEx = THREEx || {}
 
+THREEx.VRRecorderUI = function(vrRecorder){
+        this.vrRecorder = vrRecorder
+        this.domElement = document.createElement('div')
+        
+        this.domElement.style.padding = '0.5em'
+        this.domElement.style.margin = '0.5em'
+        this.domElement.style.position = 'fixed'
+        this.domElement.style.top = '0px'
+        this.domElement.style.right = '0px'
+        this.domElement.style.zIndex = 9999
+        this.domElement.style.borderRadius = '1em'
+        this.domElement.style.borderStyle = 'solid'
+        this.domElement.style.backgroundColor = 'lightgrey'
+
+        //////////////////////////////////////////////////////////////////////////////
+        //              titleElement
+        //////////////////////////////////////////////////////////////////////////////
+        var titleElement = document.createElement('h5')
+        titleElement.innerHTML = 'VRRecorder'
+        this.domElement.appendChild(titleElement)
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          start/stop buttom
+        ////////////////////////////////////////////////////////////////////////////////
+        
+        var startButton = document.createElement('button')
+        startButton.innerHTML = 'start'
+        this.domElement.appendChild(startButton)
+        startButton.addEventListener('click', function(){
+                vrRecorder.start()
+        })
+
+        var stopButton = document.createElement('button')
+        stopButton.innerHTML = 'stop'
+        this.domElement.appendChild(stopButton)
+        stopButton.addEventListener('click', function(){
+                vrRecorder.stop()
+        })
+
+        this.update = function(){
+                if( vrRecorder.isStarted() ){
+                        startButton.disabled = true
+                        stopButton.disabled = false
+                }else{
+                        startButton.disabled = false                        
+                        stopButton.disabled = true
+                }
+        }
+}
 var VRRecording = {}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -975,13 +1043,15 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         
 	// TODO put that in vrPlayer itself
-	var clock = new THREE.Clock()
-	requestAnimationFrame(function render() {
-		var delta = clock.getDelta()
+	var lastTime = null
+	requestAnimationFrame(function render(now) {
 		requestAnimationFrame( render );
+
+                var deltaTime = lastTime === null ? 1000/60 : (now-lastTime)
+                lastTime = now
 		
 		if( vrPlayer.isStarted() ){
-			vrPlayer.update(delta)				
+			vrPlayer.update(deltaTime/1000)				
 		}
 		vrPlayerUI.update()				
 	})
@@ -1001,7 +1071,18 @@ VRRecording.record = function(options){
         vrRecorder.start()
         // export it globally - easier for debug
         window.vrRecorder = vrRecorder
+
+	// create the vrPlayerUI
+	var vrRecorderUI = new THREEx.VRRecorderUI(vrRecorder)
+	document.body.appendChild(vrRecorderUI.domElement)
         
+	// TODO put that in vrRecorder itself
+	requestAnimationFrame(function render() {
+                requestAnimationFrame( render );
+                
+		vrRecorderUI.update()				
+	})
+
 
         return vrRecorder
 };

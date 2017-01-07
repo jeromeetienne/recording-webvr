@@ -5,6 +5,8 @@ THREEx.VRRecorder = function(options){
         options.gamepad = options.gamepad !== undefined ? options.gamepad : true
         options.webvr = options.webvr !== undefined ? options.webvr : true
         
+        this._isStarted = false
+        
         // build gamepadRecorder
         if( options.gamepad === true ){
                 this._gamepadRecorder = new THREEx.GamepadRecorder()                
@@ -25,6 +27,7 @@ THREEx.VRRecorder = function(options){
  */
 THREEx.VRRecorder.prototype.start = function () {
         var _this = this
+        this._isStarted = true
         
         // start gamepadRecorder
         if( _this._gamepadRecorder !== null ){
@@ -56,6 +59,7 @@ THREEx.VRRecorder.prototype.start = function () {
  * stop recording
  */
 THREEx.VRRecorder.prototype.stop = function () {
+        this._isStarted = false
         // stop _webvrRecorder
         if( this._webvrRecorder ){
                 this._webvrRecorder.setVRDisplay(null)
@@ -84,4 +88,6 @@ THREEx.VRRecorder.prototype.stop = function () {
         var jsonString = JSON.stringify(vrExperience, null, "\t");
         download(jsonString, 'vr-experience.json', 'application/json');
 }
-
+THREEx.VRRecorder.prototype.isStarted = function () {
+        return this._isStarted
+}

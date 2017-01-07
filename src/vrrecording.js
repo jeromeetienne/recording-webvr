@@ -50,13 +50,15 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         
 	// TODO put that in vrPlayer itself
-	var clock = new THREE.Clock()
-	requestAnimationFrame(function render() {
-		var delta = clock.getDelta()
+	var lastTime = null
+	requestAnimationFrame(function render(now) {
 		requestAnimationFrame( render );
+
+                var deltaTime = lastTime === null ? 1000/60 : (now-lastTime)
+                lastTime = now
 		
 		if( vrPlayer.isStarted() ){
-			vrPlayer.update(delta)				
+			vrPlayer.update(deltaTime/1000)				
 		}
 		vrPlayerUI.update()				
 	})
@@ -76,7 +78,18 @@ VRRecording.record = function(options){
         vrRecorder.start()
         // export it globally - easier for debug
         window.vrRecorder = vrRecorder
+
+	// create the vrPlayerUI
+	var vrRecorderUI = new THREEx.VRRecorderUI(vrRecorder)
+	document.body.appendChild(vrRecorderUI.domElement)
         
+	// TODO put that in vrRecorder itself
+	requestAnimationFrame(function render() {
+                requestAnimationFrame( render );
+                
+		vrRecorderUI.update()				
+	})
+
 
         return vrRecorder
 };

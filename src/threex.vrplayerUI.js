@@ -4,14 +4,25 @@ THREEx.VRPlayerUI = function(vrPlayer){
         this.vrPlayer = vrPlayer
         this.domElement = document.createElement('div')
         
+        this.domElement.style.padding = '0.5em'
         this.domElement.style.margin = '0.5em'
-        this.domElement.style.position = 'absolute'
-        this.domElement.style.top = '0px'
-        this.domElement.style.left = '0px'
+        this.domElement.style.position = 'fixed'
+        this.domElement.style.bottom = '0px'
+        this.domElement.style.right = '0px'
         this.domElement.style.zIndex = 9999
+        this.domElement.style.borderRadius = '1em'
+        this.domElement.style.borderStyle = 'solid'
+        this.domElement.style.backgroundColor = 'lightgrey'
+
+        //////////////////////////////////////////////////////////////////////////////
+        //                titleElement
+        //////////////////////////////////////////////////////////////////////////////
+        var titleElement = document.createElement('h5')
+        titleElement.innerHTML = 'VRPlayer'
+        this.domElement.appendChild(titleElement)
 
         ////////////////////////////////////////////////////////////////////////////////
-        //          Code Separator
+        //          start/pause buttom
         ////////////////////////////////////////////////////////////////////////////////
         
         var startButton = document.createElement('button')

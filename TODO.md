@@ -1,13 +1,18 @@
-- raw display of webvr.frameData and navigator.getGamepads
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
   - same for webvrDelay i imagine
 - what about controls ?
   - see how to able Orbits controls as a given position - important while tuning
+  - you need vrcontrols during replay
 
 - use filesystem .js to store the experience without downloading from browser ?
   - test qt file download
+  - avoid the 'copy data file from htc vive desktop to jerome laptop with a usb key'
+  - https://github.com/jvilk/BrowserFS/wiki/Using-BrowserFS
+
 - make the library independant of three.js
+  - used only in the webvr-polyfill to handle the matrix
+  - port to glmatrix ? copy three.js libraries ?
   - use the same trick as phoneasdaydreamcontroller.js
 
 ----------------
@@ -26,6 +31,7 @@
   - there is nothing threex into it, which name to use ?
   - MixedRealityVideo.js ? javascript tools to record your VR experiences
 
+- DONE raw display of webvr.frameData and navigator.getGamepads
 - DONE rename vrExperience.camera into vrExperience.fixedCamera it may be absent
 - DONE dump a vrExperience.json on vrRecorder.stop()
 - DONE package it all in a single .js in build

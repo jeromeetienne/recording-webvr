@@ -15,14 +15,18 @@
 
 <script src='../build/recording-webvr.js'></script>
 <script>
-	VRRecording.record()
+	// VRRecording.record({
+        //         gamepad: false,
+        //         webvr: true,
+        // })
 
-	// var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
-	// var vrPlayer = VRRecording.play(experienceUrl, undefined, 'play')
-	// vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
+	var experienceUrl = 'vrExperiences/video2/vr-experience.json'
+	var vrPlayer = VRRecording.play(experienceUrl, undefined, 'play')
+	vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
 </script>
 
 <div style="width: 49%; float: left">
+	<div>WebVR API : <span id='statusWebvrAPI'></span></div>
         <h1>WebVR - Framedata</h1>
 	<pre id='outputWebvr'></pre>
         <h1>WebVR - vrDisplay</h1>
@@ -30,15 +34,21 @@
 	<canvas id='myCanvas'></canvas>
 </div>
 <div style="width: 49%; float: left">
+	<div>Gamepad API : <span id='statusGamepadAPI'></span></div>
         <h1>Gamepads</h1>
 	<pre id='outputGamepad'></pre>
 </div>
 
 <script>
-	////////////////////////////////////////////////////////////////////////////////
-	//          get vrDisplay
-	////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////////
+//          WebVR
+////////////////////////////////////////////////////////////////////////////////
+;(function(){
+        var webvrAPIAvailable = navigator.getVRDisplays ? true : false
+        document.querySelector('#statusWebvrAPI').innerHTML = webvrAPIAvailable ? '<font color="green">available</font>' : '<font color="red">NOT available</font>'
+        
+        if(webvrAPIAvailable === false) return
+        
 	// get vrDisplay
 	var vrDisplay = null
 	navigator.getVRDisplays().then(function(displays){
@@ -78,8 +88,21 @@
 	}
 
 	setTimeout(dumpFrameData, 0)
-</script>
-<script>
+})()
+
+
+//////////////////////////////////////////////////////////////////////////////
+//                Gamepads
+//////////////////////////////////////////////////////////////////////////////
+;(function(){
+        
+
+	////////////////////////////////////////////////////////////////////////////////
+	//          get vrDisplay
+	////////////////////////////////////////////////////////////////////////////////
+        var gamepadAPIAvailable = navigator.getGamepads ? true : false
+        document.querySelector('#statusGamepadAPI').innerHTML = gamepadAPIAvailable ? '<font color="green">available</font>' : '<font color="red">NOT available</font>'
+        
 	////////////////////////////////////////////////////////////////////////////////
 	//          dump gamepads periodically
 	////////////////////////////////////////////////////////////////////////////////
@@ -100,60 +123,63 @@
 
 	setTimeout(dumpGamepad, 0)
         
-        // from http://stackoverflow.com/a/4460624
-        // Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-        function cloneObject(item) {
-                var _this = this
+})()
 
-                if (!item) { return item; } // null, undefined values check
-                
-                var types = [ Number, String, Boolean ], 
-                result;
-                
-                // normalizing primitives if someone did new String('aaa'), or new Number('444');
-                types.forEach(function(type) {
-                        if (item instanceof type) {
-                                result = type( item );
-                        }
-                });
-                
-                if (typeof result == "undefined") {
-                        if (Object.prototype.toString.call( item ) === "[object Array]") {
-                                result = [];
-                                item.forEach(function(child, index, array) { 
-                                        result[index] = cloneObject( child );
-                                });
-                        } else if (typeof item == "object") {
-                                // testing that this is DOM
-                                if (item.nodeType && typeof item.cloneNode == "function") {
-                                        var result = item.cloneNode( true );    
-                                } else if (!item.prototype) { // check that this is a literal
-                                        if (item instanceof Date) {
-                                                result = new Date(item);
-                                        } else {
-                                                // it is an object literal
-                                                result = {};
-                                                for (var i in item) {
-                                                        result[i] = cloneObject( item[i] );
-                                                }
-                                        }
+// from http://stackoverflow.com/a/4460624
+// Needed because gamepad struct doesnt support JSON.parse(JSON.stringify(data))
+function cloneObject(item) {
+        var _this = this
+
+        if (!item) { return item; } // null, undefined values check
+        
+        var types = [ Number, String, Boolean ], 
+        result;
+        
+        // normalizing primitives if someone did new String('aaa'), or new Number('444');
+        types.forEach(function(type) {
+                if (item instanceof type) {
+                        result = type( item );
+                }
+        });
+        
+        if (typeof result == "undefined") {
+                if (Object.prototype.toString.call( item ) === "[object Array]") {
+                        result = [];
+                        item.forEach(function(child, index, array) { 
+                                result[index] = cloneObject( child );
+                        });
+                } else if (typeof item == "object") {
+                        // testing that this is DOM
+                        if (item.nodeType && typeof item.cloneNode == "function") {
+                                var result = item.cloneNode( true );    
+                        } else if (!item.prototype) { // check that this is a literal
+                                if (item instanceof Date) {
+                                        result = new Date(item);
                                 } else {
-                                        // depending what you would like here,
-                                        // just keep the reference, or create new object
-                                        if (false && item.constructor) {
-                                                // would not advice to do that, reason? Read below
-                                                result = new item.constructor();
-                                        } else {
-                                                result = item;
+                                        // it is an object literal
+                                        result = {};
+                                        for (var i in item) {
+                                                result[i] = cloneObject( item[i] );
                                         }
                                 }
                         } else {
-                                result = item;
+                                // depending what you would like here,
+                                // just keep the reference, or create new object
+                                if (false && item.constructor) {
+                                        // would not advice to do that, reason? Read below
+                                        result = new item.constructor();
+                                } else {
+                                        result = item;
+                                }
                         }
+                } else {
+                        result = item;
                 }
-                
-                return result;
         }
+        
+        return result;
+}
+
 </script>
 
 </body>
