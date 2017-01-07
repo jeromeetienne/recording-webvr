@@ -28,8 +28,16 @@ THREEx.VRPlayer = function(){
 		return _this._gamepadPlayer.gamepads
 	}
 
+        // to init frameDataProvider immediatly
+        var frameDataProvider = new FrameDataProviderWebvr(function onReady(){
+                console.log('FrameDataProviderWebvr is ready')
+        })
+
         // to replay webvr
         var webvrPolyfill = new WebVRPolyfill().install()
+        webvrPolyfill.setFrameDataProvider(frameDataProvider)
+
+
 }
 
 /**

@@ -1,12 +1,11 @@
 var WebVRPolyfill = function(){}
 
 WebVRPolyfill.prototype.install = function(){
-// pass framedataProvider here
 
-        // var framedataProvider = null
-        // this.setPositionTracking = function(newPositionnalTracking){
-        //         framedataProvider = newPositionnalTracking
-        // }
+        var framedataProvider = null
+        this.setFrameDataProvider = function(newFrameDataProvider){
+                framedataProvider = newFrameDataProvider
+        }
 
         navigator.getVRDisplays = function(){
         	console.log('navigator.getVRDisplays()')
@@ -87,29 +86,7 @@ WebVRPolyfill.prototype.install = function(){
 
         VRDisplay.prototype.getFrameData = function(frameData){
         	if( !framedataProvider )	return
-
-        	// copy projectionMatrix + viewMatrix
-        	framedataProvider.leftProjectionMatrix.toArray(frameData.leftProjectionMatrix)
-        	framedataProvider.rightProjectionMatrix.toArray(frameData.rightProjectionMatrix)
-        	framedataProvider.leftViewMatrix.toArray(frameData.leftViewMatrix)
-        	framedataProvider.leftViewMatrix.toArray(frameData.rightViewMatrix)
-        	
-        	////////////////////////////////////////////////////////////////////////////////
-        	//          update pose.position/pose.quaternion
-        	////////////////////////////////////////////////////////////////////////////////
-        	
-                frameData.timestamp = Date.now()
-
-        	// compute cameraTransformMatrix from leftViewMatrix (we picked the first. we could use rightViewMatrix too)
-        	var leftViewMatrix = new THREE.Matrix4().fromArray(frameData.leftViewMatrix)
-        	var cameraTransformMatrix = new THREE.Matrix4().getInverse( leftViewMatrix )
-
-        	// set pose.position and pose.orientation from cameraTransformMatrix decomposition
-        	var cameraPosition = new THREE.Vector3()
-        	var cameraQuaternion = new THREE.Quaternion()
-        	cameraTransformMatrix.decompose(cameraPosition, cameraQuaternion, new THREE.Vector3)
-        	cameraPosition.toArray(frameData.pose.position)
-        	cameraQuaternion.toArray(frameData.pose.orientation)	
+                framedataProvider.updateFrameData(frameData)
         }
 
         VRDisplay.prototype.getEyeParameters = function(whichEye){
@@ -146,15 +123,11 @@ WebVRPolyfill.prototype.install = function(){
         	console.log('requestPresent')
 
         	return new Promise(function(resolve, reject) {
-        		if( window.framedataProvider === null ){
-        			window.framedataProvider = createFrameDataProvider()
-        		}
-        		
         		loop()
         		
         		return
         		function loop(){
-        			if( window.framedataProvider.started === true ){
+        			if( framedataProvider.started === true ){
         				completed()				
         				return;
         			}
@@ -194,6 +167,8 @@ WebVRPolyfill.prototype.install = function(){
         VRDisplay.prototype.submitFrame = function(){
         	// console.log('submitFrame')				
         }
+        
+        return this
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -231,24 +206,31 @@ window.FrameDataProviderWebvr  = function(onReady){
                 _this.rightViewMatrix.fromArray(frameData.rightViewMatrix)
         }, 1000/100)
         
+        this.updateFrameData = function(frameData){
+        	// copy projectionMatrix + viewMatrix
+        	_this.leftProjectionMatrix.toArray(frameData.leftProjectionMatrix)
+        	_this.rightProjectionMatrix.toArray(frameData.rightProjectionMatrix)
+        	_this.leftViewMatrix.toArray(frameData.leftViewMatrix)
+        	_this.leftViewMatrix.toArray(frameData.rightViewMatrix)
+        	
+        	////////////////////////////////////////////////////////////////////////////////
+        	//          update pose.position/pose.quaternion
+        	////////////////////////////////////////////////////////////////////////////////
+        	
+                frameData.timestamp = Date.now()
+
+        	// compute cameraTransformMatrix from leftViewMatrix (we picked the first. we could use rightViewMatrix too)
+        	var leftViewMatrix = new THREE.Matrix4().fromArray(frameData.leftViewMatrix)
+        	var cameraTransformMatrix = new THREE.Matrix4().getInverse( leftViewMatrix )
+
+        	// set pose.position and pose.orientation from cameraTransformMatrix decomposition
+        	var cameraPosition = new THREE.Vector3()
+        	var cameraQuaternion = new THREE.Quaternion()
+        	cameraTransformMatrix.decompose(cameraPosition, cameraQuaternion, new THREE.Vector3)
+        	cameraPosition.toArray(frameData.pose.position)
+        	cameraQuaternion.toArray(frameData.pose.orientation)	                
+        }
+        
 	// notify caller if needed
 	onReady && onReady()
-}
-
-////////////////////////////////////////////////////////////////////////////////
-//          Code Separator
-////////////////////////////////////////////////////////////////////////////////
-
-// to init framedataProvider at requestPresent
-window.framedataProvider = null	
-
-// to init framedataProvider immediatly
-window.framedataProvider = createFrameDataProvider()
-
-function createFrameDataProvider(){
-
-        var framedataProvider = new FrameDataProviderWebvr(function onReady(){
-                console.log('FrameDataProviderWebvr is ready')
-        })
-        return framedataProvider
 }

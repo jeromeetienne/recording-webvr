@@ -10,8 +10,8 @@
   - leftProjectionMatrix/rightProjectionMatrix
   - leftViewMatrix/rightViewMatrix
 
-- webvr-polyfill.backup webvr function
-  
+- webvr-polyfill.backup webvr actual functions 
+
 
 - use filesystem .js to store the experience without downloading from browser ?
   - test qt file download
