@@ -1,7 +1,12 @@
-function WebVRPolyfill(){
-}
+var WebVRPolyfill = function(){}
 
-WebVRPolyfill.overloadWebvrAPI = function(){
+WebVRPolyfill.prototype.install = function(){
+// pass framedataProvider here
+
+        // var framedataProvider = null
+        // this.setPositionTracking = function(newPositionnalTracking){
+        //         framedataProvider = newPositionnalTracking
+        // }
 
         navigator.getVRDisplays = function(){
         	console.log('navigator.getVRDisplays()')
@@ -81,13 +86,13 @@ WebVRPolyfill.overloadWebvrAPI = function(){
         }
 
         VRDisplay.prototype.getFrameData = function(frameData){
-        	if( !positionalTracking )	return
+        	if( !framedataProvider )	return
 
         	// copy projectionMatrix + viewMatrix
-        	positionalTracking.leftProjectionMatrix.toArray(frameData.leftProjectionMatrix)
-        	positionalTracking.rightProjectionMatrix.toArray(frameData.rightProjectionMatrix)
-        	positionalTracking.leftViewMatrix.toArray(frameData.leftViewMatrix)
-        	positionalTracking.leftViewMatrix.toArray(frameData.rightViewMatrix)
+        	framedataProvider.leftProjectionMatrix.toArray(frameData.leftProjectionMatrix)
+        	framedataProvider.rightProjectionMatrix.toArray(frameData.rightProjectionMatrix)
+        	framedataProvider.leftViewMatrix.toArray(frameData.leftViewMatrix)
+        	framedataProvider.leftViewMatrix.toArray(frameData.rightViewMatrix)
         	
         	////////////////////////////////////////////////////////////////////////////////
         	//          update pose.position/pose.quaternion
@@ -117,8 +122,8 @@ WebVRPolyfill.overloadWebvrAPI = function(){
         }
         VRDisplay.prototype.resetPose = function(frameData){
         	console.assert('not yet implemented')
-        	if( !positionalTracking )	return
-        	positionalTracking.resetPose()
+        	if( !framedataProvider )	return
+        	framedataProvider.resetPose()
         }
 
         VRDisplay.prototype.requestAnimationFrame = function(callback){
@@ -141,15 +146,15 @@ WebVRPolyfill.overloadWebvrAPI = function(){
         	console.log('requestPresent')
 
         	return new Promise(function(resolve, reject) {
-        		if( window.positionalTracking === null ){
-        			window.positionalTracking = createPositionalTracking()
+        		if( window.framedataProvider === null ){
+        			window.framedataProvider = createFrameDataProvider()
         		}
         		
         		loop()
         		
         		return
         		function loop(){
-        			if( window.positionalTracking.started === true ){
+        			if( window.framedataProvider.started === true ){
         				completed()				
         				return;
         			}
@@ -192,11 +197,11 @@ WebVRPolyfill.overloadWebvrAPI = function(){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//          PositionTrackingWebvr
+//          FrameDataProviderWebvr
 ////////////////////////////////////////////////////////////////////////////////
 
 
-window.PositionTrackingWebvr  = function(onReady){
+window.FrameDataProviderWebvr  = function(onReady){
 	var _this = this
 	_this.started = true;
 
@@ -212,18 +217,18 @@ window.PositionTrackingWebvr  = function(onReady){
 
 	this.resetPose = function(){}
 	this.dispose = function(){}
-	
-        this._updateWithFrameData = function(frameData){
+
+        setInterval(function(){
+                // TODO yuck this use a global
+                if( window.vrPlayer === undefined ) return
+                if( vrPlayer._webvrPlayer.frameData === null ) return
+
+                var frameData = vrPlayer._webvrPlayer.frameData
                 _this.leftProjectionMatrix.fromArray(frameData.leftProjectionMatrix)
                 _this.rightProjectionMatrix.fromArray(frameData.rightProjectionMatrix)
 
                 _this.leftViewMatrix.fromArray(frameData.leftViewMatrix)
                 _this.rightViewMatrix.fromArray(frameData.rightViewMatrix)
-        }
-        setInterval(function(){
-                if( window.vrPlayer === undefined ) return
-                if( vrPlayer._webvrPlayer.frameData === null ) return
-                _this._updateWithFrameData(vrPlayer._webvrPlayer.frameData)
         }, 1000/100)
         
 	// notify caller if needed
@@ -234,18 +239,18 @@ window.PositionTrackingWebvr  = function(onReady){
 //          Code Separator
 ////////////////////////////////////////////////////////////////////////////////
 
-// to init positionalTracking at requestPresent
-window.positionalTracking = null	
+// to init framedataProvider at requestPresent
+window.framedataProvider = null	
 
-// to init positionalTracking immediatly
-// window.positionalTracking = createPositionalTracking()
+// to init framedataProvider immediatly
+window.framedataProvider = createFrameDataProvider()
 
-function createPositionalTracking(){
+function createFrameDataProvider(){
 
-        var positionalTracking = new PositionTrackingWebvr(function onReady(){
-                console.log('PositionTrackingWebvr is ready')
+        var framedataProvider = new FrameDataProviderWebvr(function onReady(){
+                console.log('FrameDataProviderWebvr is ready')
         })
-        return positionalTracking
+        return framedataProvider
 }
 var THREEx = THREEx || {}
 
@@ -561,6 +566,7 @@ var THREEx = THREEx || {}
 
 
 THREEx.VRPlayer = function(){
+        var _this = this
         this.vrExperience = null
         this._playbackRate = 1
 
@@ -580,6 +586,14 @@ THREEx.VRPlayer = function(){
         // build gamepadPlayer
         this._gamepadPlayer = new THREEx.GamepadPlayer()
         this._gamepadPlayer.playbackRate = this._playbackRate
+
+	// polyfill to high-jack gamepad API
+	navigator.getGamepads = function(){
+		return _this._gamepadPlayer.gamepads
+	}
+
+        // to replay webvr
+        var webvrPolyfill = new WebVRPolyfill().install()
 }
 
 /**
@@ -663,11 +677,6 @@ THREEx.VRPlayer.prototype.start = function(){
         this._gamepadPlayer.start()
 
         this.setCurrentTime(0)
-
-	// polyfill to high-jack gamepad API
-	navigator.getGamepads = function(){
-		return _this._gamepadPlayer.gamepads
-	}
         
         return this
 }
@@ -1058,6 +1067,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
+
                 if( mode === 'play' ){
                         // set camera position
                         if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){

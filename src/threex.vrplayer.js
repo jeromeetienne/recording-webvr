@@ -2,6 +2,7 @@ var THREEx = THREEx || {}
 
 
 THREEx.VRPlayer = function(){
+        var _this = this
         this.vrExperience = null
         this._playbackRate = 1
 
@@ -21,6 +22,14 @@ THREEx.VRPlayer = function(){
         // build gamepadPlayer
         this._gamepadPlayer = new THREEx.GamepadPlayer()
         this._gamepadPlayer.playbackRate = this._playbackRate
+
+	// polyfill to high-jack gamepad API
+	navigator.getGamepads = function(){
+		return _this._gamepadPlayer.gamepads
+	}
+
+        // to replay webvr
+        var webvrPolyfill = new WebVRPolyfill().install()
 }
 
 /**
@@ -104,11 +113,6 @@ THREEx.VRPlayer.prototype.start = function(){
         this._gamepadPlayer.start()
 
         this.setCurrentTime(0)
-
-	// polyfill to high-jack gamepad API
-	navigator.getGamepads = function(){
-		return _this._gamepadPlayer.gamepads
-	}
         
         return this
 }

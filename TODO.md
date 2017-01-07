@@ -5,6 +5,13 @@
   - see how to able Orbits controls as a given position - important while tuning
   - you need vrcontrols during replay
 
+- webvr-polyfill.install(framedataProvider);
+  - leftProjectionMatrix/rightProjectionMatrix
+  - leftViewMatrix/rightViewMatrix
+
+- webvr-polyfill.backup webvr function
+  
+
 - use filesystem .js to store the experience without downloading from browser ?
   - test qt file download
   - avoid the 'copy data file from htc vive desktop to jerome laptop with a usb key'

@@ -25,6 +25,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
+
                 if( mode === 'play' ){
                         // set camera position
                         if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){
