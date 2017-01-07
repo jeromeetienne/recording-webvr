@@ -4,6 +4,8 @@ THREEx.VRRecorderUI = function(vrRecorder){
         this.vrRecorder = vrRecorder
         this.domElement = document.createElement('div')
         
+        this.domElement.style.fontFamily = 'monospace'
+        this.domElement.style.color = 'black'
         this.domElement.style.padding = '0.5em'
         this.domElement.style.margin = '0.5em'
         this.domElement.style.position = 'fixed'
@@ -17,7 +19,7 @@ THREEx.VRRecorderUI = function(vrRecorder){
         //////////////////////////////////////////////////////////////////////////////
         //              titleElement
         //////////////////////////////////////////////////////////////////////////////
-        var titleElement = document.createElement('h5')
+        var titleElement = document.createElement('h2')
         titleElement.innerHTML = 'VRRecorder'
         this.domElement.appendChild(titleElement)
 
