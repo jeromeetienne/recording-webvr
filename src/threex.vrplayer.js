@@ -32,7 +32,7 @@ THREEx.VRPlayer = function(){
         // install webvr-polyfill to replay webvr
         var webvrPolyfill = new WebVRPolyfill().install()
         // to init frameDataProvider immediatly
-        var frameDataProvider = new FrameDataProviderWebvr(this)
+        var frameDataProvider = new FrameDataProviderWebvr(this._webvrPlayer)
         webvrPolyfill.setFrameDataProvider(frameDataProvider)
 }
 
@@ -186,8 +186,8 @@ function FrameDataProviderWebvr(webvrPlayer){
 
         this.updateFrameData = function(dstFrameData){
                 // get the srcFrameData
-                if( webvrPlayer.frameData === null ) return
                 var srcFrameData = webvrPlayer.frameData
+                if( srcFrameData === null ) return
 
                 dstFrameData.timestamp = srcFrameData.timestamp
 
@@ -206,7 +206,4 @@ function FrameDataProviderWebvr(webvrPlayer){
                         }
                 }
         }
-        
-	// notify caller if needed
-	onReady && onReady()
 }

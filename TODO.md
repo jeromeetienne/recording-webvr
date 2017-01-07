@@ -4,13 +4,8 @@
 - what about controls camera?
   - see how to able Orbits controls as a given position - important while tuning
   - you need vrcontrols during replay
-- webvr-polyfill add present as timestamp... even if there is nothing to replay
-
-- webvr-polyfill.install(framedataProvider);
-  - leftProjectionMatrix/rightProjectionMatrix
-  - leftViewMatrix/rightViewMatrix
-
-- webvr-polyfill.backup webvr actual functions 
+- webvr-polyfill.backup webvr actual functions ?
+  - why ?
 
 
 - use filesystem .js to store the experience without downloading from browser ?
@@ -19,10 +14,6 @@
   - https://github.com/jvilk/BrowserFS/wiki/Using-BrowserFS 
   - how to set it up ? i dont seems to find how to setup the server ?
 
-- make the library independant of three.js
-  - used only in the webvr-polyfill to handle the matrix
-  - port to glmatrix ? copy three.js libraries ?
-  - use the same trick as phoneasdaydreamcontroller.js
 
 ----------------
 
@@ -40,6 +31,12 @@
   - there is nothing threex into it, which name to use ?
   - MixedRealityVideo.js ? javascript tools to record your VR experiences
 
+- DONE webvr-polyfill add present as timestamp... even if there is nothing to replay
+- DONE make the library independant of three.js
+  - pushed all computation outofthelibrary
+- DONE webvr-polyfill.install(framedataProvider);
+  - leftProjectionMatrix/rightProjectionMatrix
+  - leftViewMatrix/rightViewMatrix
 - DONE raw display of webvr.frameData and navigator.getGamepads
 - DONE rename vrExperience.camera into vrExperience.fixedCamera it may be absent
 - DONE dump a vrExperience.json on vrRecorder.stop()
