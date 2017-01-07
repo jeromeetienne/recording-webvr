@@ -1,18 +1,22 @@
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
   - same for webvrDelay i imagine
+
+- test if the file download in qt
+
 - what about controls camera?
   - see how to able Orbits controls as a given position - important while tuning
   - you need vrcontrols during replay
+  - very three.js specific... avoid that
 - webvr-polyfill.backup webvr actual functions ?
-  - why ?
+  - why would do that ?
 
 
 - use filesystem .js to store the experience without downloading from browser ?
   - test qt file download
   - avoid the 'copy data file from htc vive desktop to jerome laptop with a usb key'
   - https://github.com/jvilk/BrowserFS/wiki/Using-BrowserFS 
-  - how to set it up ? i dont seems to find how to setup the server ?
+  - how to set it up ? i dont seems to find how to setup the server...
 
 
 ----------------

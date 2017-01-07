@@ -8,7 +8,7 @@ WebVRPolyfill.prototype.install = function(){
         }
 
         navigator.getVRDisplays = function(){
-        	console.log('navigator.getVRDisplays()')
+        	// console.log('navigator.getVRDisplays()')
         	var vrDisplays = [ new VRDisplay() ]
         	return new Promise(function(resolve, reject) {
         		resolve(vrDisplays);
@@ -64,7 +64,7 @@ WebVRPolyfill.prototype.install = function(){
         	this.isPresenting = false
         	
         	this.displayId = 0
-        	this.displayName = 'Webgl Polyfill Helmet'
+        	this.displayName = 'Generic WebVR Polyfill'
 
         	this.depthNear = 0.1
         	this.depthFar = 10000
