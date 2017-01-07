@@ -1,10 +1,9 @@
 var THREEx = THREEx || {}
 
-THREEx.JsonPlayer = function(){
+THREEx.JsonPlayer = function(onNewRecord){
         var _this = this
 
         _this.records = null
-	_this._onNewRecord = function(newRecord){}      // overload this function
         _this.playbackRate = 1
 
         ////////////////////////////////////////////////////////////////////////////////
@@ -50,7 +49,7 @@ THREEx.JsonPlayer = function(){
                         if( i + 1 >= values.length ) break;
                         if( values[i+1].recordedAt > timestamp ){
                                 // console.log('notify', i)
-                                _this._onNewRecord(values[i].data)                
+                                onNewRecord(values[i].data)                
                                 break
                         }
                 }

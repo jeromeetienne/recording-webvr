@@ -1,7 +1,10 @@
 var THREEx = THREEx || {}
 
 THREEx.GamepadPlayer = function(){
-        THREEx.JsonPlayer.call( this );
+        var _this = this
+        THREEx.JsonPlayer.call( this, function onNewRecord(newRecord){
+                _this.gamepads = newRecord                
+        });
         
         this.gamepads = [
                 null,
@@ -9,10 +12,6 @@ THREEx.GamepadPlayer = function(){
                 null,
                 null,
         ]
-        
-        this._onNewRecord = function(newRecord){
-                this.gamepads = newRecord
-        }
 }
 THREEx.GamepadPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
 THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;

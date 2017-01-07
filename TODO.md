@@ -4,6 +4,7 @@
 - what about controls camera?
   - see how to able Orbits controls as a given position - important while tuning
   - you need vrcontrols during replay
+- webvr-polyfill add present as timestamp... even if there is nothing to replay
 
 - webvr-polyfill.install(framedataProvider);
   - leftProjectionMatrix/rightProjectionMatrix

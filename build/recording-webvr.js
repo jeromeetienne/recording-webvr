@@ -254,11 +254,10 @@ function createFrameDataProvider(){
 }
 var THREEx = THREEx || {}
 
-THREEx.JsonPlayer = function(){
+THREEx.JsonPlayer = function(onNewRecord){
         var _this = this
 
         _this.records = null
-	_this._onNewRecord = function(newRecord){}      // overload this function
         _this.playbackRate = 1
 
         ////////////////////////////////////////////////////////////////////////////////
@@ -304,7 +303,7 @@ THREEx.JsonPlayer = function(){
                         if( i + 1 >= values.length ) break;
                         if( values[i+1].recordedAt > timestamp ){
                                 // console.log('notify', i)
-                                _this._onNewRecord(values[i].data)                
+                                onNewRecord(values[i].data)                
                                 break
                         }
                 }
@@ -433,21 +432,22 @@ THREEx.JsonRecorder = function(){
 var THREEx = THREEx || {}
 
 THREEx.WebvrPlayer = function(){
-        THREEx.JsonPlayer.call( this );
+        var _this = this
+        THREEx.JsonPlayer.call( this , function onNewRecord(frameData){
+                _this.frameData = frameData
+        });
         
         this.frameData = null   // TODO put a fake one
-        
-        this._onNewRecord = function(frameData){
-// console.log('update frameData', frameData.pose.position)
-                this.frameData = frameData
-        }
 }
 THREEx.WebvrPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
 THREEx.WebvrPlayer.prototype.constructor = THREEx.WebvrPlayer;
 var THREEx = THREEx || {}
 
 THREEx.GamepadPlayer = function(){
-        THREEx.JsonPlayer.call( this );
+        var _this = this
+        THREEx.JsonPlayer.call( this, function onNewRecord(newRecord){
+                _this.gamepads = newRecord                
+        });
         
         this.gamepads = [
                 null,
@@ -455,10 +455,6 @@ THREEx.GamepadPlayer = function(){
                 null,
                 null,
         ]
-        
-        this._onNewRecord = function(newRecord){
-                this.gamepads = newRecord
-        }
 }
 THREEx.GamepadPlayer.prototype = Object.create( THREEx.JsonPlayer.prototype );
 THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;
