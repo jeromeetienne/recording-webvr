@@ -28,16 +28,12 @@ THREEx.VRPlayer = function(){
 		return _this._gamepadPlayer.gamepads
 	}
 
-        // to init frameDataProvider immediatly
-        var frameDataProvider = new FrameDataProviderWebvr(function onReady(){
-                console.log('FrameDataProviderWebvr is ready')
-        })
 
-        // to replay webvr
+        // install webvr-polyfill to replay webvr
         var webvrPolyfill = new WebVRPolyfill().install()
+        // to init frameDataProvider immediatly
+        var frameDataProvider = new FrameDataProviderWebvr(this)
         webvrPolyfill.setFrameDataProvider(frameDataProvider)
-
-
 }
 
 /**
@@ -176,3 +172,41 @@ THREEx.VRPlayer.prototype.update = function (deltaTime) {
         this._webvrPlayer.update(deltaTime)
         this._gamepadPlayer.update(deltaTime)
 };
+
+//////////////////////////////////////////////////////////////////////////////
+//                Code Separator
+//////////////////////////////////////////////////////////////////////////////
+
+function FrameDataProviderWebvr(webvrPlayer){
+	var _this = this
+	_this.started = true;
+
+	this.resetPose = function(){}
+	this.dispose = function(){}
+
+        this.updateFrameData = function(dstFrameData){
+                // get the srcFrameData
+                if( webvrPlayer.frameData === null ) return
+                var srcFrameData = webvrPlayer.frameData
+
+                dstFrameData.timestamp = srcFrameData.timestamp
+
+                copyArray(srcFrameData.leftProjectionMatrix, dstFrameData.leftProjectionMatrix, 16)
+                copyArray(srcFrameData.rightProjectionMatrix, dstFrameData.rightProjectionMatrix, 16)
+                copyArray(srcFrameData.leftViewMatrix, dstFrameData.leftViewMatrix, 16)
+                copyArray(srcFrameData.rightViewMatrix, dstFrameData.rightViewMatrix, 16)
+
+                copyArray(srcFrameData.pose.position, dstFrameData.pose.position, 3)
+                copyArray(srcFrameData.pose.orientation, dstFrameData.pose.orientation, 3)
+        	
+        	// function to copy weirdo array from FrameData                
+                function copyArray(srcArray, dstArray, len){
+                        for(var i = 0; i < len; i++){
+                                dstArray[i] = srcArray[i]
+                        }
+                }
+        }
+        
+	// notify caller if needed
+	onReady && onReady()
+}
