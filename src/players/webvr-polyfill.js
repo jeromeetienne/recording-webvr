@@ -180,55 +180,32 @@ window.FrameDataProviderWebvr  = function(onReady){
 	var _this = this
 	_this.started = true;
 
-	_this.leftProjectionMatrix = new THREE.Matrix4()
-	_this.rightProjectionMatrix = new THREE.Matrix4()
-	_this.leftViewMatrix = new THREE.Matrix4()
-	_this.rightViewMatrix = new THREE.Matrix4()
-	
-	// fill silly projectionMaterix
-	var tmpCamera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight /2, 0.1, 10000 );
-	this.leftProjectionMatrix.copy( tmpCamera.projectionMatrix )
-	this.rightProjectionMatrix.copy( tmpCamera.projectionMatrix )
-
 	this.resetPose = function(){}
 	this.dispose = function(){}
 
-        setInterval(function(){
+        this.updateFrameData = function(dstFrameData){
+                // get the srcFrameData
                 // TODO yuck this use a global
                 if( window.vrPlayer === undefined ) return
                 if( vrPlayer._webvrPlayer.frameData === null ) return
+                var srcFrameData = vrPlayer._webvrPlayer.frameData
 
-                var frameData = vrPlayer._webvrPlayer.frameData
-                _this.leftProjectionMatrix.fromArray(frameData.leftProjectionMatrix)
-                _this.rightProjectionMatrix.fromArray(frameData.rightProjectionMatrix)
+                dstFrameData.timestamp = srcFrameData.timestamp
 
-                _this.leftViewMatrix.fromArray(frameData.leftViewMatrix)
-                _this.rightViewMatrix.fromArray(frameData.rightViewMatrix)
-        }, 1000/100)
-        
-        this.updateFrameData = function(frameData){
-        	// copy projectionMatrix + viewMatrix
-        	_this.leftProjectionMatrix.toArray(frameData.leftProjectionMatrix)
-        	_this.rightProjectionMatrix.toArray(frameData.rightProjectionMatrix)
-        	_this.leftViewMatrix.toArray(frameData.leftViewMatrix)
-        	_this.leftViewMatrix.toArray(frameData.rightViewMatrix)
+                copyArray(srcFrameData.leftProjectionMatrix, dstFrameData.leftProjectionMatrix, 16)
+                copyArray(srcFrameData.rightProjectionMatrix, dstFrameData.rightProjectionMatrix, 16)
+                copyArray(srcFrameData.leftViewMatrix, dstFrameData.leftViewMatrix, 16)
+                copyArray(srcFrameData.rightViewMatrix, dstFrameData.rightViewMatrix, 16)
+
+                copyArray(srcFrameData.pose.position, dstFrameData.pose.position, 3)
+                copyArray(srcFrameData.pose.orientation, dstFrameData.pose.orientation, 3)
         	
-        	////////////////////////////////////////////////////////////////////////////////
-        	//          update pose.position/pose.quaternion
-        	////////////////////////////////////////////////////////////////////////////////
-        	
-                frameData.timestamp = Date.now()
-
-        	// compute cameraTransformMatrix from leftViewMatrix (we picked the first. we could use rightViewMatrix too)
-        	var leftViewMatrix = new THREE.Matrix4().fromArray(frameData.leftViewMatrix)
-        	var cameraTransformMatrix = new THREE.Matrix4().getInverse( leftViewMatrix )
-
-        	// set pose.position and pose.orientation from cameraTransformMatrix decomposition
-        	var cameraPosition = new THREE.Vector3()
-        	var cameraQuaternion = new THREE.Quaternion()
-        	cameraTransformMatrix.decompose(cameraPosition, cameraQuaternion, new THREE.Vector3)
-        	cameraPosition.toArray(frameData.pose.position)
-        	cameraQuaternion.toArray(frameData.pose.orientation)	                
+        	// function to copy weirdo array from FrameData                
+                function copyArray(srcArray, dstArray, len){
+                        for(var i = 0; i < len; i++){
+                                dstArray[i] = srcArray[i]
+                        }
+                }
         }
         
 	// notify caller if needed
