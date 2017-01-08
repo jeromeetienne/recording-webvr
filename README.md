@@ -21,5 +21,5 @@ Just add this line in your page and the recording webvr UI will appears.
 
 # Examples
 - [examples/ccapture.html](https://jeromeetienne.github.io/recording-webvr/examples/ccapture.html) - record a webm movie from a 3d scene with ccapture library
-- [examples/vrrecording_json.html](https://jeromeetienne.github.io/recording-webvr/examples/vrrecording_json.html) - record/replay gamepad api
-- [examples/vrrecording_threejs.html](https://jeromeetienne.github.io/recording-webvr/examples/vrrecording_threejs.html) - record/replay gamepad api
+- [examples/vrrecording_json.html](https://jeromeetienne.github.io/recording-webvr/examples/vrrecording_json.html) - record/replay vr experiences. aka webvr/gamepad/video
+- [examples/vrrecording_threejs.html](https://jeromeetienne.github.io/recording-webvr/examples/vrrecording_threejs.html) - record/replay vr experiences in three.js

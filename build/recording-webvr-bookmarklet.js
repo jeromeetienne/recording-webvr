@@ -1284,7 +1284,7 @@ VRRecording.record = function(options){
         	// // var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
 
         	// FIXME camera is a GLOBAL! BAD BAD 
-        	var vrPlayer = VRRecording.play(experienceUrl, undefined, 'play')
+        	var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
         // 	vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
         }
 
