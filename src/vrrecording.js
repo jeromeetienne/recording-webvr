@@ -11,9 +11,6 @@ VRRecording.play = function(experienceUrl, camera, mode){
 	var vrPlayer = new THREEx.VRPlayer()
         document.body.appendChild(vrPlayer.videoElement)
 
-        // export it globally - easier for debug
-        window.vrPlayer = vrPlayer
-
 	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)
@@ -76,9 +73,6 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
 VRRecording.record = function(options){
 	var vrRecorder = new THREEx.VRRecorder(options)
-        vrRecorder.start()
-        // export it globally - easier for debug
-        window.vrRecorder = vrRecorder
 
 	// create the vrPlayerUI
 	var vrRecorderUI = new THREEx.VRRecorderUI(vrRecorder)

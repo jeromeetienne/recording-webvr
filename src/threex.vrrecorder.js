@@ -28,7 +28,7 @@ THREEx.VRRecorder = function(options){
 THREEx.VRRecorder.prototype.start = function () {
         var _this = this
         this._isStarted = true
-        
+
         // start gamepadRecorder
         if( _this._gamepadRecorder !== null ){
                 _this._gamepadRecorder.start()

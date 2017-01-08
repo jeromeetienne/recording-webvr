@@ -33,7 +33,7 @@ window.initVRRecordingUI = function(){
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
         if( params.mode === 'record' ){
-                VRRecording.record({
+                var vrRecorder = VRRecording.record({
                         gamepad: true,
                         webvr: true,
                 })
@@ -44,7 +44,7 @@ window.initVRRecordingUI = function(){
         	// // var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
 
         	// FIXME camera is a GLOBAL! BAD BAD 
-        	var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
+        	var vrPlayer = VRRecording.play(experienceUrl, undefined, 'play')
         // 	vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
         }
 
