@@ -1,9 +1,7 @@
 var THREEx = THREEx || {}
 
-THREEx.JsonRecorder = function(){
+THREEx.JsonRecorder = function(fetchNewRecord){
         var _this = this
-
-	_this._fetchNewRecordData = function(){ return 'newRecord'}      // overload this function
         
         // parameters
         this.autoSave = true
@@ -40,7 +38,7 @@ THREEx.JsonRecorder = function(){
         return
 
         function update(){
-                var recordData = _this._fetchNewRecordData()
+                var recordData = fetchNewRecord()
                 // add this value 
                 records.values.push({
                         recordedAt : Date.now(),

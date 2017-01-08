@@ -17,7 +17,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)
-
+        
         // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
         var experienceBasename = matches[2]

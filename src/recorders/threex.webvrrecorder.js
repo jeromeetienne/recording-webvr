@@ -1,17 +1,16 @@
 var THREEx = THREEx || {}
 
 THREEx.WebvrRecorder = function(){
-        THREEx.JsonRecorder.call( this );
-
-        this.autoSaveBaseName = 'webvrrecords'
-                
-	var frameData = new VRFrameData()
-        this._fetchNewRecordData = function(newRecord){
-                this._vrDisplay.getFrameData(frameData);
+        var _this = this
+        THREEx.JsonRecorder.call( this, function fetchNewRecord(newRecord){
+                _this._vrDisplay.getFrameData(frameData);
 // console.log('store webvr framedata', frameData.pose.position)
                 var frameDataJSON = JSON.parse(JSON.stringify(frameData))
                 return frameDataJSON
-        }
+        });
+
+        this.autoSaveBaseName = 'webvrrecords'
+	var frameData = new VRFrameData()
         
         this._vrDisplay = null
         this.setVRDisplay = function(vrDisplay){

@@ -1,17 +1,15 @@
 var THREEx = THREEx || {}
 
 THREEx.GamepadRecorder = function(){
-        THREEx.JsonRecorder.call( this );
-        
-        this.autoSaveBaseName = 'gamepadrecords'
-        
-        this._fetchNewRecordData = function(newRecord){
+        THREEx.JsonRecorder.call( this, function fetchNewRecord(newRecord){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
                 // cloneObject Needed because in chrome, gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-                gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
-                return gamepads
-        }
+                var gamepadsJSON = THREEx.GamepadRecorder._cloneObject(gamepads)
+                return gamepadsJSON
+        });
+        
+        this.autoSaveBaseName = 'gamepadrecords'
         
         return
 }
@@ -73,4 +71,3 @@ THREEx.GamepadRecorder._cloneObject = function(item) {
         
         return result;
 }
-

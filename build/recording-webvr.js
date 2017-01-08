@@ -1,3 +1,175 @@
+var WebVRPolyfill = function(){}
+
+WebVRPolyfill.prototype.install = function(){
+
+        var framedataProvider = null
+        this.setFrameDataProvider = function(newFrameDataProvider){
+                framedataProvider = newFrameDataProvider
+        }
+
+        navigator.getVRDisplays = function(){
+        	// console.log('navigator.getVRDisplays()')
+        	var vrDisplays = [ new VRDisplay() ]
+        	return new Promise(function(resolve, reject) {
+        		resolve(vrDisplays);
+        	})
+        }
+
+        window.VRFrameData = function(){
+        	var frameData = this
+        	// https://w3c.github.io/webvr/#vrframedata
+        	this.timestamp = Date.now()
+
+        	this.leftProjectionMatrix = new Float32Array(16)
+        	this.leftViewMatrix = new Float32Array(16)
+        	this.rightProjectionMatrix = new Float32Array(16)
+        	this.rightViewMatrix = new Float32Array(16)
+
+        	// https://w3c.github.io/webvr/#interface-vrpose
+        	this.pose = {}
+        	this.pose.position = new Float32Array([0,0,0])
+        	// this.pose.linearVelocity = new Float32Array([0,0,0])
+        	// this.pose.linearAcceleration = new Float32Array([0,0,0])
+
+        	this.pose.orientation = new Float32Array([0, 0, 0, 1])
+        	// this.pose.angularVelocity = new Float32Array([0, 0, 0, 1])
+        	// this.pose.angularAcceleration = new Float32Array([0, 0, 0, 1])
+        }
+
+        window.VREyeParameters = function(whichEye){
+        	this.offset = new Float32Array([0,0,0])
+
+        	if( whichEye === 'right' ){
+        		this.offset[0]	= + 0.03
+        	}else if( whichEye === 'left' ){
+        		this.offset[0]	= - 0.03
+        	}else{
+        		console.assert(false)
+        	}
+
+        	this.fieldOfView = { // Deprecated
+        		upDegrees : +30,
+        		rightDegrees : +30,
+        		downDegrees : -30,
+        		leftDegrees : -30,
+        	}
+
+        	this.renderWidth = window.innerWidth/2
+        	this.renderHeight = window.innerHeight
+        }
+
+        window.VRDisplay = function(){
+        	// https://w3c.github.io/webvr/#interface-vrdisplay
+        	this.isConnected = true
+        	this.isPresenting = false
+        	
+        	this.displayId = 0
+        	this.displayName = 'Generic WebVR Polyfill'
+
+        	this.depthNear = 0.1
+        	this.depthFar = 10000
+        	
+        	this.capabilities = {	// https://w3c.github.io/webvr/#vrdisplaycapabilities
+        		hasPosition : true,
+        		hasOrientation : true,
+        		hasExternalDisplay : false,
+        		canPresent : true,
+        		maxLayers : 1,
+        	}
+        	
+          	this.stageParameters = {	// https://w3c.github.io/webvr/#vrstageparameters
+        		sittingToStandingTransform : new Float32Array(16),
+        		sizeX : 3,
+        		sizeY : 3,
+        	}
+        }
+
+        VRDisplay.prototype.getFrameData = function(frameData){
+        	if( !framedataProvider )	return
+                framedataProvider.updateFrameData(frameData)
+        }
+
+        VRDisplay.prototype.getEyeParameters = function(whichEye){
+        	// console.log('getEyeParameters', whichEye)
+        	return new VREyeParameters(whichEye)
+        }
+        	
+        VRDisplay.prototype.getPose = function(){	// Deprecated - https://w3c.github.io/webvr/#dom-vrdisplay-getpose
+        	console.assert('not yet implemented, Deprecated anyway')
+        }
+        VRDisplay.prototype.resetPose = function(frameData){
+        	console.assert('not yet implemented')
+        	if( !framedataProvider )	return
+        	framedataProvider.resetPose()
+        }
+
+        VRDisplay.prototype.requestAnimationFrame = function(callback){
+        	// console.log('requestAnimationFrame')
+        	return window.requestAnimationFrame(callback)
+        }
+        VRDisplay.prototype.cancelAnimationFrame = function(handle){
+        	// console.log('cancelAnimationFrame')
+        	return window.cancelAnimationFrame(handle)		
+        }
+
+        VRDisplay.prototype.getLayers = function(){
+        	// console.log('vrDisplay.getLayers() - not yet fully implemented')
+        	return []
+        }
+
+        VRDisplay.prototype.requestPresent = function(layers){
+        	var _this = this
+        	this._layers = layers
+        	console.log('requestPresent')
+
+        	return new Promise(function(resolve, reject) {
+        		loop()
+        		
+        		return
+        		function loop(){
+        			if( framedataProvider.started === true ){
+        				completed()				
+        				return;
+        			}
+        			setTimeout(loop, 1000/10)
+        		}
+        		function completed(){
+        			_this.isPresenting = true
+
+        			console.log('dispatch vrdisplaypresentchange on requestPresent')
+        			// notify event
+        			var event = new Event('vrdisplaypresentchange');
+        			window.dispatchEvent(event);
+        			// resolve promise
+        			resolve();			
+        		}
+        	})
+        }
+
+        VRDisplay.prototype.exitPresent = function(){
+        	var _this = this
+        	console.log('exitPresent')		
+        	
+        	return new Promise(function(resolve, reject) {
+        		_this.isPresenting = false
+
+        		console.log('dispatch vrdisplaypresentchange on exitPresent')
+        		// notify event
+        		var event = new Event('vrdisplaypresentchange');
+        		window.dispatchEvent(event);
+
+        		// resolve exitPresent promise
+        		resolve();
+        	})
+        }
+        	
+        // https://w3c.github.io/webvr/#dom-vrdisplay-submitframe
+        VRDisplay.prototype.submitFrame = function(){
+        	// console.log('submitFrame')				
+        }
+        
+        return this
+}
 var THREEx = THREEx || {}
 
 THREEx.JsonPlayer = function(onNewRecord){
@@ -103,10 +275,8 @@ THREEx.JsonPlayer.prototype.load = function(urls, onLoaded){
 }
 var THREEx = THREEx || {}
 
-THREEx.JsonRecorder = function(){
+THREEx.JsonRecorder = function(fetchNewRecord){
         var _this = this
-
-	_this._fetchNewRecordData = function(){ return 'newRecord'}      // overload this function
         
         // parameters
         this.autoSave = true
@@ -143,7 +313,7 @@ THREEx.JsonRecorder = function(){
         return
 
         function update(){
-                var recordData = _this._fetchNewRecordData()
+                var recordData = fetchNewRecord()
                 // add this value 
                 records.values.push({
                         recordedAt : Date.now(),
@@ -207,17 +377,16 @@ THREEx.GamepadPlayer.prototype.constructor = THREEx.GamepadPlayer;
 var THREEx = THREEx || {}
 
 THREEx.WebvrRecorder = function(){
-        THREEx.JsonRecorder.call( this );
-
-        this.autoSaveBaseName = 'webvrrecords'
-                
-	var frameData = new VRFrameData()
-        this._fetchNewRecordData = function(newRecord){
-                this._vrDisplay.getFrameData(frameData);
+        var _this = this
+        THREEx.JsonRecorder.call( this, function fetchNewRecord(newRecord){
+                _this._vrDisplay.getFrameData(frameData);
 // console.log('store webvr framedata', frameData.pose.position)
                 var frameDataJSON = JSON.parse(JSON.stringify(frameData))
                 return frameDataJSON
-        }
+        });
+
+        this.autoSaveBaseName = 'webvrrecords'
+	var frameData = new VRFrameData()
         
         this._vrDisplay = null
         this.setVRDisplay = function(vrDisplay){
@@ -231,17 +400,15 @@ THREEx.WebvrRecorder.prototype.constructor = THREEx.WebvrRecorder;
 var THREEx = THREEx || {}
 
 THREEx.GamepadRecorder = function(){
-        THREEx.JsonRecorder.call( this );
-        
-        this.autoSaveBaseName = 'gamepadrecords'
-        
-        this._fetchNewRecordData = function(newRecord){
+        THREEx.JsonRecorder.call( this, function fetchNewRecord(newRecord){
                 var gamepads = navigator.getGamepads();
                 // clone the struct
                 // cloneObject Needed because in chrome, gamepad struct doesnt support JSON.parse(JSON.stringify(data))
-                gamepads = THREEx.GamepadRecorder._cloneObject(gamepads)
-                return gamepads
-        }
+                var gamepadsJSON = THREEx.GamepadRecorder._cloneObject(gamepads)
+                return gamepadsJSON
+        });
+        
+        this.autoSaveBaseName = 'gamepadrecords'
         
         return
 }
@@ -303,7 +470,6 @@ THREEx.GamepadRecorder._cloneObject = function(item) {
         
         return result;
 }
-
 var THREEx = THREEx || {}
 
 
@@ -821,6 +987,138 @@ THREEx.VRRecorderUI = function(vrRecorder){
                 }
         }
 }
+window.initVRRecordingUI = function(){
+	
+        function parseParamsInHash() {
+                var variables = {}
+                var query = window.location.hash.substring(1);
+		if( query.length === 0 )	return variables
+                var vars = query.split('&');
+                for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split('=');
+                        var varName = decodeURIComponent(pair[0])
+                        if( pair[1] ){
+                                var varValue = decodeURIComponent(pair[1]);
+                        }else{
+                                var varValue = true
+                        }
+                        variables[varName] = varValue
+                }
+                return variables
+        }
+	function onParamsChanged(){
+		var hashStr = ''
+		Object.keys(params).forEach(function(varName){
+			var varStr = varName + '=' + params[varName]
+			if( hashStr.length > 0 ) hashStr += '&'
+			hashStr = hashStr + varStr			
+		})
+		location.hash = hashStr
+		location.reload()
+	}
+        var params = parseParamsInHash()
+
+	//////////////////////////////////////////////////////////////////////////////
+	//		Code Separator
+	//////////////////////////////////////////////////////////////////////////////
+        if( params.mode === 'record' ){
+                VRRecording.record({
+                        gamepad: true,
+                        webvr: true,
+                })
+        }
+
+        if( params.mode === 'play' ){
+        	var experienceUrl = params.experienceUrl ? params.experienceUrl : 'vrExperiences/video2/vr-experience.json'
+        	// // var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
+
+        	// FIXME camera is a GLOBAL! BAD BAD 
+        	var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
+        // 	vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
+        }
+
+	//////////////////////////////////////////////////////////////////////////////
+	//		Code Separator
+	//////////////////////////////////////////////////////////////////////////////
+        var containerDomElement = document.createElement('div')
+	document.body.appendChild(containerDomElement)
+
+        containerDomElement.style.fontFamily = 'monospace'
+        containerDomElement.style.color = 'black'
+        containerDomElement.style.padding = '0.5em'
+        containerDomElement.style.margin = '0.5em'
+        containerDomElement.style.position = 'fixed'
+        containerDomElement.style.bottom = '0px'
+        containerDomElement.style.right = '0px'
+        containerDomElement.style.zIndex = 9999
+        containerDomElement.style.borderRadius = '1em'
+        containerDomElement.style.borderStyle = 'solid'
+        containerDomElement.style.backgroundColor = 'lightgrey'
+
+        //////////////////////////////////////////////////////////////////////////////
+        //                titleElement
+        //////////////////////////////////////////////////////////////////////////////
+        var titleElement = document.createElement('h2')
+        titleElement.innerHTML = 'VR Recording'
+        containerDomElement.appendChild(titleElement)
+
+        ////////////////////////////////////////////////////////////////////////////////
+        //          start/pause buttom
+        ////////////////////////////////////////////////////////////////////////////////
+        
+        var recordButton = document.createElement('button')
+        recordButton.innerHTML = 'record'
+        containerDomElement.appendChild(recordButton)
+        recordButton.addEventListener('click', function(){
+		params.mode = 'record'
+		onParamsChanged()
+        })
+
+        var playButton = document.createElement('button')
+        playButton.innerHTML = 'play'
+        containerDomElement.appendChild(playButton)
+        playButton.addEventListener('click', function(){
+		params.mode = 'play'
+		onParamsChanged()
+        })
+
+
+        var resetButton = document.createElement('button')
+        resetButton.innerHTML = 'reset'
+        containerDomElement.appendChild(resetButton)
+        resetButton.addEventListener('click', function(){
+		params = {}
+		onParamsChanged()
+        })
+
+	//////////////////////////////////////////////////////////////////////////////
+	//		Code Separator
+	//////////////////////////////////////////////////////////////////////////////
+        containerDomElement.appendChild(document.createElement('br'))
+
+        var labelElement = document.createElement('label')
+        labelElement.innerHTML = 'experience URL : '
+        containerDomElement.appendChild(labelElement)
+        var experienceUrlInput = document.createElement('input')
+        experienceUrlInput.value = params.experienceUrl || ''
+        labelElement.appendChild(experienceUrlInput)
+        experienceUrlInput.addEventListener('change', function(){
+                params.experienceUrl = experienceUrlInput.value
+		onParamsChanged()
+        })
+
+
+        containerDomElement.appendChild(document.createElement('br'))	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//		Code Separator
+//////////////////////////////////////////////////////////////////////////////
+
+// FIXME launch it better
+window.addEventListener('load', function(){
+	initVRRecordingUI()
+})
 var VRRecording = {}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -840,7 +1138,7 @@ VRRecording.play = function(experienceUrl, camera, mode){
 	// create the vrPlayerUI
 	var vrPlayerUI = new THREEx.VRPlayerUI(vrPlayer)
 	document.body.appendChild(vrPlayerUI.domElement)
-
+        
         // match experienceUrl
         var matches = experienceUrl.match(/(.*\/)([^\/]+)/)
         var experienceBasename = matches[2]
