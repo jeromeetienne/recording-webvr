@@ -118,6 +118,36 @@ window.initVRRecordingUI = function(){
 		onParamsChanged()
         })
 
+	//////////////////////////////////////////////////////////////////////////////
+	//		Code Separator
+	//////////////////////////////////////////////////////////////////////////////
+        containerDomElement.appendChild(document.createElement('br'))
+
+        var labelElement = document.createElement('label')
+        labelElement.innerHTML = 'experience URLs : '
+        containerDomElement.appendChild(labelElement)
+        var selectElement = document.createElement('select')
+        selectElement.innerHTML = 'experience URLs : '
+        labelElement.appendChild(selectElement)
+	var vrExperienceUrls = [
+		'vrExperiences/mvi_0000/vr-experience.json',
+		'vrExperiences/mvi_1731/vr-experience.json',
+		'vrExperiences/mvi_1733/vr-experience.json',
+		'vrExperiences/video1/vr-experience.json',
+		'vrExperiences/video2/vr-experience.json',
+	]
+	vrExperienceUrls.forEach(function(vrExperienceUrl){
+		var optionElement = document.createElement('option')
+		optionElement.value = optionElement.innerHTML = vrExperienceUrl
+		selectElement.appendChild(optionElement)		
+	})
+	selectElement.value = params.experienceUrl
+        selectElement.addEventListener('change', function(){
+                params.experienceUrl = selectElement.value
+                params.mode = 'play'
+		onParamsChanged()
+        })
+
 
         containerDomElement.appendChild(document.createElement('br'))	
 }
