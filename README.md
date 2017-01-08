@@ -20,7 +20,7 @@ Just add this line in your page and the recording webvr UI will appears.
 ```
 
 Here is a bookmarklet
-[here](javascript:\(function\(\){document.body.appendChild\(document.createElement\('script'\)\).src='';}\)\(\);\))
+[here](javascript:\(function\(\){document.body.appendChild\(document.createElement\('script'\)\).src='bla';}\)\(\);)
 
 # Examples
 - [examples/ccapture.html](https://jeromeetienne.github.io/recording-webvr/examples/ccapture.html) - record a webm movie from a 3d scene with ccapture library
