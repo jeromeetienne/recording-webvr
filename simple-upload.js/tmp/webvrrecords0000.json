@@ -1,8 +1,8 @@
 {
-	"startedAt": 1483957225004,
+	"startedAt": 1483957594400,
 	"values": [
 		{
-			"recordedAt": 1483957225014,
+			"recordedAt": 1483957594412,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -77,7 +77,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225017.385,
+					"timestamp": 1483957594417.8,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -102,11 +102,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225017.385
+				"timestamp": 1483957594417.8
 			}
 		},
 		{
-			"recordedAt": 1483957225025,
+			"recordedAt": 1483957594424,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -181,7 +181,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225027.8,
+					"timestamp": 1483957594430.205,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -206,11 +206,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225027.8
+				"timestamp": 1483957594430.205
 			}
 		},
 		{
-			"recordedAt": 1483957225035,
+			"recordedAt": 1483957594432,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -285,7 +285,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225038.07,
+					"timestamp": 1483957594437.395,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -310,11 +310,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225038.07
+				"timestamp": 1483957594437.395
 			}
 		},
 		{
-			"recordedAt": 1483957225047,
+			"recordedAt": 1483957594442,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -389,7 +389,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225050.48,
+					"timestamp": 1483957594447.505,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -414,11 +414,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225050.48
+				"timestamp": 1483957594447.505
 			}
 		},
 		{
-			"recordedAt": 1483957225055,
+			"recordedAt": 1483957594451,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -493,7 +493,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225058.49,
+					"timestamp": 1483957594456.64,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -518,11 +518,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225058.49
+				"timestamp": 1483957594456.64
 			}
 		},
 		{
-			"recordedAt": 1483957225064,
+			"recordedAt": 1483957594463,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -597,7 +597,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225067.555,
+					"timestamp": 1483957594468.27,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -622,11 +622,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225067.555
+				"timestamp": 1483957594468.27
 			}
 		},
 		{
-			"recordedAt": 1483957225074,
+			"recordedAt": 1483957594471,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -701,7 +701,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225077.465,
+					"timestamp": 1483957594476.44,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -726,11 +726,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225077.465
+				"timestamp": 1483957594476.44
 			}
 		},
 		{
-			"recordedAt": 1483957225085,
+			"recordedAt": 1483957594482,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -805,7 +805,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225087.81,
+					"timestamp": 1483957594487.965,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -830,11 +830,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225087.81
+				"timestamp": 1483957594487.965
 			}
 		},
 		{
-			"recordedAt": 1483957225094,
+			"recordedAt": 1483957594492,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -909,7 +909,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225097.015,
+					"timestamp": 1483957594497.39,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -934,11 +934,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225097.015
+				"timestamp": 1483957594497.39
 			}
 		},
 		{
-			"recordedAt": 1483957225106,
+			"recordedAt": 1483957594501,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1013,7 +1013,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225109.37,
+					"timestamp": 1483957594506.84,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1038,11 +1038,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225109.37
+				"timestamp": 1483957594506.84
 			}
 		},
 		{
-			"recordedAt": 1483957225115,
+			"recordedAt": 1483957594512,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1117,7 +1117,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225118.495,
+					"timestamp": 1483957594517.85,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1142,11 +1142,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225118.495
+				"timestamp": 1483957594517.85
 			}
 		},
 		{
-			"recordedAt": 1483957225124,
+			"recordedAt": 1483957594524,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1221,7 +1221,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225127.18,
+					"timestamp": 1483957594529.38,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1246,11 +1246,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225127.18
+				"timestamp": 1483957594529.38
 			}
 		},
 		{
-			"recordedAt": 1483957225134,
+			"recordedAt": 1483957594531,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1325,7 +1325,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225137.535,
+					"timestamp": 1483957594537.24,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1350,11 +1350,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225137.535
+				"timestamp": 1483957594537.24
 			}
 		},
 		{
-			"recordedAt": 1483957225148,
+			"recordedAt": 1483957594540,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1429,7 +1429,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225151.145,
+					"timestamp": 1483957594545.78,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1454,11 +1454,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225151.145
+				"timestamp": 1483957594545.78
 			}
 		},
 		{
-			"recordedAt": 1483957225155,
+			"recordedAt": 1483957594551,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1533,7 +1533,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225158.325,
+					"timestamp": 1483957594556.86,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1558,11 +1558,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225158.325
+				"timestamp": 1483957594556.86
 			}
 		},
 		{
-			"recordedAt": 1483957225165,
+			"recordedAt": 1483957594562,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1637,7 +1637,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225168.455,
+					"timestamp": 1483957594568.195,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1662,11 +1662,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225168.455
+				"timestamp": 1483957594568.195
 			}
 		},
 		{
-			"recordedAt": 1483957225174,
+			"recordedAt": 1483957594571,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1741,7 +1741,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225177.585,
+					"timestamp": 1483957594576.4,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1766,11 +1766,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225177.585
+				"timestamp": 1483957594576.4
 			}
 		},
 		{
-			"recordedAt": 1483957225186,
+			"recordedAt": 1483957594581,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1845,7 +1845,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225189.255,
+					"timestamp": 1483957594586.57,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1870,11 +1870,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225189.255
+				"timestamp": 1483957594586.57
 			}
 		},
 		{
-			"recordedAt": 1483957225194,
+			"recordedAt": 1483957594592,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -1949,7 +1949,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225197.445,
+					"timestamp": 1483957594597.61,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -1974,11 +1974,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225197.445
+				"timestamp": 1483957594597.61
 			}
 		},
 		{
-			"recordedAt": 1483957225205,
+			"recordedAt": 1483957594601,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2053,7 +2053,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225207.835,
+					"timestamp": 1483957594606.85,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2078,11 +2078,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225207.835
+				"timestamp": 1483957594606.85
 			}
 		},
 		{
-			"recordedAt": 1483957225215,
+			"recordedAt": 1483957594612,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2157,7 +2157,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225218.315,
+					"timestamp": 1483957594617.52,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2182,11 +2182,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225218.315
+				"timestamp": 1483957594617.52
 			}
 		},
 		{
-			"recordedAt": 1483957225224,
+			"recordedAt": 1483957594624,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2261,7 +2261,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225227.065,
+					"timestamp": 1483957594630.215,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2286,11 +2286,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225227.065
+				"timestamp": 1483957594630.215
 			}
 		},
 		{
-			"recordedAt": 1483957225234,
+			"recordedAt": 1483957594632,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2365,7 +2365,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225237.36,
+					"timestamp": 1483957594637.28,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2390,11 +2390,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225237.36
+				"timestamp": 1483957594637.28
 			}
 		},
 		{
-			"recordedAt": 1483957225248,
+			"recordedAt": 1483957594641,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2469,7 +2469,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225251.085,
+					"timestamp": 1483957594646.585,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2494,11 +2494,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225251.085
+				"timestamp": 1483957594646.585
 			}
 		},
 		{
-			"recordedAt": 1483957225255,
+			"recordedAt": 1483957594651,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2573,7 +2573,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225258.285,
+					"timestamp": 1483957594656.385,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2598,11 +2598,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225258.285
+				"timestamp": 1483957594656.385
 			}
 		},
 		{
-			"recordedAt": 1483957225264,
+			"recordedAt": 1483957594663,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2677,7 +2677,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225267.255,
+					"timestamp": 1483957594668.34,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2702,11 +2702,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225267.255
+				"timestamp": 1483957594668.34
 			}
 		},
 		{
-			"recordedAt": 1483957225274,
+			"recordedAt": 1483957594671,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2781,7 +2781,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225277.445,
+					"timestamp": 1483957594676.615,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2806,11 +2806,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225277.445
+				"timestamp": 1483957594676.615
 			}
 		},
 		{
-			"recordedAt": 1483957225286,
+			"recordedAt": 1483957594681,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2885,7 +2885,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225288.755,
+					"timestamp": 1483957594686.675,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -2910,11 +2910,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225288.755
+				"timestamp": 1483957594686.675
 			}
 		},
 		{
-			"recordedAt": 1483957225294,
+			"recordedAt": 1483957594692,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -2989,7 +2989,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225297.45,
+					"timestamp": 1483957594697.415,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3014,11 +3014,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225297.45
+				"timestamp": 1483957594697.415
 			}
 		},
 		{
-			"recordedAt": 1483957225306,
+			"recordedAt": 1483957594701,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3093,7 +3093,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225309.32,
+					"timestamp": 1483957594706.925,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3118,11 +3118,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225309.32
+				"timestamp": 1483957594706.925
 			}
 		},
 		{
-			"recordedAt": 1483957225315,
+			"recordedAt": 1483957594711,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3197,7 +3197,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225317.995,
+					"timestamp": 1483957594716.65,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3222,11 +3222,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225317.995
+				"timestamp": 1483957594716.65
 			}
 		},
 		{
-			"recordedAt": 1483957225324,
+			"recordedAt": 1483957594725,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3301,7 +3301,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225327.415,
+					"timestamp": 1483957594730.635,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3326,11 +3326,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225327.415
+				"timestamp": 1483957594730.635
 			}
 		},
 		{
-			"recordedAt": 1483957225336,
+			"recordedAt": 1483957594730,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3405,7 +3405,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225339.16,
+					"timestamp": 1483957594735.98,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3430,11 +3430,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225339.16
+				"timestamp": 1483957594735.98
 			}
 		},
 		{
-			"recordedAt": 1483957225348,
+			"recordedAt": 1483957594741,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3509,7 +3509,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225351.59,
+					"timestamp": 1483957594747.025,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3534,11 +3534,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225351.59
+				"timestamp": 1483957594747.025
 			}
 		},
 		{
-			"recordedAt": 1483957225355,
+			"recordedAt": 1483957594752,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3613,7 +3613,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225358.235,
+					"timestamp": 1483957594757.385,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3638,11 +3638,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225358.235
+				"timestamp": 1483957594757.385
 			}
 		},
 		{
-			"recordedAt": 1483957225365,
+			"recordedAt": 1483957594761,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3717,7 +3717,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225368.475,
+					"timestamp": 1483957594766.695,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3742,11 +3742,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225368.475
+				"timestamp": 1483957594766.695
 			}
 		},
 		{
-			"recordedAt": 1483957225374,
+			"recordedAt": 1483957594770,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3821,7 +3821,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225377.315,
+					"timestamp": 1483957594776.035,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3846,11 +3846,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225377.315
+				"timestamp": 1483957594776.035
 			}
 		},
 		{
-			"recordedAt": 1483957225384,
+			"recordedAt": 1483957594780,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -3925,7 +3925,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225387.08,
+					"timestamp": 1483957594786.165,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -3950,11 +3950,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225387.08
+				"timestamp": 1483957594786.165
 			}
 		},
 		{
-			"recordedAt": 1483957225394,
+			"recordedAt": 1483957594791,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4029,7 +4029,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225397.475,
+					"timestamp": 1483957594796.865,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4054,11 +4054,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225397.475
+				"timestamp": 1483957594796.865
 			}
 		},
 		{
-			"recordedAt": 1483957225406,
+			"recordedAt": 1483957594801,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4133,7 +4133,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225408.625,
+					"timestamp": 1483957594806.755,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4158,11 +4158,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225408.625
+				"timestamp": 1483957594806.755
 			}
 		},
 		{
-			"recordedAt": 1483957225414,
+			"recordedAt": 1483957594811,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4237,7 +4237,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225417.27,
+					"timestamp": 1483957594816.59,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4262,11 +4262,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225417.27
+				"timestamp": 1483957594816.59
 			}
 		},
 		{
-			"recordedAt": 1483957225424,
+			"recordedAt": 1483957594825,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4341,7 +4341,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225427.37,
+					"timestamp": 1483957594831.02,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4366,11 +4366,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225427.37
+				"timestamp": 1483957594831.02
 			}
 		},
 		{
-			"recordedAt": 1483957225434,
+			"recordedAt": 1483957594831,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4445,7 +4445,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225437.06,
+					"timestamp": 1483957594837.135,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4470,11 +4470,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225437.06
+				"timestamp": 1483957594837.135
 			}
 		},
 		{
-			"recordedAt": 1483957225448,
+			"recordedAt": 1483957594842,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4549,7 +4549,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225451.04,
+					"timestamp": 1483957594847.365,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4574,11 +4574,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225451.04
+				"timestamp": 1483957594847.365
 			}
 		},
 		{
-			"recordedAt": 1483957225455,
+			"recordedAt": 1483957594851,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4653,7 +4653,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225458.265,
+					"timestamp": 1483957594856.79,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4678,11 +4678,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225458.265
+				"timestamp": 1483957594856.79
 			}
 		},
 		{
-			"recordedAt": 1483957225465,
+			"recordedAt": 1483957594861,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4757,7 +4757,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225467.82,
+					"timestamp": 1483957594866.645,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4782,11 +4782,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225467.82
+				"timestamp": 1483957594866.645
 			}
 		},
 		{
-			"recordedAt": 1483957225474,
+			"recordedAt": 1483957594871,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4861,7 +4861,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225477.215,
+					"timestamp": 1483957594876.61,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4886,11 +4886,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225477.215
+				"timestamp": 1483957594876.61
 			}
 		},
 		{
-			"recordedAt": 1483957225484,
+			"recordedAt": 1483957594881,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -4965,7 +4965,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225487.175,
+					"timestamp": 1483957594886.445,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -4990,11 +4990,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225487.175
+				"timestamp": 1483957594886.445
 			}
 		},
 		{
-			"recordedAt": 1483957225494,
+			"recordedAt": 1483957594891,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5069,7 +5069,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225497.54,
+					"timestamp": 1483957594896.645,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5094,11 +5094,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225497.54
+				"timestamp": 1483957594896.645
 			}
 		},
 		{
-			"recordedAt": 1483957225504,
+			"recordedAt": 1483957594901,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5173,7 +5173,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225507.035,
+					"timestamp": 1483957594906.385,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5198,11 +5198,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225507.035
+				"timestamp": 1483957594906.385
 			}
 		},
 		{
-			"recordedAt": 1483957225515,
+			"recordedAt": 1483957594912,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5277,7 +5277,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225518.555,
+					"timestamp": 1483957594917.765,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5302,11 +5302,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225518.555
+				"timestamp": 1483957594917.765
 			}
 		},
 		{
-			"recordedAt": 1483957225524,
+			"recordedAt": 1483957594920,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5381,7 +5381,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225527.51,
+					"timestamp": 1483957594926.045,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5406,11 +5406,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225527.51
+				"timestamp": 1483957594926.045
 			}
 		},
 		{
-			"recordedAt": 1483957225534,
+			"recordedAt": 1483957594931,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5485,7 +5485,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225537.125,
+					"timestamp": 1483957594936.605,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5510,11 +5510,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225537.125
+				"timestamp": 1483957594936.605
 			}
 		},
 		{
-			"recordedAt": 1483957225547,
+			"recordedAt": 1483957594942,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5589,7 +5589,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225550.485,
+					"timestamp": 1483957594947.655,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5614,11 +5614,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225550.485
+				"timestamp": 1483957594947.655
 			}
 		},
 		{
-			"recordedAt": 1483957225554,
+			"recordedAt": 1483957594950,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5693,7 +5693,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225557.365,
+					"timestamp": 1483957594956.225,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5718,11 +5718,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225557.365
+				"timestamp": 1483957594956.225
 			}
 		},
 		{
-			"recordedAt": 1483957225565,
+			"recordedAt": 1483957594963,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5797,7 +5797,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225567.785,
+					"timestamp": 1483957594968.425,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5822,11 +5822,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225567.785
+				"timestamp": 1483957594968.425
 			}
 		},
 		{
-			"recordedAt": 1483957225574,
+			"recordedAt": 1483957594971,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -5901,7 +5901,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225577.26,
+					"timestamp": 1483957594976.67,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -5926,11 +5926,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225577.26
+				"timestamp": 1483957594976.67
 			}
 		},
 		{
-			"recordedAt": 1483957225585,
+			"recordedAt": 1483957594982,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6005,7 +6005,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225588.085,
+					"timestamp": 1483957594988.07,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6030,11 +6030,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225588.085
+				"timestamp": 1483957594988.07
 			}
 		},
 		{
-			"recordedAt": 1483957225594,
+			"recordedAt": 1483957594992,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6109,7 +6109,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225597.635,
+					"timestamp": 1483957594997.305,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6134,11 +6134,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225597.635
+				"timestamp": 1483957594997.305
 			}
 		},
 		{
-			"recordedAt": 1483957225606,
+			"recordedAt": 1483957595001,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6213,7 +6213,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225609.15,
+					"timestamp": 1483957595006.41,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6238,11 +6238,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225609.15
+				"timestamp": 1483957595006.41
 			}
 		},
 		{
-			"recordedAt": 1483957225615,
+			"recordedAt": 1483957595011,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6317,7 +6317,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225618.645,
+					"timestamp": 1483957595016.355,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6342,11 +6342,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225618.645
+				"timestamp": 1483957595016.355
 			}
 		},
 		{
-			"recordedAt": 1483957225624,
+			"recordedAt": 1483957595024,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6421,7 +6421,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225627.14,
+					"timestamp": 1483957595030.25,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6446,11 +6446,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225627.14
+				"timestamp": 1483957595030.25
 			}
 		},
 		{
-			"recordedAt": 1483957225636,
+			"recordedAt": 1483957595032,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6525,7 +6525,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225639.355,
+					"timestamp": 1483957595037.39,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6550,11 +6550,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225639.355
+				"timestamp": 1483957595037.39
 			}
 		},
 		{
-			"recordedAt": 1483957225648,
+			"recordedAt": 1483957595041,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6629,7 +6629,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225650.98,
+					"timestamp": 1483957595047.03,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6654,11 +6654,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225650.98
+				"timestamp": 1483957595047.03
 			}
 		},
 		{
-			"recordedAt": 1483957225654,
+			"recordedAt": 1483957595052,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6733,7 +6733,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225657.065,
+					"timestamp": 1483957595057.405,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6758,11 +6758,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225657.065
+				"timestamp": 1483957595057.405
 			}
 		},
 		{
-			"recordedAt": 1483957225665,
+			"recordedAt": 1483957595062,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6837,7 +6837,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225668.365,
+					"timestamp": 1483957595067.82,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6862,11 +6862,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225668.365
+				"timestamp": 1483957595067.82
 			}
 		},
 		{
-			"recordedAt": 1483957225674,
+			"recordedAt": 1483957595071,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -6941,7 +6941,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225677.3,
+					"timestamp": 1483957595076.37,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -6966,11 +6966,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225677.3
+				"timestamp": 1483957595076.37
 			}
 		},
 		{
-			"recordedAt": 1483957225685,
+			"recordedAt": 1483957595083,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -7045,7 +7045,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225687.775,
+					"timestamp": 1483957595088.39,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -7070,11 +7070,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225687.775
+				"timestamp": 1483957595088.39
 			}
 		},
 		{
-			"recordedAt": 1483957225694,
+			"recordedAt": 1483957595092,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -7149,7 +7149,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225697.595,
+					"timestamp": 1483957595097.685,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -7174,11 +7174,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225697.595
+				"timestamp": 1483957595097.685
 			}
 		},
 		{
-			"recordedAt": 1483957225706,
+			"recordedAt": 1483957595101,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -7253,7 +7253,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225708.795,
+					"timestamp": 1483957595106.895,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -7278,11 +7278,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225708.795
+				"timestamp": 1483957595106.895
 			}
 		},
 		{
-			"recordedAt": 1483957225715,
+			"recordedAt": 1483957595110,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -7357,7 +7357,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225718.415,
+					"timestamp": 1483957595115.815,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -7382,11 +7382,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225718.415
+				"timestamp": 1483957595115.815
 			}
 		},
 		{
-			"recordedAt": 1483957225724,
+			"recordedAt": 1483957595125,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -7461,7 +7461,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225727.005,
+					"timestamp": 1483957595130.89,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -7486,11 +7486,11 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225727.005
+				"timestamp": 1483957595130.89
 			}
 		},
 		{
-			"recordedAt": 1483957225736,
+			"recordedAt": 1483957595131,
 			"data": {
 				"leftProjectionMatrix": {
 					"0": 1.190346360206604,
@@ -7565,7 +7565,7 @@
 					"15": 1
 				},
 				"pose": {
-					"timestamp": 1483957225739.09,
+					"timestamp": 1483957595137.165,
 					"position": {
 						"0": 0,
 						"1": 0,
@@ -7590,3543 +7590,7 @@
 					},
 					"angularAcceleration": null
 				},
-				"timestamp": 1483957225739.09
-			}
-		},
-		{
-			"recordedAt": 1483957225747,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225750.63,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225750.63
-			}
-		},
-		{
-			"recordedAt": 1483957225755,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225758.14,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225758.14
-			}
-		},
-		{
-			"recordedAt": 1483957225765,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225767.905,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225767.905
-			}
-		},
-		{
-			"recordedAt": 1483957225774,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225777.225,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225777.225
-			}
-		},
-		{
-			"recordedAt": 1483957225784,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225787.635,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225787.635
-			}
-		},
-		{
-			"recordedAt": 1483957225794,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225797.59,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225797.59
-			}
-		},
-		{
-			"recordedAt": 1483957225804,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225807.185,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225807.185
-			}
-		},
-		{
-			"recordedAt": 1483957225815,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225818.545,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225818.545
-			}
-		},
-		{
-			"recordedAt": 1483957225824,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225827.215,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225827.215
-			}
-		},
-		{
-			"recordedAt": 1483957225836,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225839.375,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225839.375
-			}
-		},
-		{
-			"recordedAt": 1483957225844,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225847.6,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225847.6
-			}
-		},
-		{
-			"recordedAt": 1483957225854,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225857.69,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225857.69
-			}
-		},
-		{
-			"recordedAt": 1483957225865,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225867.85,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225867.85
-			}
-		},
-		{
-			"recordedAt": 1483957225874,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225877.275,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225877.275
-			}
-		},
-		{
-			"recordedAt": 1483957225884,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225887.34,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225887.34
-			}
-		},
-		{
-			"recordedAt": 1483957225894,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225897.485,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225897.485
-			}
-		},
-		{
-			"recordedAt": 1483957225906,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225909.29,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225909.29
-			}
-		},
-		{
-			"recordedAt": 1483957225915,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225918.615,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225918.615
-			}
-		},
-		{
-			"recordedAt": 1483957225924,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225927.48,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225927.48
-			}
-		},
-		{
-			"recordedAt": 1483957225936,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225939.19,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225939.19
-			}
-		},
-		{
-			"recordedAt": 1483957225946,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225949.32,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225949.32
-			}
-		},
-		{
-			"recordedAt": 1483957225954,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225957.52,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225957.52
-			}
-		},
-		{
-			"recordedAt": 1483957225964,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225967,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225967
-			}
-		},
-		{
-			"recordedAt": 1483957225974,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225977.575,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225977.575
-			}
-		},
-		{
-			"recordedAt": 1483957225986,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225989.27,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225989.27
-			}
-		},
-		{
-			"recordedAt": 1483957225994,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957225997.52,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957225997.52
-			}
-		},
-		{
-			"recordedAt": 1483957226004,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226007.155,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226007.155
-			}
-		},
-		{
-			"recordedAt": 1483957226015,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226018.425,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226018.425
-			}
-		},
-		{
-			"recordedAt": 1483957226024,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226027.035,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226027.035
-			}
-		},
-		{
-			"recordedAt": 1483957226036,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226039.16,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226039.16
-			}
-		},
-		{
-			"recordedAt": 1483957226044,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226047.105,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226047.105
-			}
-		},
-		{
-			"recordedAt": 1483957226054,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226057.13,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226057.13
-			}
-		},
-		{
-			"recordedAt": 1483957226064,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226067.245,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226067.245
-			}
-		},
-		{
-			"recordedAt": 1483957226074,
-			"data": {
-				"leftProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": -0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"leftViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": 0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"rightProjectionMatrix": {
-					"0": 1.190346360206604,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 0.999789297580719,
-					"6": 0,
-					"7": 0,
-					"8": 0.14858104288578033,
-					"9": -0.11069033294916153,
-					"10": -1.000100016593933,
-					"11": -1,
-					"12": 0,
-					"13": 0,
-					"14": -0.10001000016927719,
-					"15": 0
-				},
-				"rightViewMatrix": {
-					"0": 1,
-					"1": 0,
-					"2": 0,
-					"3": 0,
-					"4": 0,
-					"5": 1,
-					"6": 0,
-					"7": 0,
-					"8": 0,
-					"9": 0,
-					"10": 1,
-					"11": 0,
-					"12": -0.03200000151991844,
-					"13": 0,
-					"14": 0,
-					"15": 1
-				},
-				"pose": {
-					"timestamp": 1483957226077.125,
-					"position": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"linearAcceleration": null,
-					"orientation": {
-						"0": 0,
-						"1": 0,
-						"2": 0,
-						"3": 1
-					},
-					"angularVelocity": {
-						"0": 0,
-						"1": 0,
-						"2": 0
-					},
-					"angularAcceleration": null
-				},
-				"timestamp": 1483957226077.125
+				"timestamp": 1483957595137.165
 			}
 		}
 	]
