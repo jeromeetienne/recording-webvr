@@ -4,14 +4,20 @@
 
 var http = require('http')
 
-var server = http.createServer().listen(8000);
-server.on('request', handler)
+var listeningPort = process.env.PORT || 8000
+var server = http.createServer().listen(listeningPort);
+server.on('request', onRequest)
 
 
-console.log('Listening on 0.0.0.0:8000')
-console.log('POST from browser')
+console.log('SimpleUpload.js server: Listening on 0.0.0.0:'+listeningPort)
 
-function handler(request, response){
+
+////////////////////////////////////////////////////////////////////////////////
+//          Code Separator
+////////////////////////////////////////////////////////////////////////////////
+
+
+function onRequest(request, response){
         var parsedUrl = require('url').parse(request.url)
         var parsedQuery = require('querystring').parse(parsedUrl.query)
 
@@ -43,9 +49,13 @@ function handler(request, response){
         });
 }
 
+/**
+ * save data on the disk
+ */
 function save(basename, data){
         
-        var fullName = __dirname + '/../tmp/' + basename
+        // var fullName = __dirname + '/../tmp/' + basename
+        var fullName = __dirname + '/../../examples/vrExperiences/current/' + basename
         console.log('save', fullName)
         // console.log(data)
         // actually write the file
@@ -53,6 +63,5 @@ function save(basename, data){
                 if(err) {
                         return console.log(err);
                 }
-        })
-        
+        })        
 }

@@ -1,5 +1,5 @@
 {
-	"videoSrc": "/your/video/file/goeshere.m4v",
+	"videoSrc": "../mvi_0000/mvi_0000.mp4",
 	"camera": {
 		"position": [
 			0,
@@ -13,10 +13,10 @@
 			1
 		]
 	},
-	"nWebvrFiles": 1,
+	"nWebvrFiles": 2,
 	"videoToWebvrDelay": 0,
 	"webvrBaseUrl": "webvrrecords",
-	"nGamepadFiles": 1,
+	"nGamepadFiles": 2,
 	"videoToGamepadDelay": 0,
 	"gamepadBaseUrl": "gamepadrecords"
 }

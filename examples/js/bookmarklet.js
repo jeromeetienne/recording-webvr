@@ -44,8 +44,8 @@ window.initVRRecordingUI = function(){
         	// // var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
 
         	// FIXME camera is a GLOBAL! BAD BAD 
-        	var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
-        // 	vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
+        	var vrPlayer = VRRecording.play(experienceUrl, window.camera, 'play')
+        	vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
         }
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -135,6 +135,7 @@ window.initVRRecordingUI = function(){
 		'vrExperiences/mvi_1733/vr-experience.json',
 		'vrExperiences/video1/vr-experience.json',
 		'vrExperiences/video2/vr-experience.json',
+		'vrExperiences/current/vr-experience.json',
 	]
 	vrExperienceUrls.forEach(function(vrExperienceUrl){
 		var optionElement = document.createElement('option')
