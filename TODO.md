@@ -1,3 +1,5 @@
+- switch to server version
+
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not
   - same for webvrDelay i imagine
@@ -7,10 +9,6 @@
   - like if i want to record webvr/gamepad i can go on the site, without installing anything
   - thus no need for dev computer
   - so parse hash url as a querystring
-
-- make it such it is possible with monkey url, inline javascript
-  - with the vrrecording_json.html script - thus it is possible to use it on any page
-  - a chrome extension ? no
 
 - what about controls camera?
   - see how to able Orbits controls as a given position - important while tuning
@@ -47,6 +45,9 @@
   - there is nothing threex into it, which name to use ?
   - MixedRealityVideo.js ? javascript tools to record your VR experiences
 
+- DONE make it such it is possible with monkey url, inline javascript
+  - with the vrrecording_json.html script - thus it is possible to use it on any page
+  - a chrome extension ? no
 - DONE in src/recorders/ change the callback system, copy the one from players
 - DONE webvr-polyfill add present as timestamp... even if there is nothing to replay
 - DONE make the library independant of three.js

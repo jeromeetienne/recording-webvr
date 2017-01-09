@@ -19,9 +19,6 @@ Just add this line in your page and the recording webvr UI will appears.
 <script src='recording-webvr-bookmarklet.js'></script>
 ```
 
-Here is a bookmarklet
-[here](javascript:\(function\(\){document.body.appendChild\(document.createElement\('script'\)\).src='bla';}\)\(\);)
-
 # Examples
 - [examples/ccapture.html](https://jeromeetienne.github.io/recording-webvr/examples/ccapture.html) - record a webm movie from a 3d scene with ccapture library
 - [examples/vrrecording_json.html](https://jeromeetienne.github.io/recording-webvr/examples/vrrecording_json.html) - record/replay vr experiences. aka webvr/gamepad/video

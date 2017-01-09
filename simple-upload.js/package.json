@@ -1,0 +1,8 @@
+{
+  "name": "simple-upload.js",
+  "version": "0.0.1",
+  "description": "simple way to upload file from a browser to a server",
+  "scripts": {
+    "start" : "node src/server.js"
+  }
+}

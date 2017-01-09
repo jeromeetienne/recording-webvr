@@ -55,7 +55,9 @@ THREEx.JsonRecorder = function(fetchNewRecord){
                 var basename = _this.autoSaveBaseName+pad(_this.autoSaveCounter, 4)+'.json'
                 var jsonString = JSON.stringify(records, null, "\t"); 
                 // var jsonString = JSON.stringify(records); 
-                download(jsonString, basename, 'application/json');
+
+                THREEx.JsonRecorder.save(jsonString, basename)
+                
 
                 // update _this.autoSaveCounter
                 _this.autoSaveCounter++;                
@@ -70,3 +72,28 @@ THREEx.JsonRecorder = function(fetchNewRecord){
                 return s;
         }
 };
+
+//////////////////////////////////////////////////////////////////////////////
+//                Variou save function
+//////////////////////////////////////////////////////////////////////////////
+/**
+ * save file with download.js
+ */
+THREEx.JsonRecorder.saveDownloadjs = function(data, basename){
+        download(data, basename, 'application/json');
+}
+
+/**
+ * save file on the server
+ */
+THREEx.JsonRecorder.saveOnServer = function(data, basename){
+        console.log('save basename', basename)
+        SimpleUpload.save(basename, data)
+}
+
+/**
+ * the save function for THREEx.JsonRecorder. 
+ * intended to be overload by JsonRecorder.saveDownloadjs or JsonRecorder.saveOnServer
+ */
+// THREEx.JsonRecorder.save = THREEx.JsonRecorder.saveDownloadjs
+THREEx.JsonRecorder.save = THREEx.JsonRecorder.saveOnServer

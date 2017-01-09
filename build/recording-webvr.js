@@ -330,7 +330,9 @@ THREEx.JsonRecorder = function(fetchNewRecord){
                 var basename = _this.autoSaveBaseName+pad(_this.autoSaveCounter, 4)+'.json'
                 var jsonString = JSON.stringify(records, null, "\t"); 
                 // var jsonString = JSON.stringify(records); 
-                download(jsonString, basename, 'application/json');
+
+                THREEx.JsonRecorder.save(jsonString, basename)
+                
 
                 // update _this.autoSaveCounter
                 _this.autoSaveCounter++;                
@@ -345,6 +347,31 @@ THREEx.JsonRecorder = function(fetchNewRecord){
                 return s;
         }
 };
+
+//////////////////////////////////////////////////////////////////////////////
+//                Variou save function
+//////////////////////////////////////////////////////////////////////////////
+/**
+ * save file with download.js
+ */
+THREEx.JsonRecorder.saveDownloadjs = function(data, basename){
+        download(data, basename, 'application/json');
+}
+
+/**
+ * save file on the server
+ */
+THREEx.JsonRecorder.saveOnServer = function(data, basename){
+        console.log('save basename', basename)
+        SimpleUpload.save(basename, data)
+}
+
+/**
+ * the save function for THREEx.JsonRecorder. 
+ * intended to be overload by JsonRecorder.saveDownloadjs or JsonRecorder.saveOnServer
+ */
+// THREEx.JsonRecorder.save = THREEx.JsonRecorder.saveDownloadjs
+THREEx.JsonRecorder.save = THREEx.JsonRecorder.saveOnServer
 var THREEx = THREEx || {}
 
 THREEx.WebvrPlayer = function(){
@@ -929,7 +956,7 @@ THREEx.VRRecorder.prototype.stop = function () {
                 "gamepadBaseUrl" : "gamepadrecords"
         }
         var jsonString = JSON.stringify(vrExperience, null, "\t");
-        download(jsonString, 'vr-experience.json', 'application/json');
+        THREEx.JsonRecorder.save(jsonString, 'vr-experience.json', 'application/json');
 }
 THREEx.VRRecorder.prototype.isStarted = function () {
         return this._isStarted
@@ -1238,4 +1265,33 @@ VRRecording.record = function(options){
 		}
 		return true;
 	}; /* end download() */
-}));
+}));/**
+ * 
+ */
+
+var SimpleUpload = function(){}
+
+SimpleUpload.serverUrl = 'http://127.0.0.1:8000/'
+
+SimpleUpload.save = function (filename, data) {
+	var request = new XMLHttpRequest();
+
+	// We define what will happen if the data is successfully sent
+	request.addEventListener('load', function(event) {
+		// alert('Yeah! Data sent and response loaded.');
+		console.log('event load')
+	});
+	
+	// We define what will happen in case of error
+	request.addEventListener('error', function(event) {
+		// alert('Oups! Something goes wrong.');
+		console.log('event error')
+	});
+	
+	// We setup our request
+	request.open('POST', SimpleUpload.serverUrl + '?filename='+filename);
+	
+	// And finally, We send our data.
+	var dataJson = JSON.stringify(data)
+	request.send(dataJson);
+}

@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "Record VR experiences and replay them later",
   "scripts": {
+    "start" : "cd simple-upload.js && npm start",
     "dist" : "npm run build && npm run minify && npm run buildBookmarklet && npm run minifyBookmarklet",
 
-    "build": "cat src/players/webvr*.js src/{players,recorders}/threex.json* src/{players,recorders}/threex.{webvr,gamepad}* src/*.js vendor/download.js > build/recording-webvr.js",
+    "build": "cat src/players/webvr*.js src/{players,recorders}/threex.json* src/{players,recorders}/threex.{webvr,gamepad}* src/*.js vendor/download.js simple-upload.js/src/client.js > build/recording-webvr.js",
     "minify": "uglifyjs build/recording-webvr.js > build/recording-webvr.min.js",
     "watch": "watch 'npm run build' src/ --interval=0.1",
 

@@ -86,7 +86,7 @@ THREEx.VRRecorder.prototype.stop = function () {
                 "gamepadBaseUrl" : "gamepadrecords"
         }
         var jsonString = JSON.stringify(vrExperience, null, "\t");
-        download(jsonString, 'vr-experience.json', 'application/json');
+        THREEx.JsonRecorder.save(jsonString, 'vr-experience.json', 'application/json');
 }
 THREEx.VRRecorder.prototype.isStarted = function () {
         return this._isStarted
