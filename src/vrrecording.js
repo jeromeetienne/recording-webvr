@@ -24,8 +24,10 @@ VRRecording.play = function(experienceUrl, camera, mode){
                 vrPlayer.start()
 
                 if( mode === 'play' ){
+                        debugger;
                         // set camera position
                         if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){
+                                debugger;
                                 camera.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
                 		camera.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion)                                
                         }

@@ -4,8 +4,15 @@
 
 var SimpleUpload = function(){}
 
+/**
+ * the server url - just put your own there
+ * @type {String}
+ */
 SimpleUpload.serverUrl = 'http://127.0.0.1:8000/'
 
+/**
+ * save the file
+ */
 SimpleUpload.save = function (filename, data) {
 	var request = new XMLHttpRequest();
 

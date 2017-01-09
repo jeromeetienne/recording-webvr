@@ -1,3 +1,10 @@
+- autogenerate the experience name
+  - experience name => directory in examples/vrExperiences
+  - vrExperience-date/ the date of where we started the record
+  - generate this in THREEx.VRRecorder
+  
+
+
 - switch to server version
 
 - issue when starting vrPlayer.start()

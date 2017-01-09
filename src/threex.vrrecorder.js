@@ -73,7 +73,7 @@ THREEx.VRRecorder.prototype.stop = function () {
         // build a vrExperience for this recording and download it
         var vrExperience = {
                 "videoSrc" : "/your/video/file/goeshere.m4v",
-                "camera" : {
+                "fixedCamera" : {
                         "position" : [0,0,0],
                         "quaternion" : [0,0,0,1]
                 },

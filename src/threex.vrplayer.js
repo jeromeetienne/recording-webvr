@@ -28,7 +28,6 @@ THREEx.VRPlayer = function(){
 		return _this._gamepadPlayer.gamepads
 	}
 
-
         // install webvr-polyfill to replay webvr
         var webvrPolyfill = new WebVRPolyfill().install()
         // to init frameDataProvider immediatly

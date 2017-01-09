@@ -378,6 +378,7 @@ THREEx.WebvrPlayer = function(){
         var _this = this
         THREEx.JsonPlayer.call( this , function onNewRecord(frameData){
                 _this.frameData = frameData
+                // console.log('ddd copy', frameData.leftViewMatrix)
         });
         
         this.frameData = null   // TODO put a fake one
@@ -526,7 +527,6 @@ THREEx.VRPlayer = function(){
 	navigator.getGamepads = function(){
 		return _this._gamepadPlayer.gamepads
 	}
-
 
         // install webvr-polyfill to replay webvr
         var webvrPolyfill = new WebVRPolyfill().install()
@@ -943,7 +943,7 @@ THREEx.VRRecorder.prototype.stop = function () {
         // build a vrExperience for this recording and download it
         var vrExperience = {
                 "videoSrc" : "/your/video/file/goeshere.m4v",
-                "camera" : {
+                "fixedCamera" : {
                         "position" : [0,0,0],
                         "quaternion" : [0,0,0,1]
                 },
@@ -1040,8 +1040,10 @@ VRRecording.play = function(experienceUrl, camera, mode){
                 vrPlayer.start()
 
                 if( mode === 'play' ){
+                        debugger;
                         // set camera position
                         if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){
+                                debugger;
                                 camera.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
                 		camera.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion)                                
                         }
@@ -1271,8 +1273,15 @@ VRRecording.record = function(options){
 
 var SimpleUpload = function(){}
 
+/**
+ * the server url - just put your own there
+ * @type {String}
+ */
 SimpleUpload.serverUrl = 'http://127.0.0.1:8000/'
 
+/**
+ * save the file
+ */
 SimpleUpload.save = function (filename, data) {
 	var request = new XMLHttpRequest();
 
