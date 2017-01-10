@@ -42,9 +42,41 @@ window.initVRRecordingUI = function(){
         if( params.mode === 'play' ){
         	var experienceUrl = params.experienceUrl ? params.experienceUrl : 'vrExperiences/video2/vr-experience.json'
         	// // var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
-
+ console.log('params', params)
         	// FIXME camera is a GLOBAL! BAD BAD 
-        	var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
+		var vrPlayer = VRRecording.play(experienceUrl, function onStarted(){
+// debugger;
+			console.log('vrExperience started')
+			
+			// cameraSpectator.position.z = 2
+			// cameraSpectator.rotateY(Math.PI)
+			
+			// if( params.mode === 'play' ){
+	                //         // set camera position
+	                        if( vrPlayer.vrExperience.fixedCamera !== undefined && cameraSpectator !== undefined ){
+	                                cameraSpectator.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
+	                		cameraSpectator.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion) 
+					cameraSpectator.updateMatrix(true)                               
+					cameraSpectator.updateMatrixWorld(true)                               
+	                        }
+			// }
+	                // }else if( mode ===  'edit' ){
+	        		// enable the controls during tuning
+	        		// var controls	= new THREE.OrbitControls(cameraSpectator)
+	        		// controls.enableKeys = false
+	        		// controls.zoomSpeed = 0.1
+	        		// controls.rotateSpeed = 0.51
+	        		// 
+	        		// controls.position0.copy(camera.position)
+	        		// controls.target0
+	        		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
+	        		// 	.negate().add(controls.position0)
+	        		// controls.reset()                        
+	                // }else {
+	                //         console.assert(false)
+	                // }			
+		})
+		// var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
         	// vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
         }
 
@@ -93,6 +125,14 @@ window.initVRRecordingUI = function(){
 		onParamsChanged()
         })
 
+	
+        var editButton = document.createElement('button')
+        editButton.innerHTML = 'edit'
+        containerDomElement.appendChild(editButton)
+        editButton.addEventListener('click', function(){
+		params.mode = 'edit'
+		onParamsChanged()
+        })
 
         var resetButton = document.createElement('button')
         resetButton.innerHTML = 'reset'

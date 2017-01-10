@@ -1020,9 +1020,7 @@ var VRRecording = {}
 //          Code Separator
 ////////////////////////////////////////////////////////////////////////////////
 
-VRRecording.play = function(experienceUrl, camera, mode){
-        console.assert( mode === 'edit' ||  mode === 'play' )
-        
+VRRecording.play = function(experienceUrl, onStarted){
         // create vrPlayer
 	var vrPlayer = new THREEx.VRPlayer()
         document.body.appendChild(vrPlayer.videoElement)
@@ -1038,30 +1036,8 @@ VRRecording.play = function(experienceUrl, camera, mode){
 
         vrPlayer.load(experiencePath, experienceBasename, function onLoaded(){
                 vrPlayer.start()
-
-                if( mode === 'play' ){
-                        debugger;
-                        // set camera position
-                        if( vrPlayer.vrExperience.fixedCamera !== undefined && camera !== undefined ){
-                                debugger;
-                                camera.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
-                		camera.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion)                                
-                        }
-                }else if( mode === 'edit' ){
-        		// enable the controls during tuning
-        		controls	= new THREE.OrbitControls(camera, renderer.domElement)
-        		controls.enableKeys = false
-        		controls.zoomSpeed = 0.1
-        		controls.rotateSpeed = 0.5
-        		
-        		// controls.position0.copy(camera.position)
-        		// controls.target0
-        		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
-        		// 	.negate().add(controls.position0)
-        		// controls.reset()                        
-                }else {
-                        console.assert(false)
-                }
+                
+                onStarted && onStarted(vrPlayer)
         })
 
         
