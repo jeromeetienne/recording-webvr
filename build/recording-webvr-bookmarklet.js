@@ -1014,7 +1014,7 @@ THREEx.VRRecorderUI = function(vrRecorder){
                 }
         }
 }
-var VRRecording = {}
+var VRRecording = VRRecording || {}
 
 ////////////////////////////////////////////////////////////////////////////////
 //          Code Separator
@@ -1335,6 +1335,7 @@ window.initVRRecordingUI = function(){
 			
 			// if( params.mode === 'play' ){
 	                //         // set camera position
+	                       var cameraSpectator = camera
 	                        if( vrPlayer.vrExperience.fixedCamera !== undefined && cameraSpectator !== undefined ){
 	                                cameraSpectator.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
 	                		cameraSpectator.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion) 

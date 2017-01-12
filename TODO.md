@@ -2,6 +2,7 @@
   - experience name => directory in examples/vrExperiences
   - vrExperience-date/ the date of where we started the record
   - generate this in THREEx.VRRecorder
+- clean up bookmarklet code
   
 
 

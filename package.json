@@ -10,8 +10,8 @@
     "minify": "uglifyjs build/recording-webvr.js > build/recording-webvr.min.js",
     "watch": "watch 'npm run build' src/ --interval=0.1",
 
-    "buildBookmarklet": "cat build/recording-webvr.js examples/js/bookmarklet.js > build/recording-webvr-bookmarklet.js",
+    "buildBookmarklet": "cat build/recording-webvr.js src/bookmarklet/bookmarklet.js > build/recording-webvr-bookmarklet.js",
     "minifyBookmarklet": "uglifyjs build/recording-webvr-bookmarklet.js > build/recording-webvr-bookmarklet.min.js",
-    "watchBookmarklet": "watch 'npm run build; npm run buildBookmarklet' examples/js/ src/ --interval=0.1"
+    "watchBookmarklet": "watch 'npm run build; npm run buildBookmarklet' src/ --interval=0.1"
   }
 }

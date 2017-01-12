@@ -1014,7 +1014,7 @@ THREEx.VRRecorderUI = function(vrRecorder){
                 }
         }
 }
-var VRRecording = {}
+var VRRecording = VRRecording || {}
 
 ////////////////////////////////////////////////////////////////////////////////
 //          Code Separator
