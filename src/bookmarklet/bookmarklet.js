@@ -1,33 +1,7 @@
-window.initVRRecordingUI = function(){
-	
-        function parseParamsInHash() {
-                var variables = {}
-                var query = window.location.hash.substring(1);
-		if( query.length === 0 )	return variables
-                var vars = query.split('&');
-                for (var i = 0; i < vars.length; i++) {
-                        var pair = vars[i].split('=');
-                        var varName = decodeURIComponent(pair[0])
-                        if( pair[1] ){
-                                var varValue = decodeURIComponent(pair[1]);
-                        }else{
-                                var varValue = true
-                        }
-                        variables[varName] = varValue
-                }
-                return variables
-        }
-	function onParamsChanged(){
-		var hashStr = ''
-		Object.keys(params).forEach(function(varName){
-			var varStr = varName + '=' + params[varName]
-			if( hashStr.length > 0 ) hashStr += '&'
-			hashStr = hashStr + varStr			
-		})
-		location.hash = hashStr
-		location.reload()
-	}
-        var params = parseParamsInHash()
+window.vrRecordingBookmarklet = function(){}	
+
+vrRecordingBookmarklet.init = function(){	
+        var params = vrRecordingBookmarklet._parseParamsInHash()
 
 	//////////////////////////////////////////////////////////////////////////////
 	//		Code Separator
@@ -80,7 +54,53 @@ window.initVRRecordingUI = function(){
 		// var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
         	// vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
         }
+	
+	// init the ui
+	this._initUI(params)
+}
 
+/**
+ * util function to parse the hash
+ * @return {[type]} [description]
+ */
+vrRecordingBookmarklet._parseParamsInHash = function() {
+	var variables = {}
+	var query = window.location.hash.substring(1);
+	if( query.length === 0 )	return variables
+	var vars = query.split('&');
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split('=');
+		var varName = decodeURIComponent(pair[0])
+		if( pair[1] ){
+			var varValue = decodeURIComponent(pair[1]);
+		}else{
+			var varValue = true
+		}
+		variables[varName] = varValue
+	}
+	return variables
+}
+
+/**
+ * reload page on params changed
+ */
+vrRecordingBookmarklet._reloadOnParamsChanged = function(params){
+	var hashStr = ''
+	Object.keys(params).forEach(function(varName){
+		var varStr = varName + '=' + params[varName]
+		if( hashStr.length > 0 ) hashStr += '&'
+		hashStr = hashStr + varStr			
+	})
+	location.hash = hashStr
+	location.reload()
+}
+
+/**
+ * initialize the ui of the bookmarklet
+ * @param  {[type]} params [description]
+ * @return {[type]}        [description]
+ */
+vrRecordingBookmarklet._initUI = function(params) {
 	//////////////////////////////////////////////////////////////////////////////
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
@@ -115,7 +135,7 @@ window.initVRRecordingUI = function(){
         containerDomElement.appendChild(recordButton)
         recordButton.addEventListener('click', function(){
 		params.mode = 'record'
-		onParamsChanged()
+		vrRecordingBookmarklet._reloadOnParamsChanged(params)
         })
 
         var playButton = document.createElement('button')
@@ -123,7 +143,7 @@ window.initVRRecordingUI = function(){
         containerDomElement.appendChild(playButton)
         playButton.addEventListener('click', function(){
 		params.mode = 'play'
-		onParamsChanged()
+		vrRecordingBookmarklet._reloadOnParamsChanged(params)
         })
 
 	
@@ -132,7 +152,7 @@ window.initVRRecordingUI = function(){
         containerDomElement.appendChild(editButton)
         editButton.addEventListener('click', function(){
 		params.mode = 'edit'
-		onParamsChanged()
+		vrRecordingBookmarklet._reloadOnParamsChanged(params)
         })
 
         var resetButton = document.createElement('button')
@@ -140,7 +160,7 @@ window.initVRRecordingUI = function(){
         containerDomElement.appendChild(resetButton)
         resetButton.addEventListener('click', function(){
 		params = {}
-		onParamsChanged()
+		vrRecordingBookmarklet._reloadOnParamsChanged(params)
         })
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -156,7 +176,7 @@ window.initVRRecordingUI = function(){
         labelElement.appendChild(experienceUrlInput)
         experienceUrlInput.addEventListener('change', function(){
                 params.experienceUrl = experienceUrlInput.value
-		onParamsChanged()
+		vrRecordingBookmarklet._reloadOnParamsChanged(params)
         })
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -188,7 +208,7 @@ window.initVRRecordingUI = function(){
         selectElement.addEventListener('change', function(){
                 params.experienceUrl = selectElement.value
                 params.mode = 'play'
-		onParamsChanged()
+		vrRecordingBookmarklet._reloadOnParamsChanged(params)
         })
 
 
@@ -201,5 +221,5 @@ window.initVRRecordingUI = function(){
 
 // FIXME launch it better
 // window.addEventListener('load', function(){
-	initVRRecordingUI()
+	vrRecordingBookmarklet.init()
 // })

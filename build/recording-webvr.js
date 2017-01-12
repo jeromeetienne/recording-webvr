@@ -1079,7 +1079,6 @@ VRRecording.record = function(options){
 		vrRecorderUI.update()				
 	})
 
-
         return vrRecorder
 };
 //download.js v4.2, by dandavis; 2008-2016. [CCBY2] see http://danml.com/download.html for tests/usage

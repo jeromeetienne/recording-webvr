@@ -63,6 +63,5 @@ VRRecording.record = function(options){
 		vrRecorderUI.update()				
 	})
 
-
         return vrRecorder
 };

@@ -3,7 +3,7 @@
   - vrExperience-date/ the date of where we started the record
   - generate this in THREEx.VRRecorder
 - clean up bookmarklet code
-  
+- vrRecording is useless, put it all bookmarklet  
 
 
 - switch to server version
