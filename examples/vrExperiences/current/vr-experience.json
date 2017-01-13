@@ -1,0 +1,22 @@
+{
+	"videoSrc": "/your/video/file/goeshere.m4v",
+	"fixedCamera": {
+		"position": [
+			0,
+			0,
+			0
+		],
+		"quaternion": [
+			0,
+			0,
+			0,
+			1
+		]
+	},
+	"nWebvrFiles": 1,
+	"videoToWebvrDelay": 0,
+	"webvrBaseUrl": "webvrrecords",
+	"nGamepadFiles": 1,
+	"videoToGamepadDelay": 0,
+	"gamepadBaseUrl": "gamepadrecords"
+}

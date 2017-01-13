@@ -1,4 +1,3 @@
-debugger;
 
 window.vrRecordingBookmarklet = function(){}	
 

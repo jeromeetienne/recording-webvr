@@ -1213,7 +1213,6 @@ SimpleUpload.save = function (filename, data) {
 	var dataJson = JSON.stringify(data)
 	request.send(dataJson);
 }
-debugger;
 
 window.vrRecordingBookmarklet = function(){}	
 
