@@ -159,4 +159,4 @@ THREEx.VRPlayerUI = function(vrPlayer){
 
                 videoDurationValue.innerHTML = vrPlayer.videoElement.duration.toFixed(2) + 'sec'
         }
-}
+};

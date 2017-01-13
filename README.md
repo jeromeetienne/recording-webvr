@@ -19,6 +19,12 @@ Just add this line in your page and the recording webvr UI will appears.
 <script src='recording-webvr-bookmarklet.js'></script>
 ```
 
+to record with simple-upload.js, start the server. It will save the experience in ```examples/current```
+
+```bash
+npm run start
+```
+
 # Examples
 - [examples/ccapture.html](https://jeromeetienne.github.io/recording-webvr/examples/ccapture.html) - record a webm movie from a 3d scene with ccapture library
 - [examples/vrrecording_json.html](https://jeromeetienne.github.io/recording-webvr/examples/vrrecording_json.html) - record/replay vr experiences. aka webvr/gamepad/video

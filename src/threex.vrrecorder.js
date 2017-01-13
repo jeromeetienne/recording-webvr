@@ -90,4 +90,4 @@ THREEx.VRRecorder.prototype.stop = function () {
 }
 THREEx.VRRecorder.prototype.isStarted = function () {
         return this._isStarted
-}
+};

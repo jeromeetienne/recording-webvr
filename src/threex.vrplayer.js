@@ -205,4 +205,4 @@ function FrameDataProviderWebvr(webvrPlayer){
                         }
                 }
         }
-}
+};

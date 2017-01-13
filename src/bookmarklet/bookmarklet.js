@@ -1,6 +1,8 @@
+debugger;
+
 window.vrRecordingBookmarklet = function(){}	
 
-vrRecordingBookmarklet._record = function(){	
+vrRecordingBookmarklet._record = function(options){	
         var vrRecorder = new THREEx.VRRecorder(options)
 
 	// create the vrPlayerUI
@@ -108,7 +110,7 @@ vrRecordingBookmarklet.init = function(){
         }
 	
 	// init the ui
-	this._initUI(params)
+	this._initDOM(params)
 }
 
 /**
@@ -152,7 +154,7 @@ vrRecordingBookmarklet._reloadOnParamsChanged = function(params){
  * @param  {[type]} params [description]
  * @return {[type]}        [description]
  */
-vrRecordingBookmarklet._initUI = function(params) {
+vrRecordingBookmarklet._initDOM = function(params) {
 	//////////////////////////////////////////////////////////////////////////////
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
@@ -271,7 +273,4 @@ vrRecordingBookmarklet._initUI = function(params) {
 //		Code Separator
 //////////////////////////////////////////////////////////////////////////////
 
-// FIXME launch it better
-// window.addEventListener('load', function(){
-	vrRecordingBookmarklet.init()
-// })
+vrRecordingBookmarklet.init()

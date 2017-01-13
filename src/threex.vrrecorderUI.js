@@ -50,4 +50,5 @@ THREEx.VRRecorderUI = function(vrRecorder){
                         stopButton.disabled = true
                 }
         }
-}
+};
+

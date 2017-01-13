@@ -705,7 +705,7 @@ function FrameDataProviderWebvr(webvrPlayer){
                         }
                 }
         }
-}
+};
 var THREEx = THREEx || {}
 
 THREEx.VRPlayerUI = function(vrPlayer){
@@ -867,7 +867,7 @@ THREEx.VRPlayerUI = function(vrPlayer){
 
                 videoDurationValue.innerHTML = vrPlayer.videoElement.duration.toFixed(2) + 'sec'
         }
-}
+};
 var THREEx = THREEx || {}
 
 THREEx.VRRecorder = function(options){
@@ -960,7 +960,7 @@ THREEx.VRRecorder.prototype.stop = function () {
 }
 THREEx.VRRecorder.prototype.isStarted = function () {
         return this._isStarted
-}
+};
 var THREEx = THREEx || {}
 
 THREEx.VRRecorderUI = function(vrRecorder){
@@ -1013,7 +1013,8 @@ THREEx.VRRecorderUI = function(vrRecorder){
                         stopButton.disabled = true
                 }
         }
-}
+};
+
 //download.js v4.2, by dandavis; 2008-2016. [CCBY2] see http://danml.com/download.html for tests/usage
 // v1 landed a FF+Chrome compat way of downloading strings to local un-named files, upgraded to use a hidden frame and optional mime
 // v2 added named files via a[download], msSaveBlob, IE (10+) support, and window.URL support for larger+faster saves than dataURLs
@@ -1212,9 +1213,11 @@ SimpleUpload.save = function (filename, data) {
 	var dataJson = JSON.stringify(data)
 	request.send(dataJson);
 }
+debugger;
+
 window.vrRecordingBookmarklet = function(){}	
 
-vrRecordingBookmarklet._record = function(){	
+vrRecordingBookmarklet._record = function(options){	
         var vrRecorder = new THREEx.VRRecorder(options)
 
 	// create the vrPlayerUI
@@ -1322,7 +1325,7 @@ vrRecordingBookmarklet.init = function(){
         }
 	
 	// init the ui
-	this._initUI(params)
+	this._initDOM(params)
 }
 
 /**
@@ -1366,7 +1369,7 @@ vrRecordingBookmarklet._reloadOnParamsChanged = function(params){
  * @param  {[type]} params [description]
  * @return {[type]}        [description]
  */
-vrRecordingBookmarklet._initUI = function(params) {
+vrRecordingBookmarklet._initDOM = function(params) {
 	//////////////////////////////////////////////////////////////////////////////
 	//		Code Separator
 	//////////////////////////////////////////////////////////////////////////////
@@ -1485,7 +1488,4 @@ vrRecordingBookmarklet._initUI = function(params) {
 //		Code Separator
 //////////////////////////////////////////////////////////////////////////////
 
-// FIXME launch it better
-// window.addEventListener('load', function(){
-	vrRecordingBookmarklet.init()
-// })
+vrRecordingBookmarklet.init()
