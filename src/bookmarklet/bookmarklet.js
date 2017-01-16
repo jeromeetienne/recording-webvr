@@ -78,7 +78,6 @@ VrRecordingBookmarklet.prototype.init = function(){
  console.log('params', params)
         	// FIXME camera is a GLOBAL! BAD BAD 
 		var vrPlayer = _this._play(experienceUrl, function onStarted(){
-// debugger;
 			console.log('vrExperience started')
 			
 			// cameraSpectator.position.z = 2
@@ -96,8 +95,10 @@ VrRecordingBookmarklet.prototype.init = function(){
 			// }
 	                // }else if( mode ===  'edit' ){
 	        		// enable the controls during tuning
-	        		// var controls	= new THREE.OrbitControls(cameraSpectator)
-	        		// controls.enableKeys = false
+	        		// var controls	= new THREE.OrbitControls(cameraSpectator, renderer.domElement)
+                                // console.assert(cameraSpectator.position.length() !== 0 )
+                                // cameraSpectator.position.x
+	        		// // controls.enableKeys = false
 	        		// controls.zoomSpeed = 0.1
 	        		// controls.rotateSpeed = 0.51
 	        		// 
@@ -256,7 +257,9 @@ VrRecordingBookmarklet.prototype._initDOM = function(params) {
 		'vrExperiences/mvi_0000/vr-experience.json',
 		'vrExperiences/mvi_1731/vr-experience.json',
 		'vrExperiences/mvi_1733/vr-experience.json',
-		'vrExperiences/mvi_1740/vr-experience.json',
+                'vrExperiences/mvi_1740/vr-experience.json',
+                'vrExperiences/mvi_1745/vr-experience.json',
+                'vrExperiences/mvi_1746/vr-experience.json',
 		'vrExperiences/video1/vr-experience.json',
 		'vrExperiences/video2/vr-experience.json',
 		'vrExperiences/current/vr-experience.json',

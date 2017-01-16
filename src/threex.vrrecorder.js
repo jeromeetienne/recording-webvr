@@ -74,7 +74,7 @@ THREEx.VRRecorder.prototype.stop = function () {
         var vrExperience = {
                 "videoSrc" : "/your/video/file/goeshere.m4v",
                 "fixedCamera" : {
-                        "position" : [0,0,0],
+                        "position" : [0,0,2],
                         "quaternion" : [0,0,0,1]
                 },
                 "nWebvrFiles" : this._webvrRecorder ? this._webvrRecorder.autoSaveCounter : 0,
