@@ -47,7 +47,7 @@
 
 			var raycaster, intersected = [];
 			var tempMatrix = new THREE.Matrix4();
-
+			var cameraSpectator
 			var group;
 
 			// var windowInnerWidth = windowInnerWidth 
@@ -76,6 +76,7 @@
 
 				camera = new THREE.PerspectiveCamera( 20, windowInnerWidth / windowInnerHeight, 0.1, 1000 );
 				scene.add( camera );
+				cameraSpectator = camera
 
 				var geometry = new THREE.PlaneGeometry( 4, 4 );
 				var material = new THREE.MeshStandardMaterial( {
