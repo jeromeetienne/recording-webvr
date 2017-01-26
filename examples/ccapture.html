@@ -7,10 +7,10 @@
 	Boilerplate for <a href="http://threejs.org" target="_blank">three.js</a>
 	- works on desktop and mobile
 </div><body style='margin: 0px; overflow: hidden; text-align:center;'><script>
-	// Create a capturer that exports a WebM video
-	var capturer = new CCapture( { format: 'webm' } );
-	// capturer.start() in the console
-	// capturer.save() in the console
+	// Create a ccapturer that exports a WebM video
+	var ccapturer = new CCapture( { format: 'webm' } );
+	// ccapturer.start() in the console
+	// ccapturer.save() in the console
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
@@ -19,7 +19,8 @@
 	// init renderer
 	var renderer	= new THREE.WebGLRenderer({
 		antialias	: true,
-		alpha : true
+		alpha : true,
+		preserveDrawingBuffer: true
 	});
 	renderer.setClearColor(new THREE.Color('green'), 1)
 	renderer.setSize( window.innerWidth, window.innerHeight );
@@ -44,6 +45,10 @@
 	var mesh	= new THREE.Mesh( geometry, material );
 	scene.add( mesh );
 	
+	onRenderFcts.push(function(delta, now){
+		mesh.rotation.y += Math.PI * delta
+	})
+	
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +64,7 @@
 	onRenderFcts.push(function(){
 		renderer.render( scene, camera );
 		// rendering stuff ...
-	        capturer.capture( renderer.domElement );		
+	        ccapturer.capture( renderer.domElement );		
 	})
 	
 	// run the rendering loop

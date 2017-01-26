@@ -4,9 +4,10 @@
   - generate this in THREEx.VRRecorder
 - clean up bookmarklet code
 - vrRecording is useless, put it all bookmarklet  
+- remove one build. single build which is bookmarklet
 
 
-- switch to server version
+- DONE switch to server version
 
 - issue when starting vrPlayer.start()
   - videoToGamepadDelay can be negative or not

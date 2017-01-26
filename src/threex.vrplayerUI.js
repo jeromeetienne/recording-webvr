@@ -33,7 +33,7 @@ THREEx.VRPlayerUI = function(vrPlayer){
         startButton.addEventListener('click', function(){
                 vrPlayer.start()
         })
-
+        
         var pauseButton = document.createElement('button')
         pauseButton.innerHTML = 'pause'
         this.domElement.appendChild(pauseButton)

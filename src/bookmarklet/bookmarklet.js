@@ -72,7 +72,7 @@ VrRecordingBookmarklet.prototype.init = function(){
                 _this._record()
         }
 
-        if( params.mode === 'play' ){
+        if( params.mode === 'play' || params.mode === 'edit' ){
         	var experienceUrl = params.experienceUrl ? params.experienceUrl : 'vrExperiences/video2/vr-experience.json'
         	// // var experienceUrl = 'vrExperiences/mvi_0000/vr-experience.json'
  console.log('params', params)
@@ -80,39 +80,34 @@ VrRecordingBookmarklet.prototype.init = function(){
 		var vrPlayer = _this._play(experienceUrl, function onStarted(){
 			console.log('vrExperience started')
 			
-			// cameraSpectator.position.z = 2
-			// cameraSpectator.rotateY(Math.PI)
-			
-			// if( params.mode === 'play' ){
-	                //         // set camera position
-	                //        var cameraSpectator = camera
-	                        if( vrPlayer.vrExperience.fixedCamera !== undefined && cameraSpectator !== undefined ){
-	                                cameraSpectator.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
-	                		cameraSpectator.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion) 
-					cameraSpectator.updateMatrix(true)                               
-					cameraSpectator.updateMatrixWorld(true)                               
-	                        }
-			// }
-	                // }else if( mode ===  'edit' ){
+                        // set camera position
+                        if( vrPlayer.vrExperience.fixedCamera !== undefined && cameraSpectator !== undefined ){
+                                console.log('Setting vrExperience.fixedCamera')
+                                cameraSpectator.position.fromArray(vrPlayer.vrExperience.fixedCamera.position)
+                                cameraSpectator.quaternion.fromArray(vrPlayer.vrExperience.fixedCamera.quaternion) 
+                                cameraSpectator.updateMatrix(true)                               
+                                cameraSpectator.updateMatrixWorld(true)                               
+                        }
+
+			if( params.mode === 'play' ){
+			}else if( params.mode ===  'edit' ){
+                                console.log('Starting OrbitControls')
 	        		// enable the controls during tuning
-	        		// var controls	= new THREE.OrbitControls(cameraSpectator, renderer.domElement)
-                                // console.assert(cameraSpectator.position.length() !== 0 )
-                                // cameraSpectator.position.x
-	        		// // controls.enableKeys = false
-	        		// controls.zoomSpeed = 0.1
-	        		// controls.rotateSpeed = 0.51
-	        		// 
+	        		var controls	= new THREE.OrbitControls(cameraSpectator, renderer.domElement)
+                                console.assert(cameraSpectator.position.length() !== 0 )
+	        		// controls.enableKeys = false
+	        		controls.zoomSpeed = 0.1
+	        		controls.rotateSpeed = 0.51
+	        		
 	        		// controls.position0.copy(camera.position)
 	        		// controls.target0
 	        		// 	.set(0,0, -1).applyQuaternion(camera.quaternion.clone().inverse())
 	        		// 	.negate().add(controls.position0)
 	        		// controls.reset()                        
-	                // }else {
-	                //         console.assert(false)
-	                // }			
+	                }else {
+	                        console.assert(false)
+	                }			
 		})
-		// var vrPlayer = VRRecording.play(experienceUrl, camera, 'play')
-        	// vrPlayer.videoElement.parentElement.removeChild(vrPlayer.videoElement)
         }
 	
 	// init the ui
@@ -260,6 +255,7 @@ VrRecordingBookmarklet.prototype._initDOM = function(params) {
                 'vrExperiences/mvi_1740/vr-experience.json',
                 'vrExperiences/mvi_1745/vr-experience.json',
                 'vrExperiences/mvi_1746/vr-experience.json',
+                'vrExperiences/mvi_1747/vr-experience.json',
 		'vrExperiences/video1/vr-experience.json',
 		'vrExperiences/video2/vr-experience.json',
 		'vrExperiences/current/vr-experience.json',
